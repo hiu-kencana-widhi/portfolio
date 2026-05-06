@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyek unggulan Hiu Kencana Widhi — Skripsi Logistik, WMS, Sistem Keuangan.">
+    <title>Proyek | Hiu Kencana Widhi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+    <aside id="nav-drawer" class="nav-drawer" role="dialog" aria-modal="true" aria-label="Menu Navigasi">
+        <div class="drawer-header">
+            <a class="drawer-brand" href="../index.html">PORTFOLIO</a>
+            <button id="drawer-close" class="drawer-close" aria-label="Tutup menu"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <nav class="drawer-nav">
+            <a class="nav-link" href="../index.html"><i class="bi bi-house nav-icon"></i> <span data-t="nav_home">Beranda</span></a>
+            <a class="nav-link" href="pengalaman.html"><i class="bi bi-briefcase nav-icon"></i> <span data-t="nav_exp">Pengalaman</span></a>
+            <a class="nav-link" href="proyek.html"><i class="bi bi-layers nav-icon"></i> <span data-t="nav_proj">Proyek</span></a>
+            <a class="nav-link" href="keahlian.html"><i class="bi bi-tools nav-icon"></i> <span data-t="nav_skill">Keahlian</span></a>
+            <a class="nav-link" href="sertifikat.html"><i class="bi bi-patch-check nav-icon"></i> <span data-t="nav_cert">Sertifikat</span></a>
+            <a class="nav-link" href="kontak.html"><i class="bi bi-envelope nav-icon"></i> <span data-t="nav_contact">Kontak</span></a>
+        </nav>
+        <div class="drawer-footer d-flex flex-column gap-3">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <span class="theme-label" data-t="theme_label">Tampilan Gelap</span>
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="bi bi-moon theme-icon"></i>
+                </button>
+            </div>
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <span class="theme-label" data-t="lang_label">Bahasa</span>
+                <div class="drawer-lang">
+                    <button class="lang-btn" data-lang="id">ID</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler" type="button" aria-label="Buka menu">
+                <span class="tog-bar"></span><span class="tog-bar"></span><span class="tog-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">PORTFOLIO</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html" data-t="nav_home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pengalaman.html" data-t="nav_exp">Pengalaman</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyek.html" data-t="nav_proj">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="keahlian.html" data-t="nav_skill">Keahlian</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sertifikat.html" data-t="nav_cert">Sertifikat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html" data-t="nav_contact">Kontak</a></li>
+                    <li class="nav-item">
+                        <button class="lang-toggle ms-lg-3" id="lang-toggle">
+                            <span class="lang-toggle-text" data-lang="id">ID</span>
+                            <span class="divider"></span>
+                            <span class="lang-toggle-text active-lang" data-lang="en">EN</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle ms-2" aria-label="Toggle Theme"><i class="bi bi-moon theme-icon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="container py-5">
+        <!-- SECTION 1: LOGISTICS & SUPPLY CHAIN -->
+        <div class="page-header pt-0 mb-4">
+            <h1 class="h3 fw-bold mb-1" data-t="skill_log_title">Logistics & Supply Chain</h1>
+            <p data-t="skill_log_p_desc">Kemampuan teknis dan pemahaman mendalam dalam rantai pasok industri.</p>
+        </div>
+
+        <div class="d-flex flex-column gap-4 mb-5">
+            <!-- Proyek 1 — Tugas Akhir -->
+             <div class="card project-card" style="cursor:pointer;" 
+                  data-title="proj_ta_title" data-cat="proj_ta_cat" data-desc="proj_ta_desc"
+                  data-tags="SketchUp, Analisis Data, SLP Method"
+                  data-images="../gambar project/Inbound Area Optimization at PT. Dian Mega Kurnia/1.png, ../gambar project/Inbound Area Optimization at PT. Dian Mega Kurnia/2.png"
+                  data-img1="../gambar project/Inbound Area Optimization at PT. Dian Mega Kurnia/1.png" 
+                  data-img2="../gambar project/Inbound Area Optimization at PT. Dian Mega Kurnia/2.png">
+                <div class="row g-0">
+                    <div class="col-lg-5 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                        <span class="text-muted small fw-semibold text-uppercase mb-2" style="letter-spacing:1px;" data-t="proj_ta_cat">Tugas Akhir / Skripsi</span>
+                        <h2 class="h5 fw-bold mb-3" data-t="proj_ta_title">Optimasi Area Inbound PT. Dian Mega Kurnia</h2>
+                        <p class="text-muted small mb-4" data-t="proj_ta_desc">
+                            Redesain tata letak kargo menggunakan metode <strong>Systematic Layout Planning (SLP)</strong> untuk mereduksi jarak tempuh dan mengeliminasi bottleneck. Fokus pada efisiensi ruang dan alur distribusi kargo udara.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag" data-t="tag_inbound">Analisis Inbound</span>
+                            <span class="project-tag" data-t="tag_data_analysis">Analisis Data</span>
+                            <span class="project-tag" data-t="tag_slp">Metode SLP</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 p-4 p-lg-5 d-flex align-items-center justify-content-center" style="background:var(--bg);border-left:1px solid var(--border);">
+                        <div id="project1Carousel" class="carousel carousel-dark slide shadow-lg rounded-3 overflow-hidden bg-white w-100" data-bs-ride="carousel" style="aspect-ratio: 16/10;">
+                            <div class="carousel-indicators mb-0 pb-1">
+                                <button type="button" data-bs-target="#project1Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#project1Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            </div>
+                            <div class="carousel-inner h-100">
+                                 <div class="carousel-item active h-100" data-bs-interval="4000">
+                                     <img src="../gambar project/Inbound Area Optimization at PT. Dian Mega Kurnia/1.png" class="d-block w-100 h-100" alt="3D Layout" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=3D+Layout+SketchUp'">
+                                 </div>
+                                 <div class="carousel-item h-100" data-bs-interval="4000">
+                                     <img src="../gambar project/Inbound Area Optimization at PT. Dian Mega Kurnia/2.png" class="d-block w-100 h-100" alt="Grafik Efisiensi" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x250?text=Grafik+Efisiensi+Data'">
+                                 </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#project1Carousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#project1Carousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: SOFTWARE & TOOLS -->
+        <div class="page-header pt-4 mb-4">
+            <h2 class="h3 fw-bold mb-1" data-t="skill_page_title">Software & Tools</h2>
+            <p data-t="skill_page_desc">Perangkat lunak dan teknologi yang saya kuasai.</p>
+        </div>
+
+        <div class="d-flex flex-column gap-4">
+            <!-- Proyek 2 — WMS -->
+            <div class="card project-card" style="cursor:pointer;"
+                 data-title="proj_wms_title" data-cat="proj_web_cat" data-desc="proj_wms_desc"
+                 data-tags="Barang Masuk, Barang Keluar, Monitoring Stok, Laporan & Grafik, AI Assistant"
+                 data-images="../gambar project/Warehouse Management System (WMS)/admin/1`.png, ../gambar project/Warehouse Management System (WMS)/admin/2.png, ../gambar project/Warehouse Management System (WMS)/admin/3.png, ../gambar project/Warehouse Management System (WMS)/admin/4.png, ../gambar project/Warehouse Management System (WMS)/admin/5.png, ../gambar project/Warehouse Management System (WMS)/admin/6.png, ../gambar project/Warehouse Management System (WMS)/admin/7.png, ../gambar project/Warehouse Management System (WMS)/admin/8.png, ../gambar project/Warehouse Management System (WMS)/admin/9.png, ../gambar project/Warehouse Management System (WMS)/user/1.png, ../gambar project/Warehouse Management System (WMS)/user/2.png, ../gambar project/Warehouse Management System (WMS)/user/3.png"
+                 data-demo="http://wms-hiu.full.diskon.cloud/login"
+                 data-img1="../gambar project/Warehouse Management System (WMS)/admin/2.png"
+                 data-img2="../gambar project/Warehouse Management System (WMS)/user/1.png">
+                <div class="row g-0 flex-lg-row-reverse">
+                    <div class="col-lg-5 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                        <span class="text-muted small fw-semibold text-uppercase mb-2" style="letter-spacing:1px;" data-t="proj_web_cat">Aplikasi Web</span>
+                        <h2 class="h5 fw-bold mb-3" data-t="proj_wms_title">Warehouse Management System (WMS)</h2>
+                        <p class="text-muted small mb-3" data-t="proj_wms_desc">
+                            Aplikasi WMS berbasis web untuk mengelola alur barang masuk, barang keluar, stok, rak penyimpanan, dan laporan operasional dalam satu dashboard.
+                        </p>
+                        <p class="text-muted small mb-4" data-t="proj_wms_features">
+                            Memiliki modul inbound, outbound, master barang, master rak, manajemen user, monitoring stok, laporan grafik, dan asisten AI.
+                        </p>
+                        <div class="project-tags mb-4">
+                            <span class="project-tag" data-t="tag_wms_in">Barang Masuk</span>
+                            <span class="project-tag" data-t="tag_wms_out">Barang Keluar</span>
+                            <span class="project-tag" data-t="tag_stock_mon">Monitoring Stok</span>
+                            <span class="project-tag" data-t="tag_report">Laporan & Grafik</span>
+                            <span class="project-tag" data-t="tag_ai">AI Assistant</span>
+                        </div>
+                        <div>
+                            <a href="http://wms-hiu.full.diskon.cloud/login" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                                <i class="bi bi-box-arrow-up-right me-2"></i><span data-t="proj_demo">Demo Website</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 p-4 p-lg-5 d-flex align-items-center justify-content-center" style="background:var(--bg);border-right:1px solid var(--border);">
+                        <div id="project2Carousel" class="carousel carousel-dark slide shadow-lg rounded-3 overflow-hidden bg-white w-100" data-bs-ride="carousel" style="aspect-ratio: 16/10;">
+                            <div class="carousel-indicators mb-0 pb-1">
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="9" aria-label="Slide 10"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="10" aria-label="Slide 11"></button>
+                                <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="11" aria-label="Slide 12"></button>
+                            </div>
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/admin/1`.png" class="d-block w-100 h-100" alt="WMS Admin 1" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+Admin+1'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/admin/2.png" class="d-block w-100 h-100" alt="WMS Admin 2" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+Admin+2'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/admin/3.png" class="d-block w-100 h-100" alt="WMS Admin 3" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+Admin+3'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/admin/4.png" class="d-block w-100 h-100" alt="WMS Admin 4" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+Admin+4'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/admin/5.png" class="d-block w-100 h-100" alt="WMS Admin 5" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+Admin+5'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/admin/6.png" class="d-block w-100 h-100" alt="WMS Admin 6" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+Admin+6'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/admin/7.png" class="d-block w-100 h-100" alt="WMS Admin 7" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+Admin+7'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/admin/8.png" class="d-block w-100 h-100" alt="WMS Admin 8" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+Admin+8'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/admin/9.png" class="d-block w-100 h-100" alt="WMS Admin 9" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+Admin+9'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/user/1.png" class="d-block w-100 h-100" alt="WMS User 1" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+User+1'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/user/2.png" class="d-block w-100 h-100" alt="WMS User 2" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+User+2'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Warehouse Management System (WMS)/user/3.png" class="d-block w-100 h-100" alt="WMS User 3" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=WMS+User+3'">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#project2Carousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#project2Carousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyek 3 — Catatan Keuangan -->
+            <div class="card project-card" style="cursor:pointer;"
+                 data-title="proj_fin_title" data-cat="proj_web_cat" data-desc="proj_fin_desc"
+                 data-tags="Arus Kas, Manajemen Transaksi, Secure Auth"
+                 data-demo="http://catatan-keuangan.full.diskon.cloud"
+                 data-images="../gambar project/Financial Recording System/admin/1.png, ../gambar project/Financial Recording System/admin/2.png, ../gambar project/Financial Recording System/admin/3.png, ../gambar project/Financial Recording System/admin/4.png, ../gambar project/Financial Recording System/admin/5.png, ../gambar project/Financial Recording System/user/1.png, ../gambar project/Financial Recording System/user/2.png, ../gambar project/Financial Recording System/user/3.png"
+                 data-img1="../gambar project/Financial Recording System/admin/1.png"
+                 data-img2="../gambar project/Financial Recording System/user/1.png">
+                <div class="row g-0">
+                    <div class="col-lg-5 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                        <span class="text-muted small fw-semibold text-uppercase mb-2" style="letter-spacing:1px;" data-t="proj_web_cat">Aplikasi Web</span>
+                        <h2 class="h5 fw-bold mb-3" data-t="proj_fin_title">Sistem Pencatatan Keuangan</h2>
+                        <p class="text-muted small mb-3" data-t="proj_fin_desc">
+                            Aplikasi manajemen keuangan berbasis web untuk memonitoring arus kas, melacak pemasukan, dan mengkategorikan pengeluaran operasional secara efisien.
+                        </p>
+                        <p class="text-muted small mb-4" data-t="proj_fin_features">
+                            Dilengkapi autentikasi aman, dashboard rekapitulasi interaktif, dan pencatatan riwayat transaksi real-time.
+                        </p>
+                        <div class="project-tags mb-4">
+                            <span class="project-tag" data-t="tag_cashflow">Arus Kas</span>
+                            <span class="project-tag" data-t="tag_transaction">Manajemen Transaksi</span>
+                            <span class="project-tag" data-t="tag_auth">Secure Auth</span>
+                        </div>
+                        <div>
+                            <a href="http://catatan-keuangan.full.diskon.cloud" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                                <i class="bi bi-box-arrow-up-right me-2"></i><span data-t="proj_live">Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 p-4 p-lg-5 d-flex align-items-center justify-content-center" style="background:var(--bg);border-left:1px solid var(--border);">
+                        <div id="project3Carousel" class="carousel carousel-dark slide shadow-lg rounded-3 overflow-hidden bg-white w-100" data-bs-ride="carousel" style="aspect-ratio: 16/10;">
+                            <div class="carousel-indicators mb-0 pb-1">
+                                <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                                <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                            </div>
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Financial Recording System/admin/1.png" class="d-block w-100 h-100" alt="Finance Admin 1" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Finance+Admin+1'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Financial Recording System/admin/2.png" class="d-block w-100 h-100" alt="Finance Admin 2" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Finance+Admin+2'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Financial Recording System/admin/3.png" class="d-block w-100 h-100" alt="Finance Admin 3" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Finance+Admin+3'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Financial Recording System/admin/4.png" class="d-block w-100 h-100" alt="Finance Admin 4" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Finance+Admin+4'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Financial Recording System/admin/5.png" class="d-block w-100 h-100" alt="Finance Admin 5" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Finance+Admin+5'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Financial Recording System/user/1.png" class="d-block w-100 h-100" alt="Finance User 1" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Finance+User+1'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Financial Recording System/user/2.png" class="d-block w-100 h-100" alt="Finance User 2" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Finance+User+2'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Financial Recording System/user/3.png" class="d-block w-100 h-100" alt="Finance User 3" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Finance+User+3'">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#project3Carousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#project3Carousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyek 4 — Management Stock Konter -->
+            <div class="card project-card" style="cursor:pointer;"
+                 data-title="proj_stock_title" data-cat="proj_web_cat" data-desc="proj_stock_desc"
+                 data-tags="Stok Produk, Transaksi, Laporan Laba Rugi, Kategori"
+                 data-images="../gambar project/Management Stock Konter/admin/1.png, ../gambar project/Management Stock Konter/admin/2.png, ../gambar project/Management Stock Konter/admin/3.png, ../gambar project/Management Stock Konter/admin/4.png, ../gambar project/Management Stock Konter/admin/5.png, ../gambar project/Management Stock Konter/admin/6.png, ../gambar project/Management Stock Konter/admin/7.png, ../gambar project/Management Stock Konter/admin/8.png, ../gambar project/Management Stock Konter/admin/9.png, ../gambar project/Management Stock Konter/user/1.png, ../gambar project/Management Stock Konter/user/2.png, ../gambar project/Management Stock Konter/user/3.png"
+                 data-img1="../gambar project/Management Stock Konter/admin/1.png"
+                 data-img2="../gambar project/Management Stock Konter/user/1.png">
+                <div class="row g-0 flex-lg-row-reverse">
+                    <div class="col-lg-5 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                        <span class="text-muted small fw-semibold text-uppercase mb-2" style="letter-spacing:1px;" data-t="proj_web_cat">Aplikasi Web</span>
+                        <h2 class="h5 fw-bold mb-3" data-t="proj_stock_title">Management Stock Konter</h2>
+                        <p class="text-muted small mb-3" data-t="proj_stock_desc">
+                            Sistem manajemen stok khusus untuk retail konter pulsa dan handphone, mengelola inventaris produk, transaksi penjualan, dan laporan keuangan harian.
+                        </p>
+                        <p class="text-muted small mb-4" data-t="proj_stock_features">
+                            Fitur mencakup manajemen produk, kategori, transaksi penjualan, riwayat transaksi, dan laporan laba rugi.
+                        </p>
+                        <div class="project-tags mb-4">
+                            <span class="project-tag" data-t="tag_stock_prod">Stok Produk</span>
+                            <span class="project-tag" data-t="tag_basic_trans">Transaksi</span>
+                            <span class="project-tag" data-t="tag_pl_report">Laporan Laba Rugi</span>
+                            <span class="project-tag" data-t="tag_category">Kategori</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 p-4 p-lg-5 d-flex align-items-center justify-content-center" style="background:var(--bg);border-right:1px solid var(--border);">
+                        <div id="project4Carousel" class="carousel carousel-dark slide shadow-lg rounded-3 overflow-hidden bg-white w-100" data-bs-ride="carousel" style="aspect-ratio: 16/10;">
+                            <div class="carousel-indicators mb-0 pb-1">
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="9" aria-label="Slide 10"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="10" aria-label="Slide 11"></button>
+                                <button type="button" data-bs-target="#project4Carousel" data-bs-slide-to="11" aria-label="Slide 12"></button>
+                            </div>
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/admin/1.png" class="d-block w-100 h-100" alt="Stock Admin 1" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+Admin+1'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/admin/2.png" class="d-block w-100 h-100" alt="Stock Admin 2" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+Admin+2'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/admin/3.png" class="d-block w-100 h-100" alt="Stock Admin 3" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+Admin+3'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/admin/4.png" class="d-block w-100 h-100" alt="Stock Admin 4" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+Admin+4'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/admin/5.png" class="d-block w-100 h-100" alt="Stock Admin 5" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+Admin+5'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/admin/6.png" class="d-block w-100 h-100" alt="Stock Admin 6" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+Admin+6'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/admin/7.png" class="d-block w-100 h-100" alt="Stock Admin 7" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+Admin+7'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/admin/8.png" class="d-block w-100 h-100" alt="Stock Admin 8" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+Admin+8'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/admin/9.png" class="d-block w-100 h-100" alt="Stock Admin 9" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+Admin+9'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/user/1.png" class="d-block w-100 h-100" alt="Stock User 1" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+User+1'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/user/2.png" class="d-block w-100 h-100" alt="Stock User 2" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+User+2'">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="4000">
+                                    <img src="../gambar project/Management Stock Konter/user/3.png" class="d-block w-100 h-100" alt="Stock User 3" style="object-fit:contain;" onerror="this.src='https://via.placeholder.com/600x350?text=Stock+User+3'">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#project4Carousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#project4Carousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+   </div>
+    </main>
+
+    <!-- MODAL VIEW PROYEK -->
+    <div class="modal fade" id="projModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden; max-height:90vh;">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(29,78,216,0.1);">
+                            <i class="bi bi-layers-fill text-accent fs-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="h6 fw-bold mb-0" data-t="proj_modal_title">Detail Proyek</h2>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3 pt-2">
+                    <div class="row g-3">
+                        <div class="col-lg-6">
+                            <div id="modalProjCarousel" class="carousel carousel-dark slide rounded-3 overflow-hidden bg-light" data-bs-ride="carousel"
+                                 style="max-height:220px;">
+                                <div class="carousel-inner" id="modalProjImages" style="max-height:220px;">
+                                    <!-- Images injected by JS -->
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#modalProjCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#modalProjCarousel" data-bs-slide-to="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <!-- Iframe fallback for web demos -->
+                            <div id="modalProjIframeContainer" class="rounded-3 overflow-hidden border mt-2" style="height:200px; display:none;">
+                                <iframe id="modalProjIframe" src="" class="w-100 h-100" style="border:none;"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex flex-column">
+                            <span id="modalProjCat" class="text-muted small fw-semibold text-uppercase mb-1" style="letter-spacing:1px;"></span>
+                            <h4 id="modalProjTitle" class="h6 fw-bold mb-2"></h4>
+                            <div class="p-2 rounded-3 mb-2" style="background:var(--bg); border:1px solid var(--border);">
+                                <p id="modalProjDesc" class="text-muted small mb-0 lh-lg" style="text-align:justify;"></p>
+                            </div>
+                            <div id="modalProjTags" class="project-tags mb-3">
+                                <!-- Tags injected by JS -->
+                            </div>
+                            <div class="mt-auto">
+                                <a id="modalProjBtn" href="#" target="_blank" rel="noopener" class="btn btn-primary w-100" style="display:none;">
+                                    <i class="bi bi-box-arrow-up-right me-2"></i><span data-t="proj_demo">Demo Website</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer pt-5 pb-4">
+        <div class="container">
+            <!-- CTA SECTION -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card p-4 p-lg-5 text-center" id="ctaCardBtn" style="background: linear-gradient(135deg, var(--blue) 0%, #1e40af 100%); border:none; cursor:pointer;">
+                        <h3 class="h4 fw-bold text-white mb-3" data-t="footer_cta_title">Tertarik bekerja sama? Yuk, ngobrol!</h3>
+                        <p class="text-white text-opacity-75 mb-4 mx-auto" style="max-width:600px;" data-t="footer_cta_desc">
+                            Saya selalu terbuka untuk diskusi mengenai peluang kerja, proyek freelance, atau sekadar bertukar pikiran.
+                        </p>
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
+                            <a href="mailto:hiukencanawidhi@hotmail.com" class="btn btn-light px-4" onclick="event.stopPropagation();">
+                                <i class="bi bi-envelope-fill me-2"></i>Email Me
+                            </a>
+                            <a href="https://wa.me/6285174208810" class="btn btn-outline-light px-4" onclick="event.stopPropagation();">
+                                <i class="bi bi-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- BIO & STATUS -->
+                <div class="col-lg-5 col-md-12">
+                    <h3 class="h6 fw-bold mb-3" style="color:var(--accent);letter-spacing:1px;">PORTFOLIO</h3>
+                    <p class="text-muted small mb-4" style="max-width:400px;" data-t="footer_text">
+                        Fresh graduate Teknik Logistik & IT Enthusiast. Menggabungkan efisiensi rantai pasok dengan inovasi teknologi.
+                    </p>
+                    <div class="d-flex flex-column gap-2">
+                        <div class="d-flex align-items-center gap-2 text-muted small">
+                            <i class="bi bi-geo-alt-fill text-danger"></i>
+                            <span data-t="footer_loc">Berbasis di Sidoarjo, Indonesia</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 text-muted small">
+                            <i class="bi bi-circle-fill text-success" style="font-size:0.5rem;"></i>
+                            <span data-t="footer_status">Tersedia untuk Freelance & Full-time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEATURED PROJECTS -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h6 fw-bold mb-3" data-t="footer_featured">Proyek Unggulan</h4>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li><a href="#" class="footer-link footer-project-link" 
+                            data-title="proj_wms_title" data-cat="proj_web_cat" data-desc="proj_wms_desc"
+                            data-tags="Barang Masuk, Barang Keluar, Monitoring Stok, Laporan & Grafik, AI Assistant"
+                            data-images="../gambar project/Warehouse Management System (WMS)/admin/1`.png, ../gambar project/Warehouse Management System (WMS)/admin/2.png, ../gambar project/Warehouse Management System (WMS)/admin/3.png, ../gambar project/Warehouse Management System (WMS)/admin/4.png, ../gambar project/Warehouse Management System (WMS)/admin/5.png, ../gambar project/Warehouse Management System (WMS)/admin/6.png, ../gambar project/Warehouse Management System (WMS)/admin/7.png, ../gambar project/Warehouse Management System (WMS)/admin/8.png, ../gambar project/Warehouse Management System (WMS)/admin/9.png, ../gambar project/Warehouse Management System (WMS)/user/1.png, ../gambar project/Warehouse Management System (WMS)/user/2.png, ../gambar project/Warehouse Management System (WMS)/user/3.png"
+                            data-demo="http://wms-hiu.full.diskon.cloud/login">Warehouse System (WMS)</a></li>
+                        <li><a href="#" class="footer-link footer-project-link" 
+                            data-title="proj_ta_title" data-cat="proj_ta_cat" data-desc="proj_ta_desc"
+                            data-tags="SketchUp, Analisis Data, SLP Method"
+                            data-images="../gambar project/Inbound Area Optimization at PT. Dian Mega Kurnia/1.png, ../gambar project/Inbound Area Optimization at PT. Dian Mega Kurnia/2.png">Logistics Optimization</a></li>
+                        <li><a href="#" class="footer-link footer-project-link" 
+                            data-title="proj_fin_title" data-cat="proj_web_cat" data-desc="proj_fin_desc"
+                            data-tags="Arus Kas, Manajemen Transaksi, Secure Auth"
+                            data-demo="http://catatan-keuangan.full.diskon.cloud"
+                            data-images="../gambar project/Financial Recording System/admin/1.png, ../gambar project/Financial Recording System/admin/2.png, ../gambar project/Financial Recording System/admin/3.png, ../gambar project/Financial Recording System/admin/4.png, ../gambar project/Financial Recording System/admin/5.png, ../gambar project/Financial Recording System/user/1.png, ../gambar project/Financial Recording System/user/2.png, ../gambar project/Financial Recording System/user/3.png">Financial Recording</a></li>
+                        <li><a href="#" class="footer-link footer-project-link" 
+                            data-title="proj_stock_title" data-cat="proj_web_cat" data-desc="proj_stock_desc"
+                            data-tags="Stok Produk, Transaksi, Laporan Laba Rugi, Kategori"
+                            data-images="../gambar project/Management Stock Konter/admin/1.png, ../gambar project/Management Stock Konter/admin/2.png, ../gambar project/Management Stock Konter/admin/3.png, ../gambar project/Management Stock Konter/admin/4.png, ../gambar project/Management Stock Konter/admin/5.png, ../gambar project/Management Stock Konter/admin/6.png, ../gambar project/Management Stock Konter/admin/7.png, ../gambar project/Management Stock Konter/admin/8.png, ../gambar project/Management Stock Konter/admin/9.png, ../gambar project/Management Stock Konter/user/1.png, ../gambar project/Management Stock Konter/user/2.png, ../gambar project/Management Stock Konter/user/3.png">Counter Stock Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- CONTACT & SOCIAL -->
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="h6 fw-bold mb-3" data-t="footer_social">Sosial Media</h4>
+                    <p class="text-muted small mb-3">hiukencanawidhi@hotmail.com</p>
+                    <div class="d-flex gap-2 mb-4">
+                        <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="mailto:hiukencanawidhi@hotmail.com" class="social-btn" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/hiukencana" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://instagram.com/hiukencana" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4" style="border-color:var(--border);">
+            
+            <!-- COPYRIGHT -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-muted small mb-0" data-t="footer_copyright">© 2026 Hiu Kencana Widhi. Seluruh hak cipta dilindungi.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-muted small hover-accent">Privacy Policy</a>
+                    <a href="#" class="text-muted small hover-accent">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <!-- BACK TO TOP -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- MODAL VIEW PROYEK -->
+    <div class="modal fade" id="projModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden; max-height:90vh;">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(29,78,216,0.1);">
+                            <i class="bi bi-layers-fill text-accent fs-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="h6 fw-bold mb-0" data-t="proj_modal_title">Detail Proyek</h2>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-2">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div id="modalProjCarousel" class="carousel carousel-dark slide rounded-3 overflow-hidden bg-light" data-bs-ride="carousel" style="max-height:220px;">
+                                <div class="carousel-inner" id="modalProjImages" style="max-height:220px;">
+                                    <!-- Images injected by JS -->
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#modalProjCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#modalProjCarousel" data-bs-slide-to="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div id="modalProjIframeContainer" class="rounded-3 overflow-hidden border mt-3" style="height:200px; display:none;">
+                                <iframe id="modalProjIframe" src="" class="w-100 h-100" style="border:none;"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex flex-column">
+                            <span id="modalProjCat" class="text-muted small fw-semibold text-uppercase mb-1" style="letter-spacing:1px;"></span>
+                            <h4 id="modalProjTitle" class="h6 fw-bold mb-2"></h4>
+                            <div class="p-3 rounded-3 mb-3" style="background:var(--bg); border:1px solid var(--border);">
+                                <p id="modalProjDesc" class="text-muted small mb-0 lh-lg" style="text-align:justify;"></p>
+                            </div>
+                            <div id="modalProjTags" class="project-tags mb-4">
+                                <!-- Tags injected by JS -->
+                            </div>
+                            <div class="mt-auto">
+                                <a id="modalProjBtn" href="#" target="_blank" rel="noopener" class="btn btn-primary w-100" style="display:none;">
+                                    <i class="bi bi-box-arrow-up-right me-2"></i><span data-t="proj_demo">Demo Website</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 450px;">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden;">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(29,78,216,0.1);">
+                            <i class="bi bi-chat-dots-fill text-accent fs-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="h6 fw-bold mb-0" data-t="footer_cta_title">Mari Berdiskusi</h2>
+                            <p class="text-muted small mb-0" data-t="contact_modal_sub">Pilih metode yang paling nyaman bagi Anda</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-flex flex-column gap-2">
+                        <a href="mailto:hiukencanawidhi@hotmail.com" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(29,78,216,0.1);flex-shrink:0;">
+                                <i class="bi bi-envelope-fill text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.85rem;">Email</div>
+                                <div class="text-muted" style="font-size:0.78rem;">hiukencanawidhi@hotmail.com</div>
+                            </div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                        <a href="https://wa.me/6285174208810" target="_blank" rel="noopener" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(37,211,102,0.1);flex-shrink:0;">
+                                <i class="bi bi-whatsapp" style="color:#25d366;"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.85rem;">WhatsApp</div>
+                                <div class="text-muted" style="font-size:0.78rem;" data-t="contact_wa_sub">Chat langsung via WhatsApp</div>
+                            </div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(10,102,194,0.1);flex-shrink:0;">
+                                <i class="bi bi-linkedin" style="color:#0a66c2;"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.85rem;">LinkedIn</div>
+                                <div class="text-muted" style="font-size:0.78rem;">linkedin.com/in/hiu-kencana-widhi</div>
+                            </div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>
