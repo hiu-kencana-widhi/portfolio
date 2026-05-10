@@ -19,12 +19,12 @@
             <button id="drawer-close" class="drawer-close" aria-label="Tutup menu"><i class="bi bi-x-lg"></i></button>
         </div>
         <nav class="drawer-nav">
-            <a class="nav-link" href="../index.html"><i class="bi bi-house nav-icon"></i> <span data-t="nav_home">Beranda</span></a>
-            <a class="nav-link" href="pengalaman.html"><i class="bi bi-briefcase nav-icon"></i> <span data-t="nav_exp">Pengalaman</span></a>
-            <a class="nav-link" href="proyek.html"><i class="bi bi-layers nav-icon"></i> <span data-t="nav_proj">Proyek</span></a>
-            <a class="nav-link" href="keahlian.html"><i class="bi bi-tools nav-icon"></i> <span data-t="nav_skill">Keahlian</span></a>
-            <a class="nav-link" href="sertifikat.html"><i class="bi bi-patch-check nav-icon"></i> <span data-t="nav_cert">Sertifikat</span></a>
-            <a class="nav-link" href="kontak.html"><i class="bi bi-envelope nav-icon"></i> <span data-t="nav_contact">Kontak</span></a>
+            <a class="nav-link" href="../index.html"><i class="bi bi-house nav-icon"></i> <span data-t="nav_home">Home</span></a>
+            <a class="nav-link" href="pengalaman.html"><i class="bi bi-briefcase nav-icon"></i> <span data-t="nav_exp">Experience</span></a>
+            <a class="nav-link" href="proyek.html"><i class="bi bi-layers nav-icon"></i> <span data-t="nav_proj">Projects</span></a>
+            <a class="nav-link" href="keahlian.html"><i class="bi bi-tools nav-icon"></i> <span data-t="nav_skill">Skills</span></a>
+            <a class="nav-link" href="sertifikat.html"><i class="bi bi-patch-check nav-icon"></i> <span data-t="nav_cert">Certificates</span></a>
+            <a class="nav-link" href="kontak.html"><i class="bi bi-envelope nav-icon"></i> <span data-t="nav_contact">Contact</span></a>
         </nav>
         <div class="drawer-footer d-flex flex-column gap-3">
             <div class="d-flex align-items-center justify-content-between w-100">
@@ -54,12 +54,12 @@
             <a class="navbar-brand" href="../index.html">PORTFOLIO</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="../index.html" data-t="nav_home">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pengalaman.html" data-t="nav_exp">Pengalaman</a></li>
-                    <li class="nav-item"><a class="nav-link" href="proyek.html" data-t="nav_proj">Proyek</a></li>
-                    <li class="nav-item"><a class="nav-link" href="keahlian.html" data-t="nav_skill">Keahlian</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sertifikat.html" data-t="nav_cert">Sertifikat</a></li>
-                    <li class="nav-item"><a class="nav-link" href="kontak.html" data-t="nav_contact">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html" data-t="nav_home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pengalaman.html" data-t="nav_exp">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyek.html" data-t="nav_proj">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="keahlian.html" data-t="nav_skill">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sertifikat.html" data-t="nav_cert">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html" data-t="nav_contact">Contact</a></li>
                     <li class="nav-item">
                         <button class="lang-toggle ms-lg-3" id="lang-toggle">
                             <span class="lang-toggle-text" data-lang="id">ID</span>
@@ -77,8 +77,8 @@
 
     <main class="container py-5">
         <div class="page-header pt-0 mb-5 reveal">
-            <h1 class="h3 fw-bold mb-1" data-t="contact_page_title">Hubungi Saya</h1>
-            <p data-t="contact_page_desc">Mari berdiskusi tentang proyek, peluang kerja, atau kolaborasi lainnya.</p>
+            <h1 class="h3 fw-bold mb-1" data-t="contact_page_title">Get in Touch</h1>
+            <p data-t="contact_page_desc">Let's discuss projects, job opportunities, or other collaborations.</p>
         </div>
 
         <div class="row g-4 reveal">
@@ -131,22 +131,24 @@
                     </div>
 
                     <!-- Socials Card -->
-                    <div class="card contact-info-card p-3 border-0 shadow-sm rounded-4">
-                        <h3 class="h6 fw-bold mb-3 text-muted small text-uppercase" style="letter-spacing:1px;" data-t="contact_social_title">Ikuti Saya</h3>
-                        <div class="d-flex gap-2">
-                            <a href="https://linkedin.com/in/hiu-kencana-widhi" target="_blank" class="social-btn"><i class="bi bi-linkedin"></i></a>
-                            <a href="https://github.com/hiukencana" target="_blank" class="social-btn"><i class="bi bi-github"></i></a>
-                            <a href="https://instagram.com/hiukencana" target="_blank" class="social-btn"><i class="bi bi-instagram"></i></a>
+                    <div class="card contact-info-card p-3 border-0 shadow-sm rounded-4" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#socialsInfoModal">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="contact-icon-wrapper bg-info bg-opacity-10 text-info">
+                                <i class="bi bi-share"></i>
+                            </div>
+                            <div>
+                                <h3 class="h6 fw-bold mb-0 text-muted small text-uppercase" style="letter-spacing:1px;" data-t="contact_social_title">Ikuti Saya</h3>
+                                <div class="fw-semibold text-main">LinkedIn, GitHub, Instagram</div>
+                            </div>
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- CONTACT FORM -->
             <div class="col-lg-8">
-                <div class="card contact-form-card p-4 p-lg-5 border-0 shadow-sm rounded-4 h-100" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#formInfoModal">
-                    <form id="contactForm" onclick="event.stopPropagation()">
+                <div class="card contact-form-card p-4 p-lg-5 border-0 shadow-sm rounded-4 h-100">
+                    <form id="contactForm">
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -233,7 +235,7 @@
                     <div class="d-flex gap-2 mb-4">
                         <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         <a href="mailto:hiukencanawidhi@hotmail.com" class="social-btn" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
-                        <a href="https://github.com/hiukencana" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://github.com/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
                         <a href="https://instagram.com/hiukencana" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
@@ -368,7 +370,7 @@
             <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden; max-height:90vh;">
                 <div class="modal-header border-0 pb-0 px-4 pt-4">
                     <div class="d-flex align-items-center gap-3">
-                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(29,78,216,0.1);">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(var(--accent-rgb), 0.1);">
                             <i class="bi bi-layers-fill text-accent fs-5"></i>
                         </div>
                         <div>
@@ -422,7 +424,7 @@
             <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden;">
                 <div class="modal-header border-0 pb-0 px-4 pt-4">
                     <div class="d-flex align-items-center gap-3">
-                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(29,78,216,0.1);">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(var(--accent-rgb), 0.1);">
                             <i class="bi bi-chat-dots-fill text-accent fs-5"></i>
                         </div>
                         <div>
@@ -435,7 +437,7 @@
                 <div class="modal-body p-4">
                     <div class="d-flex flex-column gap-2">
                         <a href="mailto:hiukencanawidhi@hotmail.com" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
-                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(29,78,216,0.1);flex-shrink:0;">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(var(--accent-rgb), 0.1);flex-shrink:0;">
                                 <i class="bi bi-envelope-fill text-accent"></i>
                             </div>
                             <div>
@@ -464,6 +466,26 @@
                             </div>
                             <i class="bi bi-arrow-right ms-auto text-muted"></i>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOCIALS INFO MODAL -->
+    <div class="modal fade" id="socialsInfoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px;">
+                <div class="modal-body p-4 text-center">
+                    <div class="contact-icon-wrapper bg-info bg-opacity-10 text-info mx-auto mb-3" style="width:60px; height:60px; font-size:1.5rem;">
+                        <i class="bi bi-share"></i>
+                    </div>
+                    <h4 class="fw-bold mb-1" data-t="contact_social_title">Ikuti Saya</h4>
+                    <p class="text-muted small mb-4">Temukan saya di platform media sosial profesional lainnya.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://linkedin.com/in/hiu-kencana-widhi" target="_blank" class="social-btn" style="width:50px; height:50px; font-size:1.2rem;"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/hiu-kencana-widhi" target="_blank" class="social-btn" style="width:50px; height:50px; font-size:1.2rem;"><i class="bi bi-github"></i></a>
+                        <a href="https://instagram.com/hiukencana" target="_blank" class="social-btn" style="width:50px; height:50px; font-size:1.2rem;"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
             </div>

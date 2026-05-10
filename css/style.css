@@ -3,40 +3,51 @@
    Style: Clean · Formal · Lightweight
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 /* --- ROOT VARIABLES --- */
 :root {
-    --blue:        #1d4ed8;
-    --blue-light:  #3b82f6;
-    --bg:          #f9fafb;
-    --surface:     #ffffff;
-    --border:      #e5e7eb;
-    --text:        #111827;
-    --muted:       #6b7280;
-    --accent:      #1d4ed8;
+    --blue:        #2A5C6D;
+    --blue-light:  #3A7C92;
+    --bg:          #FAFAF9;
+    --surface:     #F2F2F0;
+    --border:      #DCDCD8;
+    --text:        #1E2630;
+    --muted:       #4A5568;
+    --accent:      #2A5C6D;
+    --accent-secondary: #E08D4A;
+    --accent-rgb:  42, 92, 109;
     --radius:      10px;
     --shadow:      0 1px 4px rgba(0,0,0,0.08);
     --shadow-md:   0 4px 12px rgba(0,0,0,0.1);
+    
+    /* Bootstrap Override */
+    --bs-primary-rgb: 42, 92, 109;
 }
 
 body.dark-mode {
-    --bg:      #0f172a;
-    --surface: #1e293b;
-    --border:  #334155;
-    --text:    #f1f5f9;
-    --muted:   #94a3b8;
-    --accent:  #60a5fa;
-    --blue:    #60a5fa; /* Re-mapped to accent for better contrast in dark mode */
+    --bg:      #1A1D24;
+    --surface: #22272E;
+    --border:  #30363F;
+    --text:    #ECEDEF;
+    --muted:   #9BA9BF;
+    --accent:  #4E9B9B;
+    --accent-secondary: #F0A46E;
+    --accent-rgb: 78, 155, 155;
+    --blue:    #4E9B9B;
     --shadow:  0 1px 4px rgba(0,0,0,0.4);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+    
+    /* Bootstrap Override */
+    --bs-primary-rgb: 78, 155, 155;
 }
 
 /* --- RESET & BASE --- */
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -61,7 +72,8 @@ body.page-exit {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
     color: var(--text);
     line-height: 1.3;
 }
@@ -117,7 +129,7 @@ body {
 }
 
 .navbar-brand {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Cabinet Grotesk', sans-serif;
     font-weight: 800;
     font-size: 0.95rem; /* Slightly larger */
     color: var(--blue) !important;
@@ -131,6 +143,7 @@ body {
 .navbar-brand::after { display: none; }
 
 .nav-link {
+    font-family: 'Cabinet Grotesk', sans-serif;
     font-size: 0.8rem; /* Balanced size */
     font-weight: 600;
     color: var(--muted) !important;
@@ -236,7 +249,7 @@ body.dark-mode .nav-link.active {
 }
 
 .drawer-brand {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Cabinet Grotesk', sans-serif;
     font-weight: 800;
     font-size: 1rem;
     color: var(--blue) !important;
@@ -282,6 +295,7 @@ body.dark-mode .nav-link.active {
     padding: 11px 16px !important;
     border-radius: 8px;
     font-size: 0.9rem;
+    font-family: 'Cabinet Grotesk', sans-serif;
     font-weight: 500;
     color: var(--text) !important;
     text-decoration: none;
@@ -514,10 +528,11 @@ body.dark-mode .card:hover {
 }
 
 /* --- BUTTONS --- */
-.btn-primary, .btn-outline-primary {
+.btn-primary, .btn-outline-primary, .btn {
+    font-family: 'Cabinet Grotesk', sans-serif;
     border-radius: 6px;
     padding: 10px 24px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.875rem;
     letter-spacing: 0.3px;
     transition: background-color 0.15s, border-color 0.15s, color 0.15s;
@@ -527,32 +542,33 @@ body.dark-mode .card:hover {
 }
 
 .btn-primary {
-    background-color: var(--blue);
-    color: #fff;
-    box-shadow: none;
+    background-color: var(--blue) !important;
+    color: #fff !important;
+    border: none !important;
 }
 
-.btn-primary::before { display: none; }
-
 .btn-primary:hover {
-    background-color: var(--blue-light);
-    color: #fff;
-    transform: none;
-    box-shadow: none;
+    background-color: var(--blue-light) !important;
+    color: #fff !important;
 }
 
 .btn-outline-primary {
-    background-color: transparent;
     border: 1.5px solid var(--blue) !important;
     color: var(--blue) !important;
 }
 
 .btn-outline-primary:hover {
-    background-color: var(--blue);
+    background-color: var(--blue) !important;
     color: #fff !important;
-    transform: none;
-    box-shadow: none;
 }
+
+/* Specific Component Fixes */
+.form-control:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 0.25rem rgba(var(--accent-rgb), 0.25);
+}
+
+
 
 /* --- BADGES / TAGS --- */
 .focus-badge {
@@ -598,9 +614,9 @@ body.dark-mode .bg-light {
 
 /* --- FORM CONTROLS --- */
 .form-control {
-    background-color: #f3f4f6 !important;
-    border: 1px solid #e5e7eb !important;
-    color: #111827 !important;
+    background-color: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     transition: all 0.2s;
@@ -614,19 +630,19 @@ body.dark-mode .bg-light {
 }
 
 body.dark-mode .form-control {
-    background-color: #0f172a !important; /* Deeper background for inputs in dark mode */
-    border-color: #334155 !important;
-    color: #f1f5f9 !important;
+    background-color: var(--bg) !important;
+    border-color: var(--border) !important;
+    color: var(--text) !important;
 }
 
 body.dark-mode .form-control::placeholder {
-    color: #64748b !important;
+    color: var(--muted) !important;
 }
 
 body.dark-mode .form-control:focus {
-    background-color: #0f172a !important;
+    background-color: var(--bg) !important;
     border-color: var(--accent) !important;
-    box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.2);
+    box-shadow: 0 0 0 0.25rem rgba(166, 191, 222, 0.2);
 }
 
 /* --- SOCIAL BUTTONS --- */
@@ -802,9 +818,9 @@ body.dark-mode .modal-content {
 .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .project-tag {
-    background-color: rgba(29, 78, 216, 0.07);
-    border: 1px solid rgba(29, 78, 216, 0.15);
-    color: #1d4ed8;
+    background-color: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    color: var(--blue);
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -812,9 +828,9 @@ body.dark-mode .modal-content {
 }
 
 body.dark-mode .project-tag {
-    background-color: rgba(96, 165, 250, 0.1);
-    border-color: rgba(96, 165, 250, 0.25);
-    color: #93c5fd;
+    background-color: rgba(var(--accent-rgb), 0.15);
+    border-color: rgba(var(--accent-rgb), 0.3);
+    color: var(--accent);
 }
 
 /* --- FOOTER --- */
@@ -1450,7 +1466,7 @@ body.dark-mode .modal-content {
 
 .form-control:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.1);
+    box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.1);
     background: var(--surface);
     color: var(--text);
 }
@@ -1497,3 +1513,14 @@ textarea:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px var(--bg) inset;
     transition: background-color 5000s ease-in-out 0s;
 }
+/* Contact Cards Hover Effect */
+.contact-form-card, .contact-info-card {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    background: var(--surface) !important;
+}
+
+.contact-form-card:hover, .contact-info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md) !important;
+}
+
