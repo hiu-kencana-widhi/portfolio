@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dokumentasi kegiatan dan momen teknis Hiu Kencana Widhi di lapangan.">
+    <title>Documentation | Hiu Kencana Widhi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../../assets/images/brand/logo-favicon.png">
+    <style>
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            grid-gap: 15px;
+        }
+        .collage-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .collage-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            z-index: 5;
+        }
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .collage-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Grid Spanning Rules for a Perfect Fit */
+        .collage-item.big { grid-column: span 2; grid-row: span 2; }
+        .collage-item.tall { grid-row: span 2; }
+        .collage-item.wide { grid-column: span 2; }
+
+        .collage-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 45, 51, 0.9), transparent 70%);
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .collage-item:hover .collage-overlay {
+            opacity: 1;
+        }
+        .overlay-content h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+            transform: translateY(15px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .collage-item:hover .overlay-content h3 {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1200px) {
+            .collage-grid { 
+                grid-template-columns: repeat(3, 1fr); 
+                grid-auto-rows: 180px;
+            }
+        }
+        @media (max-width: 992px) {
+            .collage-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                grid-auto-rows: 160px;
+                grid-gap: 10px;
+            }
+            .collage-item { border-radius: 15px; }
+            /* Adjust spans for 2 columns */
+            .collage-item.big { grid-column: span 2; grid-row: span 2; }
+            .collage-item.wide { grid-column: span 2; grid-row: span 1; }
+            .collage-item.tall { grid-row: span 2; grid-column: span 1; }
+        }
+        @media (max-width: 576px) {
+            .collage-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                grid-auto-rows: 140px;
+                grid-gap: 8px;
+            }
+            .collage-item { border-radius: 12px; }
+            /* Keep 2-column collage logic */
+            .collage-item.big { grid-column: span 2; grid-row: span 2; }
+            .collage-item.wide { grid-column: span 2; grid-row: span 1; }
+            .collage-item.tall { grid-row: span 2; grid-column: span 1; }
+        }
+
+        /* Lightbox personalization */
+        .modal-content { 
+            border-radius: 20px; 
+            overflow: hidden; 
+        }
+        #lightboxImg { 
+            display: block;
+            margin: 0 auto;
+            max-height: 80vh;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+    <aside id="nav-drawer" class="nav-drawer" role="dialog" aria-modal="true" aria-label="Menu Navigasi">
+        <div class="drawer-header">
+            <a class="drawer-brand" href="../../index.html">PORTFOLIO</a>
+            <button id="drawer-close" class="drawer-close" aria-label="Tutup menu"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <nav class="drawer-nav">
+            <a class="nav-link" href="../../index.html"><i class="bi bi-house nav-icon"></i> <span data-t="nav_home">Home</span></a>
+            <a class="nav-link" href="pengalaman.html"><i class="bi bi-briefcase nav-icon"></i> <span data-t="nav_exp">Experience</span></a>
+            <a class="nav-link" href="proyek.html"><i class="bi bi-layers nav-icon"></i> <span data-t="nav_proj">Projects</span></a>
+            <a class="nav-link" href="keahlian.html"><i class="bi bi-tools nav-icon"></i> <span data-t="nav_skill">Skills</span></a>
+            <a class="nav-link" href="sertifikat.html"><i class="bi bi-patch-check nav-icon"></i> <span data-t="nav_cert">Certificates</span></a>
+            <a class="nav-link" href="dokumentasi.html"><i class="bi bi-camera nav-icon"></i> <span data-t="nav_doc">Gallery</span></a>
+            <a class="nav-link" href="kontak.html"><i class="bi bi-envelope nav-icon"></i> <span data-t="nav_contact">Contact</span></a>
+        </nav>
+        <div class="drawer-footer d-flex flex-column gap-3">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <span class="theme-label" data-t="theme_label">Dark Mode</span>
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="bi bi-moon theme-icon"></i>
+                </button>
+            </div>
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <span class="theme-label" data-t="lang_label">Language</span>
+                <div class="drawer-lang">
+                    <button class="lang-btn" data-lang="id">ID</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler" type="button" aria-label="Buka menu">
+                <span class="tog-bar"></span><span class="tog-bar"></span><span class="tog-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">PORTFOLIO</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html" data-t="nav_home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pengalaman.html" data-t="nav_exp">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyek.html" data-t="nav_proj">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="keahlian.html" data-t="nav_skill">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sertifikat.html" data-t="nav_cert">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dokumentasi.html" data-t="nav_doc">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html" data-t="nav_contact">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="lang-toggle ms-lg-3" id="lang-toggle">
+                            <span class="lang-toggle-text" data-lang="id">ID</span>
+                            <span class="divider"></span>
+                            <span class="lang-toggle-text active-lang" data-lang="en">EN</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle ms-2" aria-label="Toggle Theme"><i class="bi bi-moon theme-icon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="page-header pt-0 mb-5">
+            <h1 class="h2 fw-bold mb-2" data-t="doc_page_title">Activity Documentation</h1>
+            <p class="text-muted" data-t="doc_page_desc">A collection of moments and visual documentation from various operational and technical activities.</p>
+        </div>
+
+
+
+        <!-- Section: Warehouse -->
+        <div class="mb-5">
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="rounded-3 d-flex align-items-center justify-content-center" style="width:40px; height:40px; background: rgba(var(--accent-rgb), 0.1);">
+                    <i class="bi bi-buildings text-accent fs-5"></i>
+                </div>
+                <div>
+                    <h2 class="h4 fw-bold mb-0" data-t="doc_warehouse_title">Warehouse Administration — PT. Bismillah Bisnis Barokah</h2>
+                    <p class="text-muted small mb-0" data-t="doc_warehouse_desc">Documentation of stock management and inventory administration.</p>
+                </div>
+            </div>
+            <div class="collage-grid mb-5">
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/admin gudang/warehouse-1.jpg">
+                    <img src="../../assets/images/documentation/admin gudang/warehouse-1.jpg" alt="Warehouse" fetchpriority="high">
+                </div>
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/admin gudang/warehouse-2.jpg">
+                    <img src="../../assets/images/documentation/admin gudang/warehouse-2.jpg" alt="Warehouse" fetchpriority="high">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: WiFi Installation -->
+        <div class="mb-5">
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="rounded-3 d-flex align-items-center justify-content-center" style="width:40px; height:40px; background: rgba(var(--accent-rgb), 0.1);">
+                    <i class="bi bi-router text-accent fs-5"></i>
+                </div>
+                <div>
+                    <h2 class="h4 fw-bold mb-0" data-t="doc_wifi_title">Freelance — WiFi Network Installation</h2>
+                    <p class="text-muted small mb-0" data-t="doc_wifi_desc">Documentation of freelance projects for WiFi network installation.</p>
+                </div>
+            </div>
+            <div class="collage-grid mb-5">
+                <!-- Rows 1-2 (8 cells) -->
+                <div class="collage-item big" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-1.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-1.jpg" alt="WiFi" fetchpriority="high">
+                </div>
+                <div class="collage-item tall" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-2.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-2.jpg" alt="WiFi" fetchpriority="high">
+                </div>
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-3.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-3.jpg" alt="WiFi" fetchpriority="high">
+                </div>
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-4.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-4.jpg" alt="WiFi" fetchpriority="high">
+                </div>
+
+                <!-- Rows 3-4 (8 cells) -->
+                <div class="collage-item big" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-6.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-6.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item tall" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-5.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-5.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-7.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-7.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-8.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-8.jpg" alt="WiFi"  >
+                </div>
+
+                <!-- Row 5 (4 cells) -->
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-9.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-9.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-10.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-10.jpg" alt="WiFi"  >
+                </div>
+
+                <!-- Row 6-7 (8 cells) -->
+                <div class="collage-item tall" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-11.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-11.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item tall" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-12.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-12.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-13.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-13.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-14.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-14.jpg" alt="WiFi"  >
+                </div>
+
+                <!-- Row 8 (4 cells) -->
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-15.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-15.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-16.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-16.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-17.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-17.jpg" alt="WiFi"  >
+                </div>
+
+                <!-- Row 9 (4 cells) -->
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-18.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-18.jpg" alt="WiFi"  >
+                </div>
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/freelance installasi wifi/wifi-19.jpg">
+                    <img src="../../assets/images/documentation/freelance installasi wifi/wifi-19.jpg" alt="WiFi"  >
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Cargo -->
+        <div class="mb-5">
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="rounded-3 d-flex align-items-center justify-content-center" style="width:40px; height:40px; background: rgba(var(--accent-rgb), 0.1);">
+                    <i class="bi bi-box-seam text-accent fs-5"></i>
+                </div>
+                <div>
+                    <h2 class="h4 fw-bold mb-0" data-t="doc_cargo_title">PT. Dian Mega Kurnia — Air Cargo Operations</h2>
+                    <p class="text-muted small mb-0" data-t="doc_cargo_desc">Documentation of air cargo operations at Juanda Airport.</p>
+                </div>
+            </div>
+
+            <div class="collage-grid mb-5">
+                <!-- Row 1-2 (8 cells) -->
+                <div class="collage-item big" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-7.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-7.jpg" alt="Cargo"  >
+                </div>
+                <div class="collage-item tall" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-8.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-8.jpg" alt="Cargo"  >
+                </div>
+                <div class="collage-item tall" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-11.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-11.jpg" alt="Cargo"  >
+                </div>
+                <!-- Row 3 (4 cells) -->
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-10.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-10.jpg" alt="Cargo"  >
+                </div>
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-12.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-12.jpg" alt="Cargo"  >
+                </div>
+                <!-- Row 4 (4 cells) -->
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-9.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-9.jpg" alt="Cargo"  >
+                </div>
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-2.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-2.jpg" alt="Cargo"  >
+                </div>
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-3.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-3.jpg" alt="Cargo"  >
+                </div>
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-4.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-4.jpg" alt="Cargo"  >
+                </div>
+                <!-- Row 5-6 (8 cells) -->
+                <div class="collage-item big" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-6.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-6.jpg" alt="Cargo"  >
+                </div>
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-1.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-1.jpg" alt="Cargo"  >
+                </div>
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/cargo/cargo-5.jpg">
+                    <img src="../../assets/images/documentation/cargo/cargo-5.jpg" alt="Cargo"  >
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Telkom -->
+        <div class="mb-5">
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="rounded-3 d-flex align-items-center justify-content-center" style="width:40px; height:40px; background: rgba(var(--accent-rgb), 0.1);">
+                    <i class="bi bi-broadcast text-accent fs-5"></i>
+                </div>
+                <div>
+                    <h2 class="h4 fw-bold mb-0" data-t="doc_telkom_title">Telkom Indonesia — Operational Support</h2>
+                    <p class="text-muted small mb-0" data-t="doc_telkom_desc">Documentation of fiber optic network installation and infrastructure maintenance.</p>
+                </div>
+            </div>
+
+            <div class="collage-grid">
+                <!-- Image 1: BIG (2x2) -->
+                <div class="collage-item big" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/telkom/telkom-1.jpg">
+                    <img src="../../assets/images/documentation/telkom/telkom-1.jpg" alt="Documentation"  >
+                    <div class="collage-overlay">
+                        <div class="overlay-content">
+                            <h3>Fiber Optic Installation</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 2: TALL (1x2) -->
+                <div class="collage-item tall" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/telkom/telkom-2.jpg">
+                    <img src="../../assets/images/documentation/telkom/telkom-2.jpg" alt="Documentation"  >
+                    <div class="collage-overlay">
+                        <div class="overlay-content">
+                            <h3>Service Activation</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 3: TALL (1x2) -->
+                <div class="collage-item tall" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/telkom/telkom-3.jpg">
+                    <img src="../../assets/images/documentation/telkom/telkom-3.jpg" alt="Documentation"  >
+                    <div class="collage-overlay">
+                        <div class="overlay-content">
+                            <h3>Field Inspection</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 4: WIDE (2x1) -->
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/telkom/telkom-4.jpg">
+                    <img src="../../assets/images/documentation/telkom/telkom-4.jpg" alt="Documentation"  >
+                    <div class="collage-overlay">
+                        <div class="overlay-content">
+                            <h3>Infrastructure Maintenance</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 5: WIDE (2x1) -->
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/telkom/telkom-5.jpg">
+                    <img src="../../assets/images/documentation/telkom/telkom-5.jpg" alt="Documentation"  >
+                    <div class="collage-overlay">
+                        <div class="overlay-content">
+                            <h3>Team Collaboration</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 6: NORMAL (1x1) -->
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/telkom/telkom-6.jpg">
+                    <img src="../../assets/images/documentation/telkom/telkom-6.jpg" alt="Documentation"  >
+                </div>
+
+                <!-- Image 7: NORMAL (1x1) -->
+                <div class="collage-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/telkom/telkom-7.jpg">
+                    <img src="../../assets/images/documentation/telkom/telkom-7.jpg" alt="Documentation"  >
+                </div>
+
+                <!-- Image 8: WIDE (2x1) -->
+                <div class="collage-item wide" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="../../assets/images/documentation/telkom/telkom-8.jpg">
+                    <img src="../../assets/images/documentation/telkom/telkom-8.jpg" alt="Documentation"  >
+                    <div class="collage-overlay">
+                        <div class="overlay-content">
+                            <h3>Final Testing</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Image Lightbox Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden;">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <h5 class="modal-title h6 fw-bold">Activity Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-2 text-center">
+                    <div class="rounded-3 overflow-hidden bg-light border">
+                        <img src="" id="lightboxImg" class="img-fluid" style="max-height: 80vh; width: auto; display: block; margin: 0 auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer pt-5 pb-4">
+        <div class="container">
+            <!-- CTA SECTION -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card p-4 p-lg-5 text-center" id="ctaCardBtn"
+                        style="background: linear-gradient(135deg, #2A5C6D 0%, #1A3C47 100%); border:none; cursor:pointer;">
+                        <h3 class="h4 fw-bold text-white mb-3" data-t="footer_cta_title">Tertarik bekerja sama? Yuk, ngobrol!</h3>
+                        <p class="text-white text-opacity-75 mb-4 mx-auto" style="max-width:600px;" data-t="footer_cta_desc">
+                            Saya selalu terbuka untuk diskusi mengenai peluang kerja, proyek freelance, atau sekadar bertukar pikiran.
+                        </p>
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
+                            <a href="mailto:hiukencanawidhi@hotmail.com" class="btn btn-light px-4" onclick="event.stopPropagation();">
+                                <i class="bi bi-envelope-fill me-2"></i><span data-t="btn_email">Email Me</span>
+                            </a>
+                            <a href="https://wa.me/6285174208810" class="btn btn-outline-light px-4" onclick="event.stopPropagation();">
+                                <i class="bi bi-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- BIO & STATUS -->
+                <div class="col-lg-5 col-md-12">
+                    <h3 class="h6 fw-bold mb-3" style="color:var(--accent);letter-spacing:1px;">PORTFOLIO</h3>
+                    <p class="text-muted small mb-4" style="max-width:400px;" data-t="footer_text">
+                        Fresh graduate Teknik Logistik & IT Enthusiast. Menggabungkan efisiensi rantai pasok dengan inovasi teknologi.
+                    </p>
+                    <div class="d-flex flex-column gap-2">
+                        <div class="d-flex align-items-center gap-2 text-muted small">
+                            <i class="bi bi-geo-alt-fill text-danger"></i>
+                            <span data-t="footer_loc">Berbasis di Sidoarjo, Indonesia</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 text-muted small">
+                            <i class="bi bi-circle-fill text-success" style="font-size:0.5rem;"></i>
+                            <span data-t="footer_status">Tersedia untuk Freelance & Full-time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEATURED PROJECTS -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h6 fw-bold mb-3" data-t="footer_featured">Proyek Unggulan</h4>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li><a href="#" class="footer-link footer-project-link" data-title="proj_wms_title"
+                                data-cat="proj_web_cat" data-desc="proj_wms_desc"
+                                data-tags="Barang Masuk, Barang Keluar, Monitoring Stok, Laporan & Grafik, AI Assistant"
+                                data-images="../../assets/images/projects/Warehouse Management System (WMS)/admin/1`.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/2.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/3.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/4.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/5.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/6.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/7.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/8.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/9.png, ../../assets/images/projects/Warehouse Management System (WMS)/user/1.png, ../../assets/images/projects/Warehouse Management System (WMS)/user/2.png, ../../assets/images/projects/Warehouse Management System (WMS)/user/3.png"
+                                data-demo="http://wms-hiu.full.diskon.cloud/login">Warehouse System (WMS)</a></li>
+                        <li><a href="#" class="footer-link footer-project-link" data-title="proj_ta_title"
+                                data-cat="proj_ta_cat" data-desc="proj_ta_desc"
+                                data-tags="SketchUp, Analisis Data, SLP Method"
+                                data-images="../../assets/images/projects/logistics-opt/1.png, ../../assets/images/projects/logistics-opt/2.png">Logistics Optimization</a></li>
+                        <li><a href="#" class="footer-link footer-project-link" data-title="proj_fin_title"
+                                data-cat="proj_web_cat" data-desc="proj_fin_desc"
+                                data-tags="Arus Kas, Manajemen Transaksi, Secure Auth"
+                                data-demo="http://catatan-keuangan.full.diskon.cloud"
+                                data-images="../../assets/images/projects/Financial Recording System/admin/1.png, ../../assets/images/projects/Financial Recording System/admin/2.png, ../../assets/images/projects/Financial Recording System/admin/3.png, ../../assets/images/projects/Financial Recording System/admin/4.png, ../../assets/images/projects/Financial Recording System/admin/5.png, ../../assets/images/projects/Financial Recording System/user/1.png, ../../assets/images/projects/Financial Recording System/user/2.png, ../../assets/images/projects/Financial Recording System/user/3.png">Financial Recording</a></li>
+                    </ul>
+                </div>
+
+                <!-- CONTACT & SOCIAL -->
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="h6 fw-bold mb-3" data-t="footer_social">Sosial Media</h4>
+                    <p class="text-muted small mb-3">hiukencanawidhi@hotmail.com</p>
+                    <div class="d-flex gap-2 mb-4">
+                        <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="mailto:hiukencanawidhi@hotmail.com" class="social-btn" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://instagram.com/hiukencana" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4" style="border-color:var(--border);">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-muted small mb-0" data-t="footer_copyright">© 2026 Hiu Kencana Widhi. Seluruh hak cipta dilindungi.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-muted small hover-accent">Privacy Policy</a>
+                    <a href="#" class="text-muted small hover-accent">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- CONTACT MODAL -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 450px;">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden;">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(var(--accent-rgb), 0.1);">
+                            <i class="bi bi-chat-dots-fill text-accent fs-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="h6 fw-bold mb-0" data-t="footer_cta_title">Mari Berdiskusi</h2>
+                            <p class="text-muted small mb-0" data-t="contact_modal_sub">Pilih metode yang paling nyaman bagi Anda</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-flex flex-column gap-2">
+                        <a href="mailto:hiukencanawidhi@hotmail.com" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(var(--accent-rgb), 0.1);flex-shrink:0;">
+                                <i class="bi bi-envelope-fill text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.85rem;">Email</div>
+                                <div class="text-muted" style="font-size:0.78rem;">hiukencanawidhi@hotmail.com</div>
+                            </div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                        <a href="https://wa.me/6285174208810" target="_blank" rel="noopener" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(37,211,102,0.1);flex-shrink:0;">
+                                <i class="bi bi-whatsapp" style="color:#25d366;"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.85rem;">WhatsApp</div>
+                                <div class="text-muted" style="font-size:0.78rem;" data-t="contact_wa_sub">Chat langsung via WhatsApp</div>
+                            </div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(10,102,194,0.1);flex-shrink:0;">
+                                <i class="bi bi-linkedin" style="color:#0a66c2;"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.85rem;">LinkedIn</div>
+                                <div class="text-muted" style="font-size:0.78rem;">linkedin.com/in/hiu-kencana-widhi</div>
+                            </div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VIEW PROYEK -->
+    <div class="modal fade" id="projModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden; max-height:90vh;">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(var(--accent-rgb), 0.1);">
+                            <i class="bi bi-layers-fill text-accent fs-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="h6 fw-bold mb-0" data-t="proj_modal_title">Detail Proyek</h2>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-2">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div id="modalProjCarousel" class="carousel carousel-dark slide rounded-3 overflow-hidden bg-light" data-bs-ride="carousel" style="max-height:220px;">
+                                <div class="carousel-inner" id="modalProjImages" style="max-height:220px;">
+                                    <!-- Images injected by JS -->
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#modalProjCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#modalProjCarousel" data-bs-slide-to="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex flex-column">
+                            <span id="modalProjCat" class="text-muted small fw-semibold text-uppercase mb-1" style="letter-spacing:1px;"></span>
+                            <h4 id="modalProjTitle" class="h6 fw-bold mb-2"></h4>
+                            <div class="p-3 rounded-3 mb-3" style="background:var(--bg); border:1px solid var(--border);">
+                                <p id="modalProjDesc" class="text-muted small mb-0 lh-lg" style="text-align:justify;"></p>
+                            </div>
+                            <div id="modalProjTags" class="project-tags mb-4">
+                                <!-- Tags injected by JS -->
+                            </div>
+                            <div class="mt-auto">
+                                <a id="modalProjBtn" href="#" target="_blank" rel="noopener" class="btn btn-primary w-100" style="display:none;">
+                                    <i class="bi bi-box-arrow-up-right me-2"></i><span data-t="proj_demo">Demo Website</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        // Clean up on close to prevent flash
+        const imageModal = document.getElementById('imageModal');
+        if (imageModal) {
+            imageModal.addEventListener('show.bs.modal', event => {
+                const button = event.relatedTarget;
+                const src = button.getAttribute('data-src');
+                const modalImg = imageModal.querySelector('#lightboxImg');
+                modalImg.src = src;
+            });
+            imageModal.addEventListener('hidden.bs.modal', () => {
+                const modalImg = imageModal.querySelector('#lightboxImg');
+                modalImg.src = '';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pengalaman kerja dan magang Hiu Kencana Widhi.">
+    <title>Pengalaman | Hiu Kencana Widhi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../../assets/images/brand/logo-favicon.png">
+</head>
+<body>
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+    <aside id="nav-drawer" class="nav-drawer" role="dialog" aria-modal="true" aria-label="Menu Navigasi">
+        <div class="drawer-header">
+            <a class="drawer-brand" href="../../index.html">PORTFOLIO</a>
+            <button id="drawer-close" class="drawer-close" aria-label="Tutup menu"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <nav class="drawer-nav">
+            <a class="nav-link" href="../../index.html"><i class="bi bi-house nav-icon"></i> <span data-t="nav_home">Home</span></a>
+            <a class="nav-link" href="pengalaman.html"><i class="bi bi-briefcase nav-icon"></i> <span data-t="nav_exp">Experience</span></a>
+            <a class="nav-link" href="proyek.html"><i class="bi bi-layers nav-icon"></i> <span data-t="nav_proj">Projects</span></a>
+            <a class="nav-link" href="keahlian.html"><i class="bi bi-tools nav-icon"></i> <span data-t="nav_skill">Skills</span></a>
+            <a class="nav-link" href="sertifikat.html"><i class="bi bi-patch-check nav-icon"></i> <span data-t="nav_cert">Certificates</span></a>
+            <a class="nav-link" href="dokumentasi.html"><i class="bi bi-camera nav-icon"></i> <span data-t="nav_doc">Gallery</span></a>
+            <a class="nav-link" href="kontak.html"><i class="bi bi-envelope nav-icon"></i> <span data-t="nav_contact">Contact</span></a>
+        </nav>
+        <div class="drawer-footer d-flex flex-column gap-3">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <span class="theme-label" data-t="theme_label">Tampilan Gelap</span>
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="bi bi-moon theme-icon"></i>
+                </button>
+            </div>
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <span class="theme-label" data-t="lang_label">Bahasa</span>
+                <div class="drawer-lang">
+                    <button class="lang-btn" data-lang="id">ID</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler" type="button" aria-label="Buka menu">
+                <span class="tog-bar"></span><span class="tog-bar"></span><span class="tog-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">PORTFOLIO</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html" data-t="nav_home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pengalaman.html" data-t="nav_exp">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyek.html" data-t="nav_proj">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="keahlian.html" data-t="nav_skill">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sertifikat.html" data-t="nav_cert">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dokumentasi.html" data-t="nav_doc">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html" data-t="nav_contact">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="lang-toggle ms-lg-3" id="lang-toggle">
+                            <span class="lang-toggle-text" data-lang="id">ID</span>
+                            <span class="divider"></span>
+                            <span class="lang-toggle-text active-lang" data-lang="en">EN</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle ms-2" aria-label="Toggle Theme"><i class="bi bi-moon theme-icon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <!-- SEKSI 1: PENGALAMAN KERJA -->
+        <div class="page-header pt-0">
+            <h1 class="h3 fw-bold mb-1" data-t="exp_work_title">Work Experience</h1>
+            <p data-t="exp_work_desc">A history of professional work and freelance projects.</p>
+        </div>
+        <div class="exp-collage-grid mb-5">
+            <!-- Admin Gudang -->
+            <div class="exp-bento-card exp-wide" style="border-top: 4px solid var(--blue);" 
+                 data-title="exp_admin_title" data-comp="exp_admin_comp" data-loc="loc_sidoarjo" data-desc="exp_admin_desc"
+                 data-logo="../../assets/images/experience/logo-bbb.png">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center rounded-circle" style="width:52px;height:52px;background:white;flex-shrink:0;overflow:hidden;border:1px solid var(--border);">
+                        <img src="../../assets/images/experience/logo-bbb.png" alt="Logo PT. BBB" style="width:100%;height:100%;object-fit:cover;"  >
+                    </div>
+                    <div><h2 class="h6 fw-bold mb-1" data-t="exp_admin_title">Raw Material Warehouse Admin</h2><p class="text-accent small fw-semibold mb-0" data-t="exp_admin_comp">PT. Bismillah Bisnis Barokah</p></div>
+                </div>
+                <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="loc_sidoarjo">Sidoarjo, East Java</span></p>
+                <ul class="list-unstyled mb-0 small text-muted">
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_admin_l1">Memastikan kesesuaian stok fisik dengan pencatatan di sistem.</span></li>
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_admin_l2">Membuat dan mengelola dokumen surat jalan.</span></li>
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_admin_l3">Menerapkan manajemen penyimpanan metode FIFO.</span></li>
+                    <li class="d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_admin_l4">Proses pengiriman barang ke pihak logistik/klien secara akurat.</span></li>
+                </ul>
+                <div class="mt-3 pt-3" style="border-top: 1px solid var(--border);">
+                    <a href="dokumentasi.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                        <i class="bi bi-camera me-2"></i><span data-t="btn_view_doc">Lihat Dokumentasi</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Instalasi WiFi -->
+            <div class="exp-bento-card exp-narrow" style="border-top: 4px solid var(--blue);"
+                 data-title="exp_wifi_title" data-comp="Independen" data-loc="loc_sidoarjo" data-desc="exp_wifi_desc"
+                 data-icon="bi bi-wifi">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center rounded-circle" style="width:52px;height:52px;background:rgba(var(--accent-rgb), 0.1);flex-shrink:0;"><i class="bi bi-wifi fs-4" style="color:var(--blue);"></i></div>
+                    <div><h2 class="h6 fw-bold mb-1" data-t="exp_wifi_title">Instalasi WiFi (Freelance)</h2><p class="text-accent small fw-semibold mb-0">Independen</p></div>
+                </div>
+                <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="loc_sidoarjo">Sidoarjo, Jawa Timur</span></p>
+                <ul class="list-unstyled mb-0 small text-muted">
+                    <li class="d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_wifi_l1">Pemasangan, konfigurasi, dan troubleshooting perangkat jaringan internet mandiri untuk klien.</span></li>
+                </ul>
+                <div class="mt-3 pt-3" style="border-top: 1px solid var(--border);">
+                    <a href="dokumentasi.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                        <i class="bi bi-camera me-2"></i><span data-t="btn_view_doc">Lihat Dokumentasi</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Joki Skripsi -->
+            <div class="exp-bento-card exp-wide" style="border-top: 4px solid #E08D4A;"
+                 data-title="exp_joki_title" data-comp="exp_joki_comp" data-loc="loc_sidoarjo" data-desc="exp_joki_desc"
+                 data-icon="bi bi-mortarboard-fill">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center rounded-circle" style="width:52px;height:52px;background:rgba(245,158,11,0.1);flex-shrink:0;"><i class="bi bi-mortarboard-fill fs-4" style="color:#f59e0b;"></i></div>
+                    <div><h2 class="h6 fw-bold mb-1" data-t="exp_joki_title">Joki Skripsi & Tugas (Freelance)</h2><p class="text-accent small fw-semibold mb-0" data-t="exp_joki_comp">Mandiri / Independen</p></div>
+                </div>
+                <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="loc_sidoarjo">Sidoarjo, Jawa Timur</span></p>
+                <ul class="list-unstyled mb-0 small text-muted">
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_joki_l1">Memberikan asistensi dalam penyusunan riset ilmiah, tugas akhir, dan analisis data statistik.</span></li>
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_joki_l2">Mengolah data penelitian menggunakan tools seperti SPSS, SmartPLS, dan Excel Advanced.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SEKSI 2: PENGALAMAN MAGANG -->
+        <div class="page-header pt-5">
+            <h2 class="h3 fw-bold mb-1" data-t="exp_intern_title">Pengalaman Magang</h2>
+            <p data-t="exp_intern_desc">Pengalaman praktis di industri selama masa pendidikan.</p>
+        </div>
+        <div class="exp-collage-grid mb-5">
+            <!-- Operasional Lapangan (DMK) -->
+            <div class="exp-bento-card exp-narrow" style="border-top: 4px solid #2A5C6D;"
+                 data-title="exp_cargo_title" data-comp="exp_cargo_comp" data-loc="loc_juanda" data-desc="exp_cargo_desc"
+                 data-logo="../../assets/images/experience/logo-dmk.png">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center rounded-circle" style="width:52px;height:52px;background:white;flex-shrink:0;overflow:hidden;border:1px solid var(--border);">
+                        <img src="../../assets/images/experience/logo-dmk.png" alt="Logo PT. DMK" style="width:100%;height:100%;object-fit:cover;"  >
+                    </div>
+                    <div><h2 class="h6 fw-bold mb-1" data-t="exp_cargo_title">Operasional Lapangan (Magang)</h2><p class="text-accent small fw-semibold mb-0" data-t="exp_cargo_comp">PT. Dian Mega Kurnia</p></div>
+                </div>
+                <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="loc_juanda">Bandara Juanda, Surabaya, Jawa Timur</span></p>
+                <ul class="list-unstyled mb-0 small text-muted">
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_cargo_l1">Administrasi pengiriman &amp; dokumen kargo.</span></li>
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_cargo_l2">Optimasi penataan barang kargo di gudang.</span></li>
+                    <li class="d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_cargo_l3">Instalasi perangkat WiFi operasional.</span></li>
+                </ul>
+                <div class="mt-3 pt-3" style="border-top: 1px solid var(--border);">
+                    <a href="dokumentasi.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                        <i class="bi bi-camera me-2"></i><span data-t="btn_view_doc">Lihat Dokumentasi</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Teknisi Lapangan -->
+            <div class="exp-bento-card exp-wide" style="border-top: 4px solid #ea580c;"
+                 data-title="exp_telkom_title" data-comp="exp_telkom_comp" data-loc="loc_batang" data-desc="exp_telkom_desc"
+                 data-logo="../../assets/images/experience/logo-telkom.png">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center rounded-circle" style="width:52px;height:52px;background:white;flex-shrink:0;overflow:hidden;border:1px solid var(--border);">
+                        <img src="../../assets/images/experience/logo-telkom.png" alt="Logo Telkom" style="width:100%;height:100%;object-fit:cover;"  >
+                    </div>
+                    <div><h2 class="h6 fw-bold mb-1" data-t="exp_telkom_title">Teknisi Lapangan (Magang)</h2><p class="text-accent small fw-semibold mb-0" data-t="exp_telkom_comp">PT. Telkom Indonesia</p></div>
+                </div>
+                <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="loc_batang">Batang, Jawa Tengah</span></p>
+                <ul class="list-unstyled mb-0 small text-muted">
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_telkom_l1">Instalasi &amp; aktivasi layanan IndiHome.</span></li>
+                    <li class="d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_telkom_l2">Analisis &amp; penanganan gangguan internet.</span></li>
+                </ul>
+                <div class="mt-3 pt-3" style="border-top: 1px solid var(--border);">
+                    <a href="dokumentasi.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                        <i class="bi bi-camera me-2"></i><span data-t="btn_view_doc">Lihat Dokumentasi</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEKSI 3: PENGALAMAN ORGANISASI -->
+        <div class="page-header pt-5">
+            <h2 class="h3 fw-bold mb-1" data-t="nav_org">Pengalaman Organisasi</h2>
+            <p data-t="org_page_desc">Kontribusi dan peran aktif saya dalam organisasi dan pengabdian masyarakat.</p>
+        </div>
+
+        <div class="exp-collage-grid mb-4">
+            <!-- Ketua Divisi Media -->
+            <div class="exp-bento-card exp-narrow" style="border-top: 4px solid #8b5cf6;"
+                 data-title="exp_media_title" data-comp="exp_media_org" data-loc="loc_sidoarjo" data-desc="exp_media_desc"
+                 data-logo="../../assets/images/experience/logo-hima.jpg">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center rounded-circle" style="width:52px;height:52px;background:white;flex-shrink:0;overflow:hidden;border:1px solid var(--border);">
+                        <img src="../../assets/images/experience/logo-hima.jpg" alt="Logo HMTL" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div><h2 class="h6 fw-bold mb-1" data-t="exp_media_title">Ketua Divisi Media</h2><p class="text-accent small fw-semibold mb-0" data-t="exp_media_org">Himpunan Mahasiswa Teknik Logistik</p></div>
+                </div>
+                <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="loc_sidoarjo">Sidoarjo, Jawa Timur</span></p>
+                <ul class="list-unstyled mb-0 small text-muted">
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_media_l1">Memimpin tim media dalam pengelolaan platform sosial media dan website organisasi.</span></li>
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_media_l2">Mengoordinasi pembuatan konten visual dan publikasi kegiatan himpunan.</span></li>
+                    <li class="d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_media_l3">Merancang strategi komunikasi digital.</span></li>
+                </ul>
+            </div>
+
+            <!-- Sekretaris KKN -->
+            <div class="exp-bento-card exp-wide" style="border-top: 4px solid #10b981;"
+                 data-title="exp_kkn_title" data-comp="exp_kkn_org" data-loc="loc_kediri" data-desc="exp_kkn_desc"
+                 data-logo="../../assets/images/experience/logo-kkn.png">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center rounded-circle" style="width:52px;height:52px;background:white;flex-shrink:0;overflow:hidden;border:1px solid var(--border);">
+                        <img src="../../assets/images/experience/logo-kkn.png" alt="Logo KKN" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div><h2 class="h6 fw-bold mb-1" data-t="exp_kkn_title">Sekretaris KKN Group 02</h2><p class="text-accent small fw-semibold mb-0" data-t="exp_kkn_org">KKN Desa Belor, Kota Kediri</p></div>
+                </div>
+                <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="loc_kediri">Kediri, Jawa Timur</span></p>
+                <ul class="list-unstyled mb-0 small text-muted">
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_kkn_l1">Mengelola administrasi, surat-menyurat, dan dokumentasi resmi program KKN.</span></li>
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_kkn_l2">Menyusun proposal program kerja dan laporan akhir pelaksanaan KKN secara komprehensif.</span></li>
+                    <li class="d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_kkn_l4">Mengelola arsip data dan logbook harian seluruh anggota kelompok.</span></li>
+                </ul>
+            </div>
+
+            <!-- Koordinator Makrab -->
+            <div class="exp-bento-card exp-wide" style="border-top: 4px solid #f43f5e;"
+                 data-title="exp_makrab_title" data-comp="exp_makrab_org" data-loc="loc_sidoarjo" data-desc="exp_makrab_desc"
+                 data-logo="../../assets/images/experience/logo-hima.jpg">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center rounded-circle" style="width:52px;height:52px;background:white;flex-shrink:0;overflow:hidden;border:1px solid var(--border);">
+                        <img src="../../assets/images/experience/logo-hima.jpg" alt="Logo HMTL" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div><h2 class="h6 fw-bold mb-1" data-t="exp_makrab_title">Koordinator Media Makrab Teklog</h2><p class="text-accent small fw-semibold mb-0" data-t="exp_makrab_org">Teknik Logistik ITICM</p></div>
+                </div>
+                <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="loc_sidoarjo">Sidoarjo, Jawa Timur</span></p>
+                <ul class="list-unstyled mb-0 small text-muted">
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_makrab_l1">Merancang seluruh identitas visual acara mulai dari poster, banner, hingga ID card peserta.</span></li>
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_makrab_l2">Memimpin tim dokumentasi dalam pengambilan foto dan video selama acara berlangsung.</span></li>
+                </ul>
+            </div>
+
+            <!-- Koordinator Seminar -->
+            <div class="exp-bento-card exp-narrow" style="border-top: 4px solid #3b82f6;"
+                 data-title="exp_sem_title" data-comp="exp_sem_org" data-loc="loc_sidoarjo" data-desc="exp_sem_desc"
+                 data-logo="../../assets/images/experience/logo-logistik.png">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center rounded-circle" style="width:52px;height:52px;background:white;flex-shrink:0;overflow:hidden;border:1px solid var(--border);">
+                        <img src="../../assets/images/experience/logo-logistik.png" alt="Logo Teklog" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div><h2 class="h6 fw-bold mb-1" data-t="exp_sem_title">Koordinator Media Seminar</h2><p class="text-accent small fw-semibold mb-0" data-t="exp_sem_org">Seminar Nasional Teknik Logistik</p></div>
+                </div>
+                <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="loc_sidoarjo">Sidoarjo, Jawa Timur</span></p>
+                <ul class="list-unstyled mb-0 small text-muted">
+                    <li class="mb-2 d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_sem_l1">Mengelola publikasi digital dan kampanye pendaftaran peserta di media sosial.</span></li>
+                    <li class="d-flex gap-2"><i class="bi bi-check2 text-accent mt-1"></i><span data-t="exp_sem_l2">Bertanggung jawab atas teknis live streaming.</span></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL VIEW PENGALAMAN -->
+    <div class="modal fade" id="expModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border);">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title h6 fw-bold" data-t="exp_modal_title">Detail Pengalaman</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-2">
+                    <div class="text-center mb-4">
+                        <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle shadow-sm" style="width:80px;height:80px;background:white; overflow:hidden; border:2px solid var(--border);">
+                            <i id="modalExpIcon" class="" style="display:none;"></i>
+                            <img id="modalExpLogo" src="" alt="Logo" style="width:100%; height:100%; object-fit:cover; display:none;">
+                        </div>
+                        <h4 class="h5 fw-bold mb-1" id="modalExpTitle"></h4>
+                        <p class="text-accent fw-semibold mb-1" id="modalExpComp"></p>
+                        <p class="text-muted small mb-0"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span id="modalExpLoc"></span></p>
+                    </div>
+                    <div class="p-3 rounded-3" style="background:var(--bg); border:1px solid var(--border);">
+                        <p class="text-muted small mb-0 lh-lg" id="modalExpDesc" style="text-align:justify;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer pt-5 pb-4">
+        <div class="container">
+            <!-- CTA SECTION -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card p-4 p-lg-5 text-center" id="ctaCardBtn" style="background: linear-gradient(135deg, #2A5C6D 0%, #1A3C47 100%); border:none; cursor:pointer;">
+                        <h3 class="h4 fw-bold text-white mb-3" data-t="footer_cta_title">Tertarik bekerja sama? Yuk, ngobrol!</h3>
+                        <p class="text-white text-opacity-75 mb-4 mx-auto" style="max-width:600px;" data-t="footer_cta_desc">
+                            Saya selalu terbuka untuk diskusi mengenai peluang kerja, proyek freelance, atau sekadar bertukar pikiran.
+                        </p>
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
+                            <a href="mailto:hiukencanawidhi@hotmail.com" class="btn btn-light px-4" onclick="event.stopPropagation();">
+                                <i class="bi bi-envelope-fill me-2"></i>Email Me
+                            </a>
+                            <a href="https://wa.me/6285174208810" class="btn btn-outline-light px-4" onclick="event.stopPropagation();">
+                                <i class="bi bi-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- BIO & STATUS -->
+                <div class="col-lg-5 col-md-12">
+                    <h3 class="h6 fw-bold mb-3" style="color:var(--accent);letter-spacing:1px;">PORTFOLIO</h3>
+                    <p class="text-muted small mb-4" style="max-width:400px;" data-t="footer_text">
+                        Fresh graduate Teknik Logistik & IT Enthusiast. Menggabungkan efisiensi rantai pasok dengan inovasi teknologi.
+                    </p>
+                    <div class="d-flex flex-column gap-2">
+                        <div class="d-flex align-items-center gap-2 text-muted small">
+                            <i class="bi bi-geo-alt-fill text-danger"></i>
+                            <span data-t="footer_loc">Berbasis di Sidoarjo, Indonesia</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 text-muted small">
+                            <i class="bi bi-circle-fill text-success" style="font-size:0.5rem;"></i>
+                            <span data-t="footer_status">Tersedia untuk Freelance & Full-time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEATURED PROJECTS -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h6 fw-bold mb-3" data-t="footer_featured">Proyek Unggulan</h4>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li><a href="#" class="footer-link footer-project-link" 
+                            data-title="proj_wms_title" data-cat="proj_web_cat" data-desc="proj_wms_desc"
+                            data-tags="Barang Masuk, Barang Keluar, Monitoring Stok, Laporan & Grafik, AI Assistant"
+                            data-images="../../assets/images/projects/Warehouse Management System (WMS)/admin/1`.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/2.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/3.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/4.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/5.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/6.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/7.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/8.png, ../../assets/images/projects/Warehouse Management System (WMS)/admin/9.png, ../../assets/images/projects/Warehouse Management System (WMS)/user/1.png, ../../assets/images/projects/Warehouse Management System (WMS)/user/2.png, ../../assets/images/projects/Warehouse Management System (WMS)/user/3.png"
+                            data-demo="http://wms-hiu.full.diskon.cloud/login">Warehouse System (WMS)</a></li>
+                        <li><a href="#" class="footer-link footer-project-link" 
+                            data-title="proj_ta_title" data-cat="proj_ta_cat" data-desc="proj_ta_desc"
+                            data-tags="SketchUp, Analisis Data, SLP Method"
+                            data-images="../../assets/images/projects/logistics-opt/1.png, ../../assets/images/projects/logistics-opt/2.png">Logistics Optimization</a></li>
+                        <li><a href="#" class="footer-link footer-project-link" 
+                            data-title="proj_fin_title" data-cat="proj_web_cat" data-desc="proj_fin_desc"
+                            data-tags="Arus Kas, Manajemen Transaksi, Secure Auth"
+                            data-demo="http://catatan-keuangan.full.diskon.cloud"
+                            data-images="../../assets/images/projects/Financial Recording System/admin/1.png, ../../assets/images/projects/Financial Recording System/admin/2.png, ../../assets/images/projects/Financial Recording System/admin/3.png, ../../assets/images/projects/Financial Recording System/admin/4.png, ../../assets/images/projects/Financial Recording System/admin/5.png, ../../assets/images/projects/Financial Recording System/user/1.png, ../../assets/images/projects/Financial Recording System/user/2.png, ../../assets/images/projects/Financial Recording System/user/3.png">Financial Recording</a></li>
+                        <li><a href="#" class="footer-link footer-project-link" 
+                            data-title="proj_stock_title" data-cat="proj_web_cat" data-desc="proj_stock_desc"
+                            data-tags="Stok Produk, Transaksi, Laporan Laba Rugi, Kategori"
+                            data-images="../../assets/images/projects/Management Stock Konter/admin/1.png, ../../assets/images/projects/Management Stock Konter/admin/2.png, ../../assets/images/projects/Management Stock Konter/admin/3.png, ../../assets/images/projects/Management Stock Konter/admin/4.png, ../../assets/images/projects/Management Stock Konter/admin/5.png, ../../assets/images/projects/Management Stock Konter/admin/6.png, ../../assets/images/projects/Management Stock Konter/admin/7.png, ../../assets/images/projects/Management Stock Konter/admin/8.png, ../../assets/images/projects/Management Stock Konter/admin/9.png, ../../assets/images/projects/Management Stock Konter/user/1.png, ../../assets/images/projects/Management Stock Konter/user/2.png, ../../assets/images/projects/Management Stock Konter/user/3.png">Counter Stock Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- CONTACT & SOCIAL -->
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="h6 fw-bold mb-3" data-t="footer_social">Sosial Media</h4>
+                    <p class="text-muted small mb-3">hiukencanawidhi@hotmail.com</p>
+                    <div class="d-flex gap-2 mb-4">
+                        <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="mailto:hiukencanawidhi@hotmail.com" class="social-btn" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://instagram.com/hiukencana" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4" style="border-color:var(--border);">
+            
+            <!-- COPYRIGHT -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-muted small mb-0" data-t="footer_copyright">© 2026 Hiu Kencana Widhi. Seluruh hak cipta dilindungi.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-muted small hover-accent">Privacy Policy</a>
+                    <a href="#" class="text-muted small hover-accent">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- CONTACT MODAL -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width:460px;">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden;">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(var(--accent-rgb), 0.1);">
+                            <i class="bi bi-chat-dots-fill text-accent fs-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="h6 fw-bold mb-0" data-t="footer_cta_title">Tertarik bekerja sama?</h2>
+                            <p class="text-muted small mb-0" data-t="contact_modal_sub">Pilih cara terbaik untuk menghubungi saya</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 pt-3 pb-4">
+                    <div class="d-flex align-items-center gap-2 mb-3 p-2 rounded-3" style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.2);">
+                        <i class="bi bi-circle-fill text-success" style="font-size:0.5rem;"></i>
+                        <span class="text-muted small" data-t="footer_status">Tersedia untuk Freelance &amp; Full-time</span>
+                    </div>
+                    <div class="d-flex flex-column gap-2 mb-3">
+                        <a href="mailto:hiukencanawidhi@hotmail.com" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(var(--accent-rgb), 0.1);flex-shrink:0;"><i class="bi bi-envelope-fill text-accent"></i></div>
+                            <div><div class="fw-semibold" style="font-size:0.85rem;">Email</div><div class="text-muted" style="font-size:0.78rem;">hiukencanawidhi@hotmail.com</div></div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                        <a href="https://wa.me/6285174208810" target="_blank" rel="noopener" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(37,211,102,0.1);flex-shrink:0;"><i class="bi bi-whatsapp" style="color:#25d366;"></i></div>
+                            <div><div class="fw-semibold" style="font-size:0.85rem;">WhatsApp</div><div class="text-muted" style="font-size:0.78rem;" data-t="contact_wa_sub">Chat langsung via WhatsApp</div></div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(10,102,194,0.1);flex-shrink:0;"><i class="bi bi-linkedin" style="color:#0a66c2;"></i></div>
+                            <div><div class="fw-semibold" style="font-size:0.85rem;">LinkedIn</div><div class="text-muted" style="font-size:0.78rem;">linkedin.com/in/hiu-kencana-widhi</div></div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                        <a href="https://github.com/hiu-kencana-widhi" target="_blank" rel="noopener" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(0,0,0,0.06);flex-shrink:0;"><i class="bi bi-github" style="color:var(--text);"></i></div>
+                            <div><div class="fw-semibold" style="font-size:0.85rem;">GitHub</div><div class="text-muted" style="font-size:0.78rem;">github.com/hiu-kencana-widhi</div></div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                    </div>
+                    <hr style="border-color:var(--border);">
+                    <a href="kontak.html" class="btn btn-primary btn-sm w-100">
+                        <i class="bi bi-send me-2"></i><span data-t="nav_contact">Halaman Kontak</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VIEW PROYEK -->
+    <div class="modal fade" id="projModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden; max-height:90vh;">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(var(--accent-rgb), 0.1);">
+                            <i class="bi bi-layers-fill text-accent fs-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="h6 fw-bold mb-0" data-t="proj_modal_title">Detail Proyek</h2>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-2">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div id="modalProjCarousel" class="carousel carousel-dark slide rounded-3 overflow-hidden bg-light" data-bs-ride="carousel" style="max-height:220px;">
+                                <div class="carousel-inner" id="modalProjImages" style="max-height:220px;">
+                                    <!-- Images injected by JS -->
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#modalProjCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#modalProjCarousel" data-bs-slide-to="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div id="modalProjIframeContainer" class="rounded-3 overflow-hidden border mt-3" style="height:200px; display:none;">
+                                <iframe id="modalProjIframe" src="" class="w-100 h-100" style="border:none;"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex flex-column">
+                            <span id="modalProjCat" class="text-muted small fw-semibold text-uppercase mb-1" style="letter-spacing:1px;"></span>
+                            <h4 id="modalProjTitle" class="h6 fw-bold mb-2"></h4>
+                            <div class="p-3 rounded-3 mb-3" style="background:var(--bg); border:1px solid var(--border);">
+                                <p id="modalProjDesc" class="text-muted small mb-0 lh-lg" style="text-align:justify;"></p>
+                            </div>
+                            <div id="modalProjTags" class="project-tags mb-4">
+                                <!-- Tags injected by JS -->
+                            </div>
+                            <div class="mt-auto">
+                                <a id="modalProjBtn" href="#" target="_blank" rel="noopener" class="btn btn-primary w-100" style="display:none;">
+                                    <i class="bi bi-box-arrow-up-right me-2"></i><span data-t="proj_demo">Demo Website</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 450px;">
+            <div class="modal-content" style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden;">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-3" style="width:44px;height:44px;background:rgba(var(--accent-rgb), 0.1);">
+                            <i class="bi bi-chat-dots-fill text-accent fs-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="h6 fw-bold mb-0" data-t="footer_cta_title">Mari Berdiskusi</h2>
+                            <p class="text-muted small mb-0" data-t="contact_modal_sub">Pilih metode yang paling nyaman bagi Anda</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-flex flex-column gap-2">
+                        <a href="mailto:hiukencanawidhi@hotmail.com" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(var(--accent-rgb), 0.1);flex-shrink:0;">
+                                <i class="bi bi-envelope-fill text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.85rem;">Email</div>
+                                <div class="text-muted" style="font-size:0.78rem;">hiukencanawidhi@hotmail.com</div>
+                            </div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                        <a href="https://wa.me/6285174208810" target="_blank" rel="noopener" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(37,211,102,0.1);flex-shrink:0;">
+                                <i class="bi bi-whatsapp" style="color:#25d366;"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.85rem;">WhatsApp</div>
+                                <div class="text-muted" style="font-size:0.78rem;" data-t="contact_wa_sub">Chat langsung via WhatsApp</div>
+                            </div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none contact-option-row">
+                            <div class="d-flex align-items-center justify-content-center rounded-2" style="width:38px;height:38px;background:rgba(10,102,194,0.1);flex-shrink:0;">
+                                <i class="bi bi-linkedin" style="color:#0a66c2;"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.85rem;">LinkedIn</div>
+                                <div class="text-muted" style="font-size:0.78rem;">linkedin.com/in/hiu-kencana-widhi</div>
+                            </div>
+                            <i class="bi bi-arrow-right ms-auto text-muted"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>
