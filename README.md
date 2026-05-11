@@ -1,3 +1,4 @@
+![Deskripsi](resume/RESUME-HIU KENCANA WIDHI.png)
 Selamat datang di portfolio saya!
 
 
