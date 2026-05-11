@@ -46,19 +46,34 @@ body.dark-mode {
 /* --- RESET & BASE --- */
 *, *::before, *::after { box-sizing: border-box; }
 
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.7;
-    margin: 0;
     overflow-x: hidden;
     animation: page-enter 0.32s ease both;
+    -webkit-overflow-scrolling: touch;
+    overflow-wrap: break-word;
 }
 
 @keyframes page-enter {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+main {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body.page-exit {
@@ -443,6 +458,14 @@ body.drawer-open {
 .hero-section {
     padding: 60px 0 48px;
     border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+}
+
+@media (max-width: 576px) {
+    .hero-section .display-3 {
+        font-size: 2.5rem; /* Shrink large title on mobile */
+    }
 }
 
 .hero-img-wrap {
@@ -598,6 +621,13 @@ body.dark-mode .badge {
     color: var(--accent) !important;
     background: none;
     -webkit-background-clip: unset;
+}
+
+#typed-text {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
     -webkit-text-fill-color: unset;
     font-weight: 700;
 }
@@ -991,6 +1021,8 @@ body.dark-mode .edu-item:hover {
     grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: minmax(180px, auto);
     gap: 1.5rem;
+    width: 100%;
+    overflow: hidden;
 }
 
 .skill-bento-card {
