@@ -1,18 +1,6 @@
-![Deskripsi](resume/RESUME-HIU.png)
 Selamat datang di portfolio saya!
 
+HTML | CSS | JavaScript
+https://hiu-kencana-widhi.github.io/portfolio | GitHub @hiu-kencana-widhi
 
-🛠️ Tech Stack
-- HTML
-- CSS
-- JavaScript
-
-
-🌐 Lihat Portfolio
-
-https://hiu-kencana-widhi.github.io/portfolio
-
-
-📬 Kontak
-
-GitHub @hiu-kencana-widhi
+![Deskripsi](resume/RESUME-HIU.png)
