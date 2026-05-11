@@ -43,6 +43,21 @@ body.dark-mode {
     --bs-primary-rgb: 78, 155, 155;
 }
 
+body.dark-mode, 
+body.dark-mode p, 
+body.dark-mode span, 
+body.dark-mode div, 
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6,
+body.dark-mode li,
+body.dark-mode a:not(.btn) {
+    color: var(--text);
+}
+
 /* --- RESET & BASE --- */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -527,11 +542,30 @@ body.drawer-open {
     border: 1px solid var(--border) !important;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
     transform: none !important;
     transform-style: flat;
     will-change: auto;
+    overflow: hidden; /* Ensure top-bar doesn't spill */
+    position: relative;
+}
+
+/* Uniform Theme Top-Bar (Applies to specific card types) */
+.card, .skill-bento-card, .exp-bento-card, .project-card {
+    border-top: 4px solid #2A5C6D !important;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Remove Top-Bar for specific cards (e.g., CTA and Certificates) */
+#ctaCardBtn, .no-accent, .cert-card {
+    border-top: none !important;
+}
+
+body.dark-mode .card:not(.cert-card), 
+body.dark-mode .skill-bento-card, 
+body.dark-mode .exp-bento-card, 
+body.dark-mode .project-card {
+    border-top-color: #4E9B9B !important;
 }
 
 .card:hover {
@@ -627,7 +661,6 @@ body.dark-mode .badge {
     display: inline-block;
     max-width: 100%;
     overflow-wrap: break-word;
-}
     -webkit-text-fill-color: unset;
     font-weight: 700;
 }
@@ -805,6 +838,11 @@ body.dark-mode .btn-close {
 .cert-card {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-top: 4px solid #2A5C6D !important;
+}
+
+body.dark-mode .cert-card {
+    border-top-color: #4E9B9B !important;
 }
 
 .cert-card:hover {
@@ -1022,7 +1060,8 @@ body.dark-mode .edu-item:hover {
     grid-auto-rows: minmax(180px, auto);
     gap: 1.5rem;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
+    padding-top: 8px; /* Room for hover lift */
 }
 
 .skill-bento-card {
