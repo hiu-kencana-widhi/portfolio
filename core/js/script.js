@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         id: {
             nav_home: "Beranda", nav_exp: "Pengalaman", nav_proj: "Proyek", nav_skill: "Keahlian", nav_cert: "Sertifikat", nav_doc: "Dokumentasi", nav_contact: "Kontak",
-            hero_title: "Portfolio Profesional", hero_subtitle: "Hiu Kencana Widhi", hero_loc: "Sidoarjo, Jawa Timur",
+            hero_title: "Portfolio Profesional", hero_subtitle: "Hiu Kencana Widhi", hero_loc: "Pemalang, Jawa Tengah",
             btn_email: "Email Saya", btn_wa: "WhatsApp", btn_cv: "Unduh CV", btn_view_doc: "Lihat Dokumentasi",
             click_detail: "Klik untuk detail lebih lanjut",
             modal_about_exp: "Pengalaman", modal_about_cert: "Sertifikat",
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_cta_title: "Tertarik bekerja sama? Yuk, ngobrol!",
             footer_cta_desc: "Saya selalu terbuka untuk diskusi mengenai peluang kerja, proyek freelance, atau sekadar bertukar pikiran.",
             footer_status: "Tersedia untuk Freelance & Full-time",
-            footer_loc: "Berbasis di Sidoarjo, Indonesia",
+            footer_loc: "Berbasis di Pemalang, Indonesia",
             footer_text: "Fresh graduate Teknik Logistik & IT Enthusiast. Menggabungkan efisiensi rantai pasok dengan inovasi teknologi.",
             footer_featured: "Proyek Unggulan", 
             footer_social: "Sosial Media",
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             nav_home: "Home", nav_exp: "Experience", nav_proj: "Projects", nav_skill: "Skills", nav_cert: "Certificates", nav_doc: "Gallery", nav_contact: "Contact",
-            hero_title: "Professional Portfolio", hero_subtitle: "Hiu Kencana Widhi", hero_loc: "Sidoarjo, East Java",
+            hero_title: "Professional Portfolio", hero_subtitle: "Hiu Kencana Widhi", hero_loc: "Pemalang, Central Java",
             btn_email: "Email Me", btn_wa: "WhatsApp", btn_cv: "Download CV", btn_view_doc: "View Gallery",
             click_detail: "Click for more details",
             modal_about_exp: "Experience", modal_about_cert: "Certificates",
@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_cta_title: "Interested in collaborating? Let's talk!",
             footer_cta_desc: "I am always open to discussing job opportunities, freelance projects, or just sharing thoughts.",
             footer_status: "Available for Freelance & Full-time",
-            footer_loc: "Based in Sidoarjo, Indonesia",
+            footer_loc: "Based in Pemalang, Indonesia",
             footer_text: "Fresh graduate in Logistics Engineering & IT Enthusiast. Combining supply chain efficiency with technological innovation.",
             footer_featured: "Featured Projects", 
             footer_social: "Social Media",
@@ -401,7 +401,6 @@ document.addEventListener('DOMContentLoaded', () => {
         drawerEl.classList.add('open');
         backdropEl.classList.add('show');
         document.body.classList.add('drawer-open');
-        if (navbarEl) navbarEl.classList.add('navbar-hidden');
         // Focus trap: focus first link
         const firstLink = drawerEl.querySelector('a, button');
         if (firstLink) firstLink.focus();
@@ -412,7 +411,6 @@ document.addEventListener('DOMContentLoaded', () => {
         drawerEl.classList.remove('open');
         backdropEl.classList.remove('show');
         document.body.classList.remove('drawer-open');
-        if (navbarEl) navbarEl.classList.remove('navbar-hidden');
     }
 
     if (toggleBtn) {
@@ -965,14 +963,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Contact Form Submission ---
+    // --- Contact Form Submission to WhatsApp ---
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Simulate sending (you can add actual EmailJS or backend logic here)
-            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-            successModal.show();
+            
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+
+            const name = nameInput ? nameInput.value.trim() : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+            const subject = subjectInput ? subjectInput.value.trim() : '';
+            const message = messageInput ? messageInput.value.trim() : '';
+
+            let waText = `Halo Hiu Kencana Widhi,\n\nSaya ingin menghubungi Anda via Portofolio:\n`;
+            if (name) waText += `• *Nama*: ${name}\n`;
+            if (email) waText += `• *Email*: ${email}\n`;
+            if (subject) waText += `• *Subjek*: ${subject}\n`;
+            if (message) waText += `\n*Pesan*:\n${message}`;
+
+            const waUrl = `https://wa.me/6285174208810?text=${encodeURIComponent(waText)}`;
+            window.open(waUrl, '_blank');
             contactForm.reset();
         });
     }

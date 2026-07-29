@@ -8,73 +8,77 @@
 
 /* --- ROOT VARIABLES --- */
 :root {
+    --font-apple-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-apple-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-apple-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
     --bg-main:     #FAFAF9;         /* White Linen: Putih hangat, mengurangi silau */
-    --bg-surface:  #FFFFFF;         /* Pure White: Latar belakang kartu/seksi */
-    --bg-hover:    #2563EB;         /* Trust Blue: Biru kuat, aksi primer */
+    --bg-surface:  rgba(255, 255, 255, 0.55);
+    --bg-hover:    #284F8C;         
     --bg-hover-text: #FFFFFF;
-    --border-color: #B4C3D0;        /* Muted slate-gray untuk border shadow */
-    --border-light: #FFFFFF;        /* White highlight untuk bevel */
-    --primary:     #2563EB;         /* Trust Blue */
-    --primary-hover: #1D4ED8;       /* Deep Dive */
-    --primary-light: #EFF6FF;       /* Latar aktif sangat lembut */
-    --primary-border: #B4C3D0;
-    --secondary:   #0F766E;         /* Soft Teal: Aksen pendukung */
-    --secondary-glow: rgba(15, 118, 110, 0.15);
-    --text-main:   #1A2238;         /* Deep Ink: Teks utama biru kehitaman */
-    --text-muted:  #5A6B7D;         /* Muted Slate: Teks sekunder abu kebiruan */
-    --text-light:  #7C8BA1;
+    --border-color: rgba(255, 255, 255, 0.6);
+    --border-light: #FFFFFF;
+    --primary:     #284F8C;         
+    --primary-hover: #1d3b6a;       
+    --primary-light: rgba(40, 79, 140, 0.08);
+    --primary-border: rgba(255, 255, 255, 0.6);
+    --secondary:   #0F766E;         
+    --secondary-glow: transparent;
+    --text-main:   #1d1d1f;         
+    --text-muted:  #6e6e73;         
+    --text-light:  #86868b;
     
-    --blue:        #2563EB;
-    --blue-light:  #1D4ED8;
+    --blue:        #284F8C;
+    --blue-light:  #1d3b6a;
     --bg:          #FAFAF9;
-    --surface:     #FFFFFF;
-    --border:      #B4C3D0;
-    --text:        #1A2238;
-    --muted:       #5A6B7D;
-    --accent:      #2563EB;
-    --accent-secondary: #0F766E;
-    --accent-rgb:  37, 99, 235;
-    --radius:      0px;
-    --shadow:      2px 2px 0px rgba(26, 34, 56, 0.08);
-    --shadow-md:   2px 2px 0px rgba(26, 34, 56, 0.1);
+    --surface:     rgba(255, 255, 255, 0.55);
+    --border:      rgba(255, 255, 255, 0.6);
+    --text:        #1d1d1f;
+    --muted:       #6e6e73;
+    --accent:      #284F8C;
+    --accent-secondary: #30B0C7;
+    --accent-rgb:  40, 79, 140;
+    --radius:      16px;
+    --shadow:      0 8px 30px rgba(0, 0, 0, 0.05);
+    --shadow-md:   0 15px 35px rgba(40, 79, 140, 0.1);
     
     /* Bootstrap Override */
-    --bs-primary-rgb: 37, 99, 235;
+    --bs-primary-rgb: 40, 79, 140;
 }
 
 body.dark-mode {
-    --bg-main:     #0B0F19;         /* Deep Ink Dark: Latar belakang utama */
-    --bg-surface:  #131A2A;         /* Deep Ink Slate: Latar permukaan kartu */
-    --bg-hover:    #60A5FA;         /* Bright Trust Blue: Hover/aktif di dark mode */
-    --bg-hover-text: #000000;
-    --border-color: #1E293B;        /* Shadow border arang */
-    --border-light: #2E3A52;        /* Highlight border arang */
-    --primary:     #60A5FA;         /* Bright Trust Blue */
-    --primary-hover: #3B82F6;
-    --primary-light: rgba(96, 165, 250, 0.12);
-    --primary-border: #1E293B;
-    --secondary:   #2DD4BF;         /* Bright Teal: Aksen pendukung dark mode */
-    --secondary-glow: rgba(45, 212, 191, 0.15);
-    --text-main:   #FAFAF9;         /* White Linen: Teks utama kontras tinggi */
-    --text-muted:  #8A9BAE;         /* Muted Slate Light: Teks sekunder */
-    --text-light:  #64748B;
+    --bg-main:     #090d16;         
+    --bg-surface:  rgba(18, 24, 38, 0.55); 
+    --bg-hover:    #4D7CC7;         
+    --bg-hover-text: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --border-light: rgba(255, 255, 255, 0.2);
+    --primary:     #4D7CC7;         
+    --primary-hover: #284F8C;
+    --primary-light: rgba(77, 124, 199, 0.12);
+    --primary-border: rgba(255, 255, 255, 0.12);
+    --secondary:   #2DD4BF;         
+    --secondary-glow: transparent;
+    --text-main:   #f5f5f7;         
+    --text-muted:  #a1a1a6;         
+    --text-light:  #86868b;
 
-    --blue:        #60A5FA;
-    --blue-light:  #3B82F6;
-    --bg:          #0B0F19;
-    --surface:     #131A2A;
-    --border:      #1E293B;
-    --text:        #FAFAF9;
-    --muted:       #8A9BAE;
-    --accent:      #60A5FA;
+    --blue:        #4D7CC7;
+    --blue-light:  #284F8C;
+    --bg:          #090d16;
+    --surface:     rgba(18, 24, 38, 0.55);
+    --border:      rgba(255, 255, 255, 0.12);
+    --text:        #f5f5f7;
+    --muted:       #a1a1a6;
+    --accent:      #4D7CC7;
     --accent-secondary: #2DD4BF;
-    --accent-rgb:  96, 165, 250;
-    --radius:      0px;
-    --shadow:      2px 2px 0px rgba(0, 0, 0, 0.35);
-    --shadow-md:   2px 2px 0px rgba(0, 0, 0, 0.4);
+    --accent-rgb:  77, 124, 199;
+    --radius:      16px;
+    --shadow:      0 8px 30px rgba(0, 0, 0, 0.4);
+    --shadow-md:   0 15px 35px rgba(0, 0, 0, 0.5);
     
     /* Bootstrap Override */
-    --bs-primary-rgb: 96, 165, 250;
+    --bs-primary-rgb: 77, 124, 199;
 }
 
 body.dark-mode, 
@@ -105,12 +109,12 @@ html, body {
 }
 
 body {
-    font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-apple-text);
     background-color: var(--bg);
     color: var(--text);
-    line-height: 1.7;
+    line-height: 1.65;
     font-size: 0.95rem;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.011em;
     overflow-x: hidden;
     animation: page-enter 0.32s ease both;
     -webkit-overflow-scrolling: touch;
@@ -140,11 +144,11 @@ body.page-exit {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
-    font-weight: 800;
+    font-family: var(--font-apple-display);
+    font-weight: 700;
     color: var(--text);
     line-height: 1.25;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.022em;
 }
 
 a { color: var(--accent); text-decoration: none; }
@@ -170,14 +174,14 @@ img { max-width: 100%; height: auto; display: block; }
                 opacity  0.28s ease;
 }
 
-/* Adjust body to prevent content from hiding under fixed navbar */
+/* Adjust body to prevent content from hiding under compact fixed navbar */
 body {
-    padding-top: 52px; /* Slightly increased from 48px */
+    padding-top: 42px;
 }
 
 @media (max-width: 991px) {
     body {
-        padding-top: 48px; /* Slightly increased from 44px */
+        padding-top: 38px;
     }
 }
 
@@ -198,11 +202,11 @@ body {
 }
 
 .navbar-brand {
-    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    font-size: 0.9rem;
+    font-family: var(--font-apple-display);
+    font-weight: 700;
+    font-size: 0.88rem;
     color: var(--text) !important;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
     -webkit-text-fill-color: unset;
@@ -213,10 +217,10 @@ body {
 .navbar-brand::after { display: none; }
 
 .nav-link {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-apple-text);
     font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
+    font-weight: 500;
+    letter-spacing: -0.01em;
     color: var(--muted) !important;
     padding: 3px 10px !important;
     border-radius: 4px;
@@ -286,27 +290,35 @@ body.dark-mode .nav-link.active {
     opacity: 1;
 }
 
-/* Sidebar panel */
+/* Floating Popover Card Menu */
 .nav-drawer {
     position: fixed;
-    top: 0;
-    left: 0;
-    height: 100dvh;
-    width: 280px;
-    max-width: 85vw;
+    top: 46px;
+    right: 12px;
+    left: auto;
+    width: 270px;
+    max-width: calc(100vw - 24px);
+    height: auto;
+    max-height: calc(100dvh - 60px);
     background-color: var(--surface);
-    border-right: 1px solid var(--border);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
     z-index: 1050;
-    transform: translateX(-100%);
-    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-8px) scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .nav-drawer.open {
-    transform: translateX(0);
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Drawer header */
@@ -320,11 +332,11 @@ body.dark-mode .nav-link.active {
 }
 
 .drawer-brand {
-    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    font-size: 0.9rem;
+    font-family: var(--font-apple-display);
+    font-weight: 700;
+    font-size: 0.88rem;
     color: var(--text) !important;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
 }
@@ -367,9 +379,9 @@ body.dark-mode .nav-link.active {
     padding: 11px 16px !important;
     border-radius: 8px;
     font-size: 0.875rem;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-apple-text);
     font-weight: 500;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     color: var(--text) !important;
     text-decoration: none;
     transition: background-color 0.15s, color 0.15s;
@@ -424,12 +436,12 @@ body.drawer-open {
 
 /* Show hamburger only on mobile */
 @media (max-width: 991px) {
-    .navbar-toggler { display: flex; }
+    .navbar-toggler { display: flex; order: 2 !important; margin-left: auto !important; }
     .navbar-collapse { display: none !important; } /* hide default collapse, drawer handles it */
 
-    /* Hamburger LEFT — brand pushed to RIGHT for visual balance */
-    .navbar .container { flex-wrap: nowrap; }
-    .navbar-brand { margin-left: auto !important; margin-right: 0 !important; }
+    /* Brand LEFT — Hamburger RIGHT */
+    .navbar .container { flex-wrap: nowrap !important; justify-content: space-between !important; }
+    .navbar-brand { margin-left: 0 !important; margin-right: auto !important; order: 1 !important; }
 }
 
 /* --- LANGUAGE TOGGLE --- */
@@ -594,7 +606,7 @@ body.drawer-open {
 
 /* Uniform Theme Top-Bar (Applies to specific card types) */
 .card, .skill-bento-card, .exp-bento-card, .project-card {
-    border-top: 4px solid #2A5C6D !important;
+    border-top: 4px solid var(--accent) !important;
     overflow: hidden;
     position: relative;
 }
@@ -608,7 +620,7 @@ body.dark-mode .card:not(.cert-card),
 body.dark-mode .skill-bento-card, 
 body.dark-mode .exp-bento-card, 
 body.dark-mode .project-card {
-    border-top-color: #4E9B9B !important;
+    border-top-color: var(--accent) !important;
 }
 
 .card:hover {
@@ -629,7 +641,7 @@ body.dark-mode .card:hover {
 
 /* --- BUTTONS --- */
 .btn-primary, .btn-outline-primary, .btn {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-apple-text);
     border-radius: 6px;
     padding: 10px 24px;
     font-weight: 600;
@@ -1647,33 +1659,54 @@ body.dark-mode .contact-info-card:hover {
 
 
 /* ==========================================================================
-   WINDOWS VISTA / RETRO-MODERN CLASSIC OS THEME OVERRIDES (KONCONEMBANG)
+   APPLE macOS / iOS VIBRANT GLASSMORPHISM (CLEAR OS) THEME OVERRIDES
    ========================================================================== */
 
-/* --- UNIVERSAL 90 DEGREE CORNERS --- */
-*, *::before, *::after {
-    border-radius: 0px !important;
+/* --- DYNAMIC AMBIENT MESH BACKGROUND --- */
+body {
+    background: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%), 
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.12) 0px, transparent 50%), 
+                radial-gradient(at 50% 100%, rgba(56, 189, 248, 0.12) 0px, transparent 50%), 
+                #f8fafc !important;
+    background-attachment: fixed !important;
+    color: #1d1d1f !important;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", sans-serif !important;
 }
 
-/* --- SCROLLBAR OVERRIDES --- */
+body.dark-mode {
+    background: radial-gradient(at 0% 0%, rgba(30, 27, 75, 0.6) 0px, transparent 50%), 
+                radial-gradient(at 100% 0%, rgba(88, 28, 135, 0.4) 0px, transparent 50%), 
+                radial-gradient(at 50% 100%, rgba(15, 23, 42, 0.8) 0px, transparent 50%), 
+                #090d16 !important;
+    background-attachment: fixed !important;
+    color: #f5f5f7 !important;
+}
+
+/* --- APPLE MAC OS SCROLLBAR --- */
 ::-webkit-scrollbar {
-    width: 14px !important;
-    height: 14px !important;
+    width: 8px !important;
+    height: 8px !important;
 }
 ::-webkit-scrollbar-track {
-    background: var(--bg) !important;
-    border-left: 1px solid var(--border-color) !important;
+    background: transparent !important;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--bg-surface) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
+    background: rgba(0, 0, 0, 0.18) !important;
+    border-radius: 9999px !important;
+    border: 2px solid transparent !important;
+    background-clip: content-box !important;
 }
-::-webkit-scrollbar-thumb:active {
-    border-color: var(--border-color) var(--border-light) var(--border-light) var(--border-color) !important;
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 122, 255, 0.5) !important;
+}
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22) !important;
+}
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: rgba(96, 165, 250, 0.6) !important;
 }
 
-/* --- TACTILE OUTSET BEVEL FOR CARDS, MODALS, AND BOXES --- */
+/* --- GLASSMORPHIC CARDS, PANELS & CONTAINERS --- */
 .card, 
 .skill-bento-card, 
 .exp-bento-card, 
@@ -1682,18 +1715,16 @@ body.dark-mode .contact-info-card:hover {
 .cert-card, 
 .contact-form-card, 
 .contact-info-card, 
-.modal-content, 
-.form-control,
-.form-select,
-.contact-option-row,
-.badge {
-    background: var(--bg-surface) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15) !important;
-    border-radius: 0px !important;
-    transition: none !important;
-    transform: none !important;
+.contact-option-row {
+    background: rgba(255, 255, 255, 0.55) !important;
+    backdrop-filter: blur(25px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+    border-radius: 20px !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease !important;
 }
 
 body.dark-mode .card, 
@@ -1704,15 +1735,15 @@ body.dark-mode .edu-item,
 body.dark-mode .cert-card, 
 body.dark-mode .contact-form-card, 
 body.dark-mode .contact-info-card, 
-body.dark-mode .modal-content, 
-body.dark-mode .form-control,
-body.dark-mode .form-select,
-body.dark-mode .contact-option-row,
-body.dark-mode .badge {
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35) !important;
+body.dark-mode .contact-option-row {
+    background: rgba(18, 24, 38, 0.55) !important;
+    backdrop-filter: blur(25px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Rigid panel layouts: disable any hover translates */
+/* Card Hover Elevation (Clean Floating Window Effect without Glow) */
 .card:hover, 
 .skill-bento-card:hover, 
 .exp-bento-card:hover, 
@@ -1722,9 +1753,9 @@ body.dark-mode .badge {
 .contact-form-card:hover, 
 .contact-info-card:hover,
 .contact-option-row:hover {
-    transform: none !important;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15) !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+    border-color: rgba(0, 122, 255, 0.4) !important;
 }
 
 body.dark-mode .card:hover, 
@@ -1736,15 +1767,218 @@ body.dark-mode .cert-card:hover,
 body.dark-mode .contact-form-card:hover, 
 body.dark-mode .contact-info-card:hover,
 body.dark-mode .contact-option-row:hover {
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5) !important;
+    border-color: rgba(96, 165, 250, 0.4) !important;
 }
 
-/* Contact option active row highlight */
-.contact-option-row:hover {
-    background-color: var(--primary-light) !important;
+/* Clean up accent top bar for glass design */
+.card, .skill-bento-card, .exp-bento-card, .project-card, .cert-card {
+    border-top: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+body.dark-mode .card, 
+body.dark-mode .skill-bento-card, 
+body.dark-mode .exp-bento-card, 
+body.dark-mode .project-card, 
+body.dark-mode .cert-card {
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
-/* --- TACTILE OUTSET BEVEL FOR BUTTONS & TOGGLES --- */
+/* --- APPLE MAC OS COMPACT NAVBAR & MENU BAR --- */
+.navbar {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(25px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02) !important;
+    padding: 3px 0 !important;
+    min-height: 38px !important;
+    transition: all 0.3s ease !important;
+}
+
+body.dark-mode .navbar {
+    background: rgba(11, 15, 25, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.navbar .container {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+
+.navbar .navbar-brand,
+.drawer-brand {
+    font-family: var(--font-apple-display) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    font-size: 0.85rem !important;
+    color: #1d1d1f !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transition: all 0.25s ease !important;
+}
+
+body.dark-mode .navbar .navbar-brand,
+body.dark-mode .drawer-brand {
+    color: #f5f5f7 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.navbar .navbar-brand:hover,
+.drawer-brand:hover {
+    transform: scale(1.02) !important;
+    box-shadow: none !important;
+    color: #284F8C !important;
+}
+body.dark-mode .navbar .navbar-brand:hover,
+body.dark-mode .drawer-brand:hover {
+    color: #4D7CC7 !important;
+}
+
+.navbar .nav-link {
+    font-family: var(--font-apple-text) !important;
+    font-weight: 500 !important;
+    font-size: 0.78rem !important;
+    color: #515154 !important;
+    border-radius: 8px !important;
+    padding: 3px 9px !important;
+    margin: 0 1px !important;
+    border: none !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+body.dark-mode .navbar .nav-link {
+    color: #a1a1a6 !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #284F8C !important;
+    background: rgba(40, 79, 140, 0.1) !important;
+}
+
+body.dark-mode .navbar .nav-link:hover,
+body.dark-mode .navbar .nav-link.active {
+    color: #4D7CC7 !important;
+    background: rgba(77, 124, 199, 0.15) !important;
+}
+
+.navbar .lang-toggle {
+    height: 24px !important;
+    padding: 1px 6px !important;
+    font-size: 0.7rem !important;
+}
+
+.navbar .theme-toggle {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 0.78rem !important;
+}
+
+/* --- APPLE FLOATING DROPDOWN CARD MENU OVERRIDES --- */
+.nav-drawer {
+    right: 12px !important;
+    left: auto !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(30px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(190%) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16) !important;
+}
+
+body.dark-mode .nav-drawer {
+    background: rgba(18, 24, 38, 0.96) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.drawer-header {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+body.dark-mode .drawer-header {
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.drawer-nav {
+    padding: 4px 0 !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+.drawer-nav .nav-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px 18px !important;
+    border-radius: 0 !important;
+    font-size: 0.88rem !important;
+    font-family: var(--font-apple-text) !important;
+    font-weight: 500 !important;
+    color: var(--text) !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    transition: background-color 0.15s, color 0.15s !important;
+    margin: 0 !important;
+}
+
+body.dark-mode .drawer-nav .nav-link {
+    border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.drawer-nav .nav-link:last-child {
+    border-bottom: none !important;
+}
+
+.drawer-nav .nav-link:hover,
+.drawer-nav .nav-link.active {
+    background: rgba(40, 79, 140, 0.08) !important;
+    color: #284F8C !important;
+}
+
+body.dark-mode .drawer-nav .nav-link:hover,
+body.dark-mode .drawer-nav .nav-link.active {
+    background: rgba(77, 124, 199, 0.15) !important;
+    color: #4D7CC7 !important;
+}
+
+.drawer-nav .nav-link .nav-icon {
+    font-size: 1.05rem !important;
+    width: 22px !important;
+    text-align: center !important;
+    color: var(--muted) !important;
+}
+
+.drawer-nav .nav-link:hover .nav-icon,
+.drawer-nav .nav-link.active .nav-icon {
+    color: #284F8C !important;
+}
+
+body.dark-mode .drawer-nav .nav-link:hover .nav-icon,
+body.dark-mode .drawer-nav .nav-link.active .nav-icon {
+    color: #4D7CC7 !important;
+}
+
+.drawer-footer {
+    padding: 12px 16px !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+}
+
+body.dark-mode .drawer-footer {
+    border-top-color: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* --- APPLE BUTTONS & CONTROLS --- */
 .btn,
 .lang-toggle,
 .theme-toggle,
@@ -1753,37 +1987,51 @@ body.dark-mode .contact-option-row:hover {
 .contact-fab,
 .drawer-close,
 .lang-btn {
-    -webkit-appearance: none !important;
-    appearance: none !important;
-    border-radius: 0px !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    background: var(--bg-surface) !important;
-    color: var(--text) !important;
-    box-shadow: none !important;
-    font-weight: 800 !important;
-    transition: none !important;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transform: none !important;
+    border-radius: 12px !important;
+    font-family: var(--font-apple-text) !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    color: #1d1d1f !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Custom resets for specific button types */
+body.dark-mode .btn,
+body.dark-mode .lang-toggle,
+body.dark-mode .theme-toggle,
+body.dark-mode .social-btn,
+body.dark-mode .back-to-top,
+body.dark-mode .contact-fab,
+body.dark-mode .drawer-close,
+body.dark-mode .lang-btn {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #f5f5f7 !important;
+}
+
+/* Primary Action Pill (Solid #284F8C Blue) */
 .btn-primary,
-.btn-secondary,
-.btn-outline-primary,
-.btn-outline-light,
-.btn-light,
-.btn-outline-secondary {
-    background: var(--bg-surface) !important;
-    color: var(--text) !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
+.btn-primary:focus {
+    background: #284F8C !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 9999px !important;
+    padding: 10px 24px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* Hover highlights (Standard Classic Vista Deep Selection) */
+.btn-primary:hover {
+    background: #1d3b6a !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Button Hover Interactive Lift */
 .btn:hover,
 .lang-toggle:hover,
 .theme-toggle:hover,
@@ -1792,81 +2040,103 @@ body.dark-mode .contact-option-row:hover {
 .contact-fab:hover,
 .drawer-close:hover,
 .lang-btn:hover {
-    background: var(--bg-hover) !important;
-    color: var(--bg-hover-text) !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    text-decoration: none !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    border-color: rgba(40, 79, 140, 0.4) !important;
+    color: #284F8C !important;
 }
 
-.btn:hover *,
-.lang-toggle:hover *,
-.theme-toggle:hover *,
-.social-btn:hover *,
-.back-to-top:hover *,
-.contact-fab:hover *,
-.drawer-close:hover *,
-.lang-btn:hover * {
-    color: var(--bg-hover-text) !important;
+body.dark-mode .btn:hover,
+body.dark-mode .lang-toggle:hover,
+body.dark-mode .theme-toggle:hover,
+body.dark-mode .social-btn:hover,
+body.dark-mode .back-to-top:hover,
+body.dark-mode .contact-fab:hover,
+body.dark-mode .drawer-close:hover,
+body.dark-mode .lang-btn:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(77, 124, 199, 0.4) !important;
+    color: #4D7CC7 !important;
 }
 
-/* Tactile push-down on active press */
-.btn:active,
-.lang-toggle:active,
-.theme-toggle:active,
-.social-btn:active,
-.back-to-top:active,
-.contact-fab:active,
-.drawer-close:active,
-.lang-btn:active {
-    border-color: var(--border-color) var(--border-light) var(--border-light) var(--border-color) !important;
-    background: var(--primary-light) !important;
-    transform: translate(1px, 1px) !important;
+/* Circle Controls (FAB, Back to top, Theme, Close) */
+.theme-toggle,
+.social-btn,
+.back-to-top,
+.contact-fab,
+.drawer-close {
+    border-radius: 9999px !important;
+}
+
+/* --- APPLE MODAL & TRAFFIC LIGHT CLOSE --- */
+.modal-content {
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(30px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12) !important;
+    overflow: hidden !important;
+}
+
+body.dark-mode .modal-content {
+    background: rgba(20, 26, 42, 0.82) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+    padding: 1.25rem 1.5rem !important;
+}
+
+body.dark-mode .modal-header {
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* macOS Traffic Light Close Button (No Glow) */
+.btn-close {
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    border-radius: 50% !important;
+    background-color: #FF5F56 !important;
+    border: 1px solid #E0443E !important;
+    opacity: 1 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+    background-image: none !important;
+}
+
+.btn-close:hover {
+    background-color: #ff3b30 !important;
+    transform: scale(1.1) !important;
     box-shadow: none !important;
 }
 
-.btn:active *,
-.lang-toggle:active *,
-.theme-toggle:active *,
-.social-btn:active *,
-.back-to-top:active *,
-.contact-fab:active *,
-.drawer-close:active *,
-.lang-btn:active * {
-    color: var(--text) !important;
+body.dark-mode .btn-close {
+    background-image: none !important;
+    filter: none !important;
 }
 
-/* Modal window close button override (Windows red styling) */
-.btn-close {
-    border-radius: 0px !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    background-color: var(--bg-surface) !important;
-    opacity: 1 !important;
-    padding: 0.5rem !important;
-    transition: none !important;
-}
-.btn-close:hover {
-    background-color: #ff4d4d !important;
-    color: white !important;
-}
-.btn-close:active {
-    border-color: var(--border-color) var(--border-light) var(--border-light) var(--border-color) !important;
-    transform: translate(1px, 1px) !important;
-}
-
-/* --- BADGES & TAGS --- */
+/* --- APPLE BADGES, TAGS & CHIPS --- */
 .skill-badge,
 .project-tag,
-.focus-badge {
-    background: var(--bg-surface) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.15) !important;
-    border-radius: 0px !important;
-    color: var(--text) !important;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
-    font-weight: bold !important;
-    padding: 4px 10px !important;
+.focus-badge,
+.badge {
+    border-radius: 12px !important;
+    font-family: var(--font-apple-text) !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    padding: 5px 12px !important;
+    background: rgba(40, 79, 140, 0.08) !important;
+    color: #284F8C !important;
+    border: 1px solid rgba(40, 79, 140, 0.2) !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
     display: inline-flex !important;
     align-items: center !important;
     gap: 6px !important;
@@ -1874,373 +2144,237 @@ body.dark-mode .contact-option-row:hover {
 
 body.dark-mode .skill-badge,
 body.dark-mode .project-tag,
-body.dark-mode .focus-badge {
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35) !important;
+body.dark-mode .focus-badge,
+body.dark-mode .badge {
+    background: rgba(77, 124, 199, 0.12) !important;
+    color: #4D7CC7 !important;
+    border-color: rgba(77, 124, 199, 0.25) !important;
 }
 
 .skill-badge:hover,
-.project-tag:hover {
-    background: var(--bg-hover) !important;
-    color: var(--bg-hover-text) !important;
-}
-.skill-badge:hover img {
-    filter: brightness(0) invert(1) !important;
+.project-tag:hover,
+.focus-badge:hover {
+    transform: translateY(-2px) !important;
+    background: rgba(40, 79, 140, 0.18) !important;
 }
 
-/* --- ICON BOX SQUARE EFFECT --- */
-.icon-box {
-    border-radius: 0px !important;
-    background: var(--bg-surface) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.15) !important;
-    overflow: hidden !important;
+body.dark-mode .skill-badge:hover,
+body.dark-mode .project-tag:hover,
+body.dark-mode .focus-badge:hover {
+    background: rgba(77, 124, 199, 0.22) !important;
 }
 
-body.dark-mode .icon-box {
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35) !important;
+/* Badge primary override */
+.badge.text-bg-primary,
+.badge.bg-primary {
+    background: #284F8C !important;
+    color: #ffffff !important;
+    border: none !important;
 }
 
-/* --- TIMELINE DECORATION --- */
-.timeline::before {
-    border-left: 2px dashed var(--border-color) !important;
-    background: none !important;
-}
-.timeline-item::before {
-    border-radius: 0px !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    background-color: var(--bg-surface) !important;
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.15) !important;
-    width: 14px !important;
-    height: 14px !important;
-    left: -29px !important;
-    top: 4px !important;
-}
-.timeline-item:hover::before {
-    background-color: var(--bg-hover) !important;
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.15) !important;
-    transform: none !important;
+/* --- APPLE FORM CONTROLS --- */
+.form-control,
+.form-select {
+    border-radius: 12px !important;
+    font-family: var(--font-apple-text) !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    color: #1d1d1f !important;
+    padding: 10px 14px !important;
+    transition: all 0.2s ease !important;
 }
 
-/* --- TYPOGRAPHY & MONOSPACE HIGHLIGHTS --- */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #f5f5f7 !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: #284F8C !important;
+    box-shadow: none !important;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background: rgba(18, 24, 38, 0.8) !important;
+    border-color: #4D7CC7 !important;
+    box-shadow: none !important;
+}
+
+/* --- APPLE VIBRANT ACCENT TEXT & TYPOGRAPHY --- */
 #typed-text,
 .text-accent,
 .page-header h1 span,
 .page-header h2 span {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+    font-family: var(--font-apple-display) !important;
     font-weight: 800 !important;
-    color: var(--primary) !important;
-    border-bottom: none !important;
-    background: transparent !important;
-    -webkit-background-clip: initial !important;
-    -webkit-text-fill-color: initial !important;
+    color: #284F8C !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    display: inline-block !important;
 }
 
 body.dark-mode #typed-text,
 body.dark-mode .text-accent,
 body.dark-mode .page-header h1 span,
 body.dark-mode .page-header h2 span {
-    color: var(--primary) !important;
+    color: #4D7CC7 !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
 }
 
-/* --- NAVBAR OVERRIDES --- */
-.navbar {
-    background: var(--bg-surface) !important;
-    border-bottom: 2px solid var(--border-color) !important;
-    box-shadow: none !important;
-    padding: 0.75rem 0 !important;
-}
-.navbar .navbar-brand,
-.drawer-brand {
-    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-    color: var(--text) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    padding: 4px 12px !important;
-    background: var(--bg-surface) !important;
-    text-decoration: none !important;
-    display: inline-block !important;
-    transition: none !important;
-}
-
-.navbar .navbar-brand:hover,
-.navbar .navbar-brand:focus,
-.drawer-brand:hover,
-.drawer-brand:focus {
-    color: var(--text) !important;
-    background: var(--bg-surface) !important;
-    text-decoration: none !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-}
-
-.navbar .navbar-brand:active,
-.drawer-brand:active {
-    border-color: var(--border-color) var(--border-light) var(--border-light) var(--border-color) !important;
-    background: var(--primary-light) !important;
-    transform: translate(1px, 1px) !important;
-}
-.navbar .nav-link {
-    font-weight: bold !important;
-    color: var(--text) !important;
-    border: 2px solid transparent !important;
-    padding: 6px 14px !important;
-    margin: 0 4px;
-}
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-    background: var(--bg-hover) !important;
-    color: var(--bg-hover-text) !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    text-decoration: none !important;
-}
-
-/* --- DRAWER (SIDEBAR) OVERRIDES --- */
-.nav-drawer {
-    background: var(--bg-surface) !important;
-    border-right: 2px solid var(--border-color) !important;
-    box-shadow: none !important;
-}
-.nav-drawer .nav-link {
-    font-weight: bold !important;
-    color: var(--text) !important;
-    border: 2px solid transparent !important;
-    margin-bottom: 6px !important;
-}
-.nav-drawer .nav-link:hover,
-.nav-drawer .nav-link.active {
-    background: var(--bg-hover) !important;
-    color: var(--bg-hover-text) !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-}
-.nav-drawer .nav-link:hover .nav-icon,
-.nav-drawer .nav-link.active .nav-icon {
-    color: var(--bg-hover-text) !important;
-}
-
-/* --- FOOTER OVERRIDES --- */
-.footer {
-    background: var(--bg-surface) !important;
-    border-top: 2px solid var(--border-color) !important;
-    color: var(--text) !important;
-    margin-top: 4rem !important;
-}
-.footer hr {
-    border-color: var(--border-color) !important;
-}
-
-/* --- CONTACT CTA OVERRIDE --- */
-#ctaCardBtn {
-    background: var(--bg-surface) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15) !important;
-}
-body.dark-mode #ctaCardBtn {
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35) !important;
-}
-#ctaCardBtn h3,
-#ctaCardBtn p {
-    color: var(--text) !important;
-}
-#ctaCardBtn .btn-light,
-#ctaCardBtn .btn-outline-light {
-    background: var(--bg-surface) !important;
-    color: var(--text) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-}
-#ctaCardBtn .btn-light:hover,
-#ctaCardBtn .btn-outline-light:hover {
-    background: var(--bg-hover) !important;
-    color: var(--bg-hover-text) !important;
-}
-
-/* --- ACCENT BORDERS ON CARDS --- */
-.cert-card {
-    border-top: 4px solid var(--primary) !important;
-}
-.cert-img-wrap {
-    border-bottom: 2px solid var(--border-color) !important;
-}
-
-/* --- FORM ELEMENTS — INTER FOR READABILITY --- */
-.form-control,
-.form-select {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 0.9rem !important;
-    border-color: var(--border-color) var(--border-light) var(--border-light) var(--border-color) !important;
-    background-color: var(--bg-surface) !important;
-    color: var(--text) !important;
-}
-.form-control:focus,
-.form-select:focus {
-    box-shadow: none !important;
-    border-color: var(--primary) !important;
-    background-color: var(--bg-surface) !important;
-}
-
-/* --- PORTFOLIO HEADER DETAILS --- */
 .page-header {
-    border-bottom: 2px dashed var(--border-color) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
     padding-bottom: 1.5rem !important;
     margin-bottom: 2.5rem !important;
 }
 
-/* --- PROJECT IMAGES AND SCREEN WRAPPERS --- */
-.project-img-wrap {
-    border-bottom: 2px solid var(--border-color) !important;
+body.dark-mode .page-header {
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
 }
+
+/* --- HERO PROFILE IMAGE GLASS WRAP (NO GLOW) --- */
+.hero-img {
+    border-radius: 50% !important;
+    border: 4px solid rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+}
+
+body.dark-mode .hero-img {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+#heroPhotoBtn:hover .hero-img {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* --- CTA CARD CLEAN APPLE GLASS STYLING (#284F8C) --- */
+#ctaCardBtn {
+    background: #284F8C !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+#ctaCardBtn h3,
+#ctaCardBtn p {
+    color: #ffffff !important;
+}
+
+#ctaCardBtn .btn-light {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #284F8C !important;
+    border-radius: 9999px !important;
+    border: none !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+#ctaCardBtn .btn-light:hover {
+    background: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+}
+
+#ctaCardBtn .btn-outline-light {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 9999px !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+#ctaCardBtn .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* --- FOOTER GLASS STYLING --- */
+.footer {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+body.dark-mode .footer {
+    background: rgba(11, 15, 25, 0.6) !important;
+    border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* --- TIMELINE DECORATION (NO GLOW) --- */
+.timeline::before {
+    background: rgba(40, 79, 140, 0.3) !important;
+    width: 2px !important;
+    border: none !important;
+}
+.timeline-item::before {
+    border-radius: 50% !important;
+    border: 2px solid #ffffff !important;
+    background-color: #284F8C !important;
+    box-shadow: none !important;
+    width: 14px !important;
+    height: 14px !important;
+    left: -29px !important;
+    top: 4px !important;
+}
+
+body.dark-mode .timeline-item::before {
+    border-color: #0b0f19 !important;
+    background-color: #4D7CC7 !important;
+    box-shadow: none !important;
+}
+
+/* --- ICON BOX GLASS WRAPPER --- */
+.icon-box {
+    border-radius: 14px !important;
+    background: rgba(40, 79, 140, 0.08) !important;
+    border: 1px solid rgba(40, 79, 140, 0.15) !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: none !important;
+}
+
+body.dark-mode .icon-box {
+    background: rgba(77, 124, 199, 0.1) !important;
+    border-color: rgba(77, 124, 199, 0.2) !important;
+}
+
+/* --- MACBOOK MOCKUP CORNERS --- */
 .macbook-mockup .screen {
-    border: 4px solid var(--border-color) !important;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 12px 12px 0 0 !important;
+    border: 4px solid #1a1a1a !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15) !important;
 }
-body.dark-mode .macbook-mockup .screen {
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35) !important;
-}
+
 .macbook-mockup .keyboard {
-    background: var(--bg-surface) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15) !important;
-}
-body.dark-mode .macbook-mockup .keyboard {
-    background: var(--bg-surface) !important;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35) !important;
+    border-radius: 0 0 12px 12px !important;
+    border: none !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1) !important;
 }
 
-
-/* ==========================================================================
-   EXTRA COLOR CONSISTENCY & CONTRAST FIXES
-   ========================================================================== */
-
-/* 1. Muted & Secondary Text Contrast Overrides (Light & Dark) */
+/* Contrast text overrides */
 .text-muted, 
 .text-muted *,
-.text-secondary,
-.text-secondary *,
+body.dark-mode .text-muted {
+    color: #6e6e73 !important;
+}
 body.dark-mode .text-muted,
-body.dark-mode .text-secondary {
-    color: var(--muted) !important;
+body.dark-mode .text-muted * {
+    color: #a1a1a6 !important;
 }
 
-/* 2. Text Utility Color Mapping to Theme Palette */
-.text-primary,
-body.dark-mode .text-primary {
-    color: var(--primary) !important;
-}
-.text-dark,
-body.dark-mode .text-dark {
-    color: var(--text) !important;
-}
-body.dark-mode .text-success {
-    color: #2ecc71 !important; /* High contrast green in dark mode */
-}
-body.dark-mode .text-danger {
-    color: #ff5252 !important; /* High contrast red in dark mode */
-}
-body.dark-mode .text-warning {
-    color: #f1c40f !important; /* High contrast yellow in dark mode */
-}
-body.dark-mode .text-info {
-    color: #00e5ff !important; /* High contrast cyan in dark mode */
-}
-
-/* 3. Badge Color & Visibility Fixes */
-.badge {
-    color: var(--text) !important;
-}
-.badge.text-bg-primary,
-.badge.bg-primary {
-    background: var(--primary) !important;
-    color: var(--bg-hover-text) !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-}
-.badge.text-bg-secondary,
-.badge.bg-secondary {
-    background: var(--secondary) !important;
-    color: var(--bg-hover-text) !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-}
-.badge.text-bg-accent,
-.badge.bg-accent,
-.badge.text-bg-info,
-.badge.bg-info {
-    background: var(--accent) !important;
-    color: var(--bg-hover-text) !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-}
-.badge:hover {
-    background: var(--bg-hover) !important;
-    color: var(--bg-hover-text) !important;
-}
-
-/* 4. Language Selector and Toggle Interaction Fixes */
-.lang-toggle .active-lang {
-    color: var(--primary) !important;
-}
-.lang-toggle:hover .active-lang {
-    color: var(--bg-hover-text) !important;
-}
-.lang-toggle:hover .divider {
-    background-color: var(--bg-hover-text) !important;
-}
-.lang-btn.active {
-    background: var(--bg-hover) !important;
-    color: var(--bg-hover-text) !important;
-    border-color: var(--border-color) var(--border-light) var(--border-light) var(--border-color) !important;
-}
-
-/* 5. Modal Close Button & Header Borders */
-.btn-close {
-    background-color: var(--bg-surface) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    border-radius: 0px !important;
-    opacity: 1 !important;
-}
-.btn-close:active {
-    border-color: var(--border-color) var(--border-light) var(--border-light) var(--border-color) !important;
-    transform: translate(1px, 1px) !important;
-}
-body.dark-mode .btn-close {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") !important;
-    filter: none !important;
-}
-body.dark-mode .modal-header,
-body.dark-mode .modal-footer {
-    border-color: var(--border-color) !important;
-}
-
-/* 6. Contact & Icon Wrapper Outset Bevel Styles */
-.contact-icon-wrapper {
-    border-radius: 0px !important;
-    background: var(--bg-surface) !important;
-    border: 2px solid !important;
-    border-color: var(--border-light) var(--border-color) var(--border-color) var(--border-light) !important;
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.15) !important;
-}
-body.dark-mode .contact-icon-wrapper {
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35) !important;
-}
-
-/* 7. Carousel Control & Indicator Visibility in Dark Mode */
-body.dark-mode .bg-white {
-    background-color: var(--bg-surface) !important;
-}
-body.dark-mode .bg-light {
-    background-color: var(--bg) !important;
-}
-body.dark-mode .carousel-dark .carousel-control-next-icon,
-body.dark-mode .carousel-dark .carousel-control-prev-icon {
-    filter: none !important;
-}
-body.dark-mode .carousel-dark .carousel-indicators [data-bs-target] {
-    background-color: #fff !important;
-}
 
 
 
