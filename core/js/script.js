@@ -535,9 +535,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const typedEl = document.getElementById('typed-text');
     if (typedEl) {
         let roleIdx = 0;
-        let charIdx = 0;
-        let isDeleting = false;
-        let typingSpeed = 100;
 
         function getRoles() {
             const lang = localStorage.getItem('language') || 'en';
@@ -549,48 +546,21 @@ document.addEventListener('DOMContentLoaded', () => {
             ];
         }
 
-        // On mobile, set static role text to eliminate CPU timer loops completely
-        if (window.innerWidth < 992) {
-            const roles = getRoles();
-            typedEl.textContent = roles[0];
-        } else {
-            // Add cursor element for desktop
-            const cursor = document.createElement('span');
-            cursor.className = 'typing-cursor';
-            typedEl.after(cursor);
+        const roles = getRoles();
+        typedEl.textContent = roles[0];
 
-            function typeEffect() {
-                if (window.scrollY > 350) {
-                    setTimeout(typeEffect, 1000);
-                    return;
-                }
-                const roles = getRoles();
-                const currentRole = roles[roleIdx];
-                
-                if (isDeleting) {
-                    typedEl.textContent = currentRole.substring(0, charIdx - 1);
-                    charIdx--;
-                    typingSpeed = 50;
-                } else {
-                    typedEl.textContent = currentRole.substring(0, charIdx + 1);
-                    charIdx++;
-                    typingSpeed = 100;
-                }
+        // Smooth Fade-Slide Role Transition (replaces old typewriter 'ketikan' effect)
+        setInterval(() => {
+            if (window.scrollY > 400) return;
+            const currentRoles = getRoles();
+            roleIdx = (roleIdx + 1) % currentRoles.length;
 
-                if (!isDeleting && charIdx === currentRole.length) {
-                    isDeleting = true;
-                    typingSpeed = 1500;
-                } else if (isDeleting && charIdx === 0) {
-                    isDeleting = false;
-                    roleIdx = (roleIdx + 1) % roles.length;
-                    typingSpeed = 500;
-                }
-
-                setTimeout(typeEffect, typingSpeed);
-            }
-
-            typeEffect();
-        }
+            typedEl.classList.add('fade-out');
+            setTimeout(() => {
+                typedEl.textContent = currentRoles[roleIdx];
+                typedEl.classList.remove('fade-out');
+            }, 300);
+        }, 2800);
     }
 
     // ============================================================
@@ -1044,14 +1014,92 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Utility: Copy to Clipboard ---
-    window.copyToClipboard = function(text) {
+    // ============================================================
+    // CUSTOM LIGHTWEIGHT TOAST NOTIFICATION & COPY TO CLIPBOARD
+    // ============================================================
+    window.showToast = function(message, type = 'success') {
+        let toastContainer = document.getElementById('toast-container');
+        if (!toastContainer) {
+            toastContainer = document.createElement('div');
+            toastContainer.id = 'toast-container';
+            toastContainer.className = 'toast-container-custom';
+            document.body.appendChild(toastContainer);
+        }
+
+        const toast = document.createElement('div');
+        toast.className = `toast-custom ${type}`;
+        
+        const iconClass = type === 'success' ? 'bi-check-circle-fill text-success' : 'bi-info-circle-fill text-primary';
+        toast.innerHTML = `
+            <i class="bi ${iconClass} me-2 fs-5"></i>
+            <span>${message}</span>
+        `;
+
+        toastContainer.appendChild(toast);
+
+        // Trigger enter animation
+        setTimeout(() => toast.classList.add('show'), 10);
+
+        // Auto remove after 2.5 seconds
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 2500);
+    };
+
+    window.copyToClipboard = function(text, label) {
         navigator.clipboard.writeText(text).then(() => {
-            alert('Berhasil disalin: ' + text);
+            const displayLabel = label || text;
+            window.showToast(`Berhasil disalin: <strong>${displayLabel}</strong>`);
         }).catch(err => {
             console.error('Gagal menyalin: ', err);
+            window.showToast('Gagal menyalin ke clipboard', 'error');
         });
     };
 
+    // ============================================================
+    // PWA SERVICE WORKER REGISTRATION & INSTALL PROMPT
+    // ============================================================
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            const swPath = window.location.pathname.includes('/core/pages/') 
+                ? '../../sw.js'
+                : (window.location.pathname.includes('/resume/') ? '../sw.js' : './sw.js');
+
+            navigator.serviceWorker.register(swPath)
+                .then(reg => {
+                    console.log('[PWA] Service Worker registered successfully:', reg.scope);
+                })
+                .catch(err => {
+                    console.log('[PWA] Service Worker registration failed:', err);
+                });
+        });
+    }
+
+    // PWA Install Prompt Handler
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        
+        const installBtns = document.querySelectorAll('.pwa-install-btn');
+        installBtns.forEach(btn => {
+            btn.style.display = 'inline-flex';
+            btn.addEventListener('click', () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('[PWA] User accepted install prompt');
+                        }
+                        deferredPrompt = null;
+                    });
+                }
+            });
+        });
+    });
+
 });
+
+
 

@@ -775,9 +775,36 @@ body.drawer-open {
     position: relative;
 }
 
-@media (max-width: 576px) {
-    .hero-section .display-3 {
-        font-size: 2.5rem; /* Shrink large title on mobile */
+/* Ensure 'Hiu Kencana Widhi. S.T.' remains on a single line on ALL devices */
+.hero-section [data-t="hero_subtitle"],
+.hero-section h1 {
+    white-space: nowrap !important;
+    font-size: clamp(1.35rem, 5.4vw, 3.5rem) !important;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+}
+
+.hero-section [data-t="hero_title"] {
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .hero-section [data-t="hero_subtitle"],
+    .hero-section h1 {
+        font-size: clamp(1.3rem, 5.2vw, 2.2rem) !important;
+    }
+    .hero-section [data-t="hero_title"] {
+        letter-spacing: 1.5px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-section [data-t="hero_subtitle"],
+    .hero-section h1 {
+        font-size: 1.35rem !important;
+        letter-spacing: -0.3px !important;
     }
 }
 
@@ -1072,6 +1099,39 @@ body.dark-mode .modal-footer {
 
 body.dark-mode .btn-close {
     filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* ============================================================
+   LIGHTWEIGHT 3D BOX SPIN UNFOLD POPUP ANIMATION FOR ALL MODALS
+   ============================================================ */
+.modal {
+    perspective: 1200px;
+}
+
+.modal.fade .modal-dialog {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(-40deg) rotateX(15deg) scale(0.72) translateY(-25px) !important;
+    opacity: 0 !important;
+    transition: transform 0.4s cubic-bezier(0.34, 1.45, 0.64, 1),
+                opacity 0.28s ease !important;
+    will-change: transform, opacity;
+}
+
+.modal.show .modal-dialog {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1) translateY(0) !important;
+    opacity: 1 !important;
+}
+
+/* Card active/click press 3D micro-bounce feedback */
+.card:active,
+.skill-bento-card:active,
+.exp-bento-card:active,
+.project-card:active,
+.cert-card:active,
+.edu-item:active {
+    transform: scale(0.97) rotateX(3deg) !important;
+    transition: transform 0.12s ease !important;
 }
 
 /* --- SKILL BADGES --- */
@@ -2497,18 +2557,24 @@ body.dark-mode .form-select:focus {
     box-shadow: none !important;
 }
 
-/* --- APPLE VIBRANT ACCENT TEXT & TYPOGRAPHY --- */
+/* --- MODERN ACCENT TEXT & HERO ROLE TRANSITION --- */
 #typed-text,
 .text-accent,
 .page-header h1 span,
 .page-header h2 span {
-    font-family: var(--font-apple-display) !important;
+    font-family: 'Plus Jakarta Sans', 'Outfit', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-weight: 800 !important;
     color: #284F8C !important;
     background: none !important;
     -webkit-background-clip: unset !important;
     -webkit-text-fill-color: unset !important;
     display: inline-block !important;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#typed-text.fade-out {
+    opacity: 0 !important;
+    transform: translateY(6px) !important;
 }
 
 body.dark-mode #typed-text,
@@ -2516,9 +2582,6 @@ body.dark-mode .text-accent,
 body.dark-mode .page-header h1 span,
 body.dark-mode .page-header h2 span {
     color: #4D7CC7 !important;
-    background: none !important;
-    -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: unset !important;
 }
 
 .page-header {
@@ -2797,10 +2860,20 @@ body.dark-mode .text-muted * {
         background-color: #0f172a !important;
         background: #0f172a !important;
     }
-    .modal.fade .modal-dialog,
+    /* ── 6. MODAL 3D BOX SPIN POPUP (ULTRA LIGHTWEIGHT GPU) ── */
+    .modal.fade .modal-dialog {
+        perspective: 1200px;
+        transform-style: preserve-3d;
+        transform: perspective(1000px) rotateY(-35deg) rotateX(12deg) scale(0.72) translateY(-20px) !important;
+        opacity: 0 !important;
+        transition: transform 0.38s cubic-bezier(0.34, 1.45, 0.64, 1),
+                    opacity 0.28s ease !important;
+        will-change: transform, opacity;
+    }
+
     .modal.show .modal-dialog {
-        transition: none !important;
-        transform: none !important;
+        transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1) translateY(0) !important;
+        opacity: 1 !important;
     }
 
     /* ── 7. BUTTONS SOLID ── */
@@ -2856,10 +2929,12 @@ body.dark-mode .text-muted * {
         border-top-color: rgba(255, 255, 255, 0.08) !important;
     }
 
-    /* ── 10. SEMBUNYIKAN PETA (3rd party iframe berat) ── */
+    /* ── 10. PETA FOOTER DI MOBILE ── */
     .footer iframe,
     footer iframe {
-        display: none !important;
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
     }
 
     /* ── 11. SCROLL BEHAVIOR INSTAN ── */
@@ -2898,12 +2973,32 @@ body.dark-mode .text-muted * {
         border-color: rgba(77, 124, 199, 0.2) !important;
     }
 
-    /* ── 15. DRAWER OPEN/CLOSE TRANSITION INSTANT ── */
+    /* ── 15. DRAWER 3D BOX SPIN UNFOLD ANIMATION (ULTRA LIGHTWEIGHT GPU) ── */
     .nav-drawer {
-        transition: none !important;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        transform-origin: top right !important;
+        transform: perspective(800px) rotateY(-75deg) rotateX(15deg) scale(0.65) translateY(-20px) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: transform 0.38s cubic-bezier(0.34, 1.45, 0.64, 1),
+                    opacity 0.28s ease !important;
+        will-change: transform, opacity;
     }
-    .drawer-backdrop {
-        transition: none !important;
+
+    .nav-drawer.open {
+        transform: perspective(800px) rotateY(0deg) rotateX(0deg) scale(1) translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    /* Spinning toggler icon on click */
+    .navbar-toggler {
+        transition: transform 0.35s cubic-bezier(0.34, 1.45, 0.64, 1) !important;
+    }
+
+    body.drawer-open .navbar-toggler {
+        transform: rotate(180deg) scale(1.08) !important;
     }
 
     /* ── 16. SWITCH TOGGLE INSTAN ── */
@@ -2964,4 +3059,64 @@ html, body {
 a, button, [role="button"], input, select, textarea {
     touch-action: manipulation;
 }
+
+/* ============================================================
+   CUSTOM LIGHTWEIGHT FLOATING TOAST NOTIFICATION
+   ============================================================ */
+.toast-container-custom {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast-custom {
+    background: #ffffff;
+    color: #1d1d1f;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 14px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    pointer-events: auto;
+    max-width: 360px;
+}
+
+body.dark-mode .toast-custom {
+    background: #1e293b;
+    color: #f5f5f7;
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.toast-custom.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 576px) {
+    .toast-container-custom {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 20px;
+        width: 90%;
+        max-width: 360px;
+    }
+    .toast-custom {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 
