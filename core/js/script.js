@@ -913,15 +913,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Back to Top Logic ---
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
+        let bttTicking = false;
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
+            if (!bttTicking) {
+                window.requestAnimationFrame(() => {
+                    if (window.scrollY > 500) {
+                        backToTop.classList.add('show');
+                    } else {
+                        backToTop.classList.remove('show');
+                    }
+                    bttTicking = false;
+                });
+                bttTicking = true;
             }
-        });
+        }, { passive: true });
         backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            const isMobile = window.innerWidth < 992 || ('ontouchstart' in window);
+            window.scrollTo({ top: 0, behavior: isMobile ? 'auto' : 'smooth' });
         });
     }
 

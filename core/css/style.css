@@ -3,8 +3,10 @@
    Style: Clean · Modern · Premium
    ============================================================ */
 
-/* Font Stack: Inter (body) + Plus Jakarta Sans (heading) + Outfit (brand) + JetBrains Mono (accent) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Font Stack: Menggunakan system font default agar zero network request untuk font.
+   Google Fonts (Inter, Plus Jakarta Sans, Outfit, JetBrains Mono) dimuat via <link>
+   di HTML dengan media="print" onload trick agar non-blocking. */
+
 
 /* --- ROOT VARIABLES --- */
 :root {
@@ -159,11 +161,29 @@ body {
     line-height: 1.65;
     font-size: 0.95rem;
     letter-spacing: -0.011em;
-    animation: page-enter 0.32s ease both;
+    animation: page-enter 0.25s ease both;
     -webkit-overflow-scrolling: touch;
     overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   PREFERS-REDUCED-MOTION
+   Matikan semua animasi & transition untuk HP jadul /
+   pengguna yang mengaktifkan reduced motion di sistem.
+   Tampilan tetap sama, hanya gerakan dihilangkan.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    body {
+        animation: none !important;
+    }
 }
 
 @keyframes page-enter {
@@ -1960,41 +1980,45 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
     background: rgba(96, 165, 250, 0.6) !important;
 }
 
-/* --- GLASSMORPHIC CARDS, PANELS & CONTAINERS --- */
-.card, 
-.skill-bento-card, 
-.exp-bento-card, 
-.project-card, 
-.edu-item, 
-.cert-card, 
-.contact-form-card, 
-.contact-info-card, 
-.contact-option-row {
-    background: rgba(255, 255, 255, 0.55) !important;
-    backdrop-filter: blur(25px) saturate(190%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
-    border-radius: 20px !important;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                border-color 0.3s ease !important;
+/* --- GLASSMORPHIC CARDS, PANELS & CONTAINERS (DESKTOP ONLY) --- */
+@media (min-width: 992px) and (hover: hover) {
+    .card, 
+    .skill-bento-card, 
+    .exp-bento-card, 
+    .project-card, 
+    .edu-item, 
+    .cert-card, 
+    .contact-form-card, 
+    .contact-info-card, 
+    .contact-option-row {
+        background: rgba(255, 255, 255, 0.55) !important;
+        backdrop-filter: blur(25px) saturate(190%) !important;
+        -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+        border-radius: 20px !important;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                    border-color 0.3s ease !important;
+    }
 }
 
-body.dark-mode .card, 
-body.dark-mode .skill-bento-card, 
-body.dark-mode .exp-bento-card, 
-body.dark-mode .project-card, 
-body.dark-mode .edu-item, 
-body.dark-mode .cert-card, 
-body.dark-mode .contact-form-card, 
-body.dark-mode .contact-info-card, 
-body.dark-mode .contact-option-row {
-    background: rgba(18, 24, 38, 0.55) !important;
-    backdrop-filter: blur(25px) saturate(190%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+@media (min-width: 992px) and (hover: hover) {
+    body.dark-mode .card, 
+    body.dark-mode .skill-bento-card, 
+    body.dark-mode .exp-bento-card, 
+    body.dark-mode .project-card, 
+    body.dark-mode .edu-item, 
+    body.dark-mode .cert-card, 
+    body.dark-mode .contact-form-card, 
+    body.dark-mode .contact-info-card, 
+    body.dark-mode .contact-option-row {
+        background: rgba(18, 24, 38, 0.55) !important;
+        backdrop-filter: blur(25px) saturate(190%) !important;
+        -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    }
 }
 
 /* Card Hover Elevation (Clean Floating Window Effect without Glow) */
@@ -2256,8 +2280,8 @@ body.dark-mode .drawer-footer {
     font-size: 0.875rem !important;
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
     background: rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     color: #1d1d1f !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -2334,9 +2358,9 @@ body.dark-mode .lang-btn:hover {
 
 /* --- APPLE MODAL & TRAFFIC LIGHT CLOSE --- */
 .modal-content {
-    background: rgba(255, 255, 255, 0.75) !important;
-    backdrop-filter: blur(30px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid rgba(255, 255, 255, 0.8) !important;
     border-radius: 24px !important;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12) !important;
@@ -2344,7 +2368,9 @@ body.dark-mode .lang-btn:hover {
 }
 
 body.dark-mode .modal-content {
-    background: rgba(20, 26, 42, 0.82) !important;
+    background: #141a2a !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid rgba(255, 255, 255, 0.14) !important;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
 }
@@ -2397,7 +2423,8 @@ body.dark-mode .btn-close {
     background: rgba(40, 79, 140, 0.08) !important;
     color: #284F8C !important;
     border: 1px solid rgba(40, 79, 140, 0.2) !important;
-    backdrop-filter: blur(8px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     box-shadow: none !important;
     transition: all 0.2s ease !important;
     display: inline-flex !important;
@@ -2440,8 +2467,9 @@ body.dark-mode .focus-badge:hover {
 .form-select {
     border-radius: 12px !important;
     font-family: var(--font-apple-text) !important;
-    background: rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(12px) !important;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid rgba(0, 0, 0, 0.12) !important;
     color: #1d1d1f !important;
     padding: 10px 14px !important;
@@ -2524,8 +2552,8 @@ body.dark-mode .hero-img {
 /* --- CTA CARD CLEAN APPLE GLASS STYLING (#284F8C) --- */
 #ctaCardBtn {
     background: #284F8C !important;
-    backdrop-filter: blur(25px) !important;
-    -webkit-backdrop-filter: blur(25px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 24px !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
@@ -2556,7 +2584,8 @@ body.dark-mode .hero-img {
     color: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
     border-radius: 9999px !important;
-    backdrop-filter: blur(10px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 #ctaCardBtn .btn-outline-light:hover {
@@ -2609,7 +2638,8 @@ body.dark-mode .timeline-item::before {
     border-radius: 14px !important;
     background: rgba(40, 79, 140, 0.08) !important;
     border: 1px solid rgba(40, 79, 140, 0.15) !important;
-    backdrop-filter: blur(8px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     box-shadow: none !important;
 }
 
@@ -2643,96 +2673,242 @@ body.dark-mode .text-muted * {
 }
 
 /* ============================================================
-   TIKTOK & FACEBOOK NATIVE APP HARDWARE GPU SCROLLING ENGINE
+   MOBILE PERFORMANCE ENGINE — SAMSUNG A14 / LOW-END OPTIMIZED
+   Zero backdrop-filter, zero animation, zero box-shadow saat scroll
    ============================================================ */
 
 @media (max-width: 991px), (hover: none) {
-    /* 1. Promote main layout containers to GPU textures (Native App Layering) */
-    section, header, footer, .card, .skill-bento-card, .exp-bento-card, .project-card, .cert-card {
-        transform: translateZ(0);
-        -webkit-transform: translateZ(0);
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
+
+    /* ── FIX SCROLL BLOCKED BY CARD ──
+       overflow:hidden membuat scroll container → browser pikir kamu scroll DALAM card
+       overflow:clip = visual clip yang sama tapi BUKAN scroll container → touch events
+       naik ke window = scroll tetap normal saat jari di atas card ── */
+    .card,
+    .skill-bento-card,
+    .exp-bento-card,
+    .project-card,
+    .cert-card,
+    .edu-item,
+    .contact-form-card,
+    .contact-info-card,
+    .modal-content,
+    .nav-drawer {
+        overflow: clip !important;
     }
 
-    /* 2. Fast Native System UI Fonts - Zero network font loading overhead */
-    body, h1, h2, h3, h4, h5, h6, .navbar-brand, .btn, .nav-link {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-        text-rendering: optimizeSpeed !important;
-    }
-
-    /* 3. Eliminate expensive GPU pixel shader re-paints & filters */
-    *, *::before, *::after {
+    /* ── 1. HAPUS TOTAL SEMUA EFEK BERAT (GPU Compositing) ── */
+    *,
+    *::before,
+    *::after {
         animation: none !important;
+        animation-duration: 0ms !important;
         transition: none !important;
+        transition-duration: 0ms !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         filter: none !important;
         box-shadow: none !important;
         text-shadow: none !important;
+        will-change: auto !important;
     }
 
-    /* 4. Instant Android Pan-Y touch action across all elements */
-    html, body, main, section, div, a, button, input {
-        scroll-behavior: auto !important;
-        -webkit-tap-highlight-color: transparent !important;
-        touch-action: pan-y !important;
+    /* ── 2. SYSTEM FONT — Zero network overhead ── */
+    body, h1, h2, h3, h4, h5, h6,
+    .navbar-brand, .btn, .nav-link,
+    .drawer-brand, span, p, a, li, div {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+        text-rendering: optimizeSpeed !important;
     }
 
-    /* 5. Hide heavy WebGL Maps Iframe on Mobile to save 100% 3rd party CPU/GPU weight */
-    .footer iframe,
-    footer iframe {
-        display: none !important;
+    /* ── 3. SOLID SURFACES — Tanpa transparansi/blur ── */
+    body {
+        background-color: #FAFAF9 !important;
+        background: #FAFAF9 !important;
+    }
+    body.dark-mode {
+        background-color: #090d16 !important;
+        background: #090d16 !important;
     }
 
-    /* 6. Fast solid surfaces with crisp 1px borders (0 GPU cost) */
+    .card,
+    .skill-bento-card,
+    .exp-bento-card,
+    .project-card,
+    .cert-card,
+    .edu-item,
+    .contact-form-card,
+    .contact-info-card,
+    .contact-option-row {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        border-radius: 16px !important;
+    }
+
+    body.dark-mode .card,
+    body.dark-mode .skill-bento-card,
+    body.dark-mode .exp-bento-card,
+    body.dark-mode .project-card,
+    body.dark-mode .cert-card,
+    body.dark-mode .edu-item,
+    body.dark-mode .contact-form-card,
+    body.dark-mode .contact-info-card,
+    body.dark-mode .contact-option-row {
+        background-color: #0f172a !important;
+        background: #0f172a !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+
+    /* ── 4. NAVBAR SOLID ── */
+    .navbar,
     .navbar.scrolled {
         background: #ffffff !important;
         border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
     }
-    
+    body.dark-mode .navbar,
     body.dark-mode .navbar.scrolled {
         background: #090d16 !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
 
+    /* ── 5. DRAWER SOLID ── */
     .nav-drawer {
         background: #ffffff !important;
         border: 1px solid rgba(0, 0, 0, 0.12) !important;
     }
-
     body.dark-mode .nav-drawer {
         background: #0f172a !important;
-        border: 1px solid rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
+    /* ── 6. MODAL SOLID ── */
+    .modal-content,
+    .modal-body,
+    .modal-header,
+    .modal-footer {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+    }
+    body.dark-mode .modal-content,
+    body.dark-mode .modal-body,
+    body.dark-mode .modal-header,
+    body.dark-mode .modal-footer {
+        background-color: #0f172a !important;
+        background: #0f172a !important;
+    }
+    .modal.fade .modal-dialog,
+    .modal.show .modal-dialog {
+        transition: none !important;
+        transform: none !important;
+    }
+
+    /* ── 7. BUTTONS SOLID ── */
+    .btn,
+    .social-btn,
+    .back-to-top,
+    .contact-fab,
+    .drawer-close,
+    .lang-btn {
+        background: #ffffff !important;
+        border: 1px solid rgba(0, 0, 0, 0.12) !important;
+        color: #1d1d1f !important;
+    }
+    body.dark-mode .btn,
+    body.dark-mode .social-btn,
+    body.dark-mode .back-to-top,
+    body.dark-mode .contact-fab,
+    body.dark-mode .drawer-close,
+    body.dark-mode .lang-btn {
+        background: #1e293b !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+        color: #f5f5f7 !important;
+    }
+    .btn-primary,
+    .btn-primary:focus,
+    .btn-primary:hover {
+        background: #284F8C !important;
+        color: #ffffff !important;
+        border: none !important;
+    }
+
+    /* ── 8. FORM CONTROLS SOLID ── */
+    .form-control,
+    .form-select {
+        background: #ffffff !important;
+        border: 1px solid rgba(0, 0, 0, 0.12) !important;
+        color: #1d1d1f !important;
+    }
+    body.dark-mode .form-control,
+    body.dark-mode .form-select {
+        background: #0f172a !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+        color: #f5f5f7 !important;
+    }
+
+    /* ── 9. FOOTER SOLID ── */
     .footer {
         background: #E4E7ED !important;
         border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
     }
-
     body.dark-mode .footer {
         background: #0e1628 !important;
         border-top-color: rgba(255, 255, 255, 0.08) !important;
     }
 
-    .card, .skill-bento-card, .exp-bento-card, .project-card, .cert-card {
-        background-color: #ffffff !important;
-        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    /* ── 10. SEMBUNYIKAN PETA (3rd party iframe berat) ── */
+    .footer iframe,
+    footer iframe {
+        display: none !important;
     }
 
-    body.dark-mode .card, body.dark-mode .skill-bento-card, body.dark-mode .exp-bento-card, body.dark-mode .project-card, body.dark-mode .cert-card {
-        background-color: #0f172a !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    /* ── 11. SCROLL BEHAVIOR INSTAN ── */
+    html, body, main, section, div, a, button, input, textarea {
+        scroll-behavior: auto !important;
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: pan-y !important;
+        overscroll-behavior-y: none;
     }
 
-    .modal.fade .modal-dialog {
-        transition: none !important;
-        transform: none !important;
-    }
-
+    /* ── 12. GAMBAR LAZY DECODE ── */
     img {
+        image-rendering: auto;
         decoding: async;
+    }
+
+    /* ── 13. CARD TOP BORDER SEDERHANA ── */
+    .card, .skill-bento-card, .exp-bento-card, .project-card {
+        border-top: 3px solid #284F8C !important;
+    }
+    body.dark-mode .card,
+    body.dark-mode .skill-bento-card,
+    body.dark-mode .exp-bento-card,
+    body.dark-mode .project-card {
+        border-top-color: #4D7CC7 !important;
+    }
+    #ctaCardBtn { border-top: none !important; }
+
+    /* ── 14. ICON BOX SOLID ── */
+    .icon-box {
+        background: rgba(40, 79, 140, 0.08) !important;
+        border: 1px solid rgba(40, 79, 140, 0.15) !important;
+    }
+    body.dark-mode .icon-box {
+        background: rgba(77, 124, 199, 0.1) !important;
+        border-color: rgba(77, 124, 199, 0.2) !important;
+    }
+
+    /* ── 15. DRAWER OPEN/CLOSE TRANSITION INSTANT ── */
+    .nav-drawer {
+        transition: none !important;
+    }
+    .drawer-backdrop {
+        transition: none !important;
+    }
+
+    /* ── 16. SWITCH TOGGLE INSTAN ── */
+    .switch-toggle .switch-handle {
+        transition: none !important;
     }
 }
 
@@ -2747,5 +2923,45 @@ body.dark-mode .text-muted * {
 }
 
 
+/* ============================================================
+   CONTENT-VISIBILITY — LAZY RENDERING SECTION DI BAWAH FOLD
+   Browser tidak perlu render bagian yang belum terlihat.
+   Sangat efektif untuk HP jadul karena mengurangi layout/paint cost.
+   ============================================================ */
 
+/* Footer dirender lazy karena selalu di bawah fold */
+footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px;
+}
+
+/* Lazy decode semua gambar secara global */
+img {
+    content-visibility: auto;
+}
+
+/* ============================================================
+   FORCE GPU LAYER HANYA PADA ELEMEN AKTIF (bukan semua elemen)
+   Mencegah layer explosion yang berat di HP RAM rendah.
+   ============================================================ */
+.nav-drawer {
+    contain: layout style;
+}
+
+.modal {
+    contain: layout style;
+}
+
+/* ============================================================
+   TOUCH ACTION OPTIMIZATION
+   Memastikan scroll touch berjalan smooth tanpa block
+   ============================================================ */
+html, body {
+    touch-action: pan-y;
+}
+
+/* Mencegah delay 300ms tap pada mobile */
+a, button, [role="button"], input, select, textarea {
+    touch-action: manipulation;
+}
 
