@@ -2643,17 +2643,25 @@ body.dark-mode .text-muted * {
 }
 
 /* ============================================================
-   EXTREME 1ST-GEN MOBILE & ULTRA-LOW-END ZERO-LAG OPTIMIZATION
+   TIKTOK & FACEBOOK NATIVE APP HARDWARE GPU SCROLLING ENGINE
    ============================================================ */
 
 @media (max-width: 991px), (hover: none) {
-    /* 1. Fast Native System UI Fonts - Zero network font loading overhead */
+    /* 1. Promote main layout containers to GPU textures (Native App Layering) */
+    section, header, footer, .card, .skill-bento-card, .exp-bento-card, .project-card, .cert-card {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    /* 2. Fast Native System UI Fonts - Zero network font loading overhead */
     body, h1, h2, h3, h4, h5, h6, .navbar-brand, .btn, .nav-link {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
         text-rendering: optimizeSpeed !important;
     }
 
-    /* 2. Zero CSS Animations & Transitions on Mobile (0% CPU/GPU overhead) */
+    /* 3. Eliminate expensive GPU pixel shader re-paints & filters */
     *, *::before, *::after {
         animation: none !important;
         transition: none !important;
@@ -2662,40 +2670,40 @@ body.dark-mode .text-muted * {
         filter: none !important;
         box-shadow: none !important;
         text-shadow: none !important;
-        will-change: auto !important;
     }
 
-    *:hover {
-        transform: none !important;
+    /* 4. Instant Android Pan-Y touch action across all elements */
+    html, body, main, section, div, a, button, input {
+        scroll-behavior: auto !important;
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: pan-y !important;
     }
 
-    /* 3. Fast solid surfaces with crisp 1px borders (0 GPU cost) */
+    /* 5. Hide heavy WebGL Maps Iframe on Mobile to save 100% 3rd party CPU/GPU weight */
+    .footer iframe,
+    footer iframe {
+        display: none !important;
+    }
+
+    /* 6. Fast solid surfaces with crisp 1px borders (0 GPU cost) */
     .navbar.scrolled {
         background: #ffffff !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
         border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
     }
     
     body.dark-mode .navbar.scrolled {
         background: #090d16 !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
     .nav-drawer {
         background: #ffffff !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
         border: 1px solid rgba(0, 0, 0, 0.12) !important;
     }
 
     body.dark-mode .nav-drawer {
         background: #0f172a !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(0, 0, 0, 0.15) !important;
     }
 
     .footer {
@@ -2708,35 +2716,16 @@ body.dark-mode .text-muted * {
         border-top-color: rgba(255, 255, 255, 0.08) !important;
     }
 
-    /* 4. High performance solid cards */
-    .card,
-    .skill-bento-card,
-    .exp-bento-card,
-    .project-card,
-    .cert-card {
+    .card, .skill-bento-card, .exp-bento-card, .project-card, .cert-card {
         background-color: #ffffff !important;
         border: 1px solid rgba(0, 0, 0, 0.08) !important;
-        will-change: auto !important;
     }
 
-    body.dark-mode .card,
-    body.dark-mode .skill-bento-card,
-    body.dark-mode .exp-bento-card,
-    body.dark-mode .project-card,
-    body.dark-mode .cert-card {
+    body.dark-mode .card, body.dark-mode .skill-bento-card, body.dark-mode .exp-bento-card, body.dark-mode .project-card, body.dark-mode .cert-card {
         background-color: #0f172a !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        will-change: auto !important;
     }
 
-    /* 5. Zero touch latency & native Android pan-y scrolling */
-    html, body {
-        scroll-behavior: auto !important;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: pan-y;
-    }
-
-    /* Modal animation bypass for instant mobile response */
     .modal.fade .modal-dialog {
         transition: none !important;
         transform: none !important;
@@ -2744,10 +2733,6 @@ body.dark-mode .text-muted * {
 
     img {
         decoding: async;
-    }
-
-    iframe {
-        pointer-events: none !important;
     }
 }
 
