@@ -2708,7 +2708,7 @@ body.dark-mode .text-muted * {
         border-top-color: rgba(255, 255, 255, 0.08) !important;
     }
 
-    /* 4. High performance solid cards with DOM containment */
+    /* 4. High performance solid cards */
     .card,
     .skill-bento-card,
     .exp-bento-card,
@@ -2717,7 +2717,6 @@ body.dark-mode .text-muted * {
         background-color: #ffffff !important;
         border: 1px solid rgba(0, 0, 0, 0.08) !important;
         will-change: auto !important;
-        contain: content;
     }
 
     body.dark-mode .card,
@@ -2728,20 +2727,19 @@ body.dark-mode .text-muted * {
         background-color: #0f172a !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
         will-change: auto !important;
-        contain: content;
     }
 
-    /* 5. Defer offscreen HTML rendering & zero touch latency */
+    /* 5. Zero touch latency & native Android pan-y scrolling */
     html, body {
         scroll-behavior: auto !important;
         -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
+        touch-action: pan-y;
     }
 
-    section, article, footer, header, .modal {
-        content-visibility: auto;
-        contain: content;
-        contain-intrinsic-size: 1px 200px;
+    /* Modal animation bypass for instant mobile response */
+    .modal.fade .modal-dialog {
+        transition: none !important;
+        transform: none !important;
     }
 
     img {
