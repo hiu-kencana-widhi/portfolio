@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         id: {
             nav_home: "Beranda", nav_exp: "Pengalaman", nav_proj: "Proyek", nav_skill: "Keahlian", nav_cert: "Sertifikat", nav_doc: "Dokumentasi", nav_contact: "Kontak",
-            hero_title: "Portfolio Profesional", hero_subtitle: "Hiu Kencana Widhi", hero_loc: "Pemalang, Jawa Tengah",
+            hero_title: "Adaptif, Kreatif, dan Responsif", hero_subtitle: "Hiu Kencana Widhi. S.T.", hero_loc: "Pemalang, Jawa Tengah",
             btn_email: "Email Saya", btn_wa: "WhatsApp", btn_cv: "Unduh CV", btn_view_doc: "Lihat Dokumentasi",
             click_detail: "Klik untuk detail lebih lanjut",
             modal_about_exp: "Pengalaman", modal_about_cert: "Sertifikat",
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_text: "Fresh graduate Teknik Logistik & IT Enthusiast. Menggabungkan efisiensi rantai pasok dengan inovasi teknologi.",
             footer_featured: "Proyek Unggulan", 
             footer_social: "Sosial Media",
-            footer_copyright: "© 2026 Hiu Kencana Widhi. Seluruh hak cipta dilindungi.",
+            footer_copyright: "© 2026 Hiu Kencana Widhi. S.T. Seluruh hak cipta dilindungi.",
             exp_modal_title: "Detail Pengalaman",
             proj_modal_title: "Detail Proyek",
             exp_admin_desc: "Bertanggung jawab penuh atas manajemen inventori bahan baku di gudang. Mengawasi alur masuk dan keluar barang menggunakan sistem pencatatan yang ketat, serta memastikan akurasi stok fisik 100%. Menerapkan standar operasional prosedur (SOP) pergudangan berbasis FIFO.",
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             nav_home: "Home", nav_exp: "Experience", nav_proj: "Projects", nav_skill: "Skills", nav_cert: "Certificates", nav_doc: "Gallery", nav_contact: "Contact",
-            hero_title: "Professional Portfolio", hero_subtitle: "Hiu Kencana Widhi", hero_loc: "Pemalang, Central Java",
+            hero_title: "Adaptive, Creative, and Responsive", hero_subtitle: "Hiu Kencana Widhi. S.T.", hero_loc: "Pemalang, Central Java",
             btn_email: "Email Me", btn_wa: "WhatsApp", btn_cv: "Download CV", btn_view_doc: "View Gallery",
             click_detail: "Click for more details",
             modal_about_exp: "Experience", modal_about_cert: "Certificates",
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_text: "Fresh graduate in Logistics Engineering & IT Enthusiast. Combining supply chain efficiency with technological innovation.",
             footer_featured: "Featured Projects", 
             footer_social: "Social Media",
-            footer_copyright: "© 2026 Hiu Kencana Widhi. All rights reserved.",
+            footer_copyright: "© 2026 Hiu Kencana Widhi. S.T. All rights reserved.",
             exp_modal_title: "Experience Details",
             proj_modal_title: "Project Details",
             exp_admin_desc: "Fully responsible for raw material inventory management in the warehouse. Supervising the flow of incoming and outgoing goods using a strict recording system, and ensuring 100% physical stock accuracy. Implementing FIFO-based warehouse operating procedures (SOP).",
@@ -447,12 +447,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let isScrollTicking = false;
     function handleNavbarScroll() {
         if (!navbarEl) return;
+        if (window.innerWidth < 992) {
+            navbarEl.classList.add('scrolled');
+            return;
+        }
         const isScrolled = window.scrollY > 20;
         if (navbarEl.classList.contains('scrolled') !== isScrolled) {
             navbarEl.classList.toggle('scrolled', isScrolled);
         }
     }
     window.addEventListener('scroll', () => {
+        if (window.innerWidth < 992) return;
         if (!isScrollTicking) {
             window.requestAnimationFrame(() => {
                 handleNavbarScroll();
@@ -515,10 +520,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isExternal || isAnchor || isSpecial || isFile) return;
 
         link.addEventListener('click', (e) => {
-            e.preventDefault();
             closeDrawer();
+            if (window.innerWidth < 992) {
+                // Instant mobile navigation (0ms delay)
+                return;
+            }
+            e.preventDefault();
             document.body.classList.add('page-exit');
-            setTimeout(() => { window.location.href = href; }, 220);
+            setTimeout(() => { window.location.href = href; }, 120);
         });
     });
 
@@ -530,11 +539,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let isDeleting = false;
         let typingSpeed = 100;
 
-        // Add cursor element
-        const cursor = document.createElement('span');
-        cursor.className = 'typing-cursor';
-        typedEl.after(cursor);
-
         function getRoles() {
             const lang = localStorage.getItem('language') || 'en';
             return [
@@ -545,38 +549,48 @@ document.addEventListener('DOMContentLoaded', () => {
             ];
         }
 
-        function typeEffect() {
-            // Pause typing DOM reflows when scrolled past hero header
-            if (window.scrollY > 350) {
-                setTimeout(typeEffect, 1000);
-                return;
-            }
+        // On mobile, set static role text to eliminate CPU timer loops completely
+        if (window.innerWidth < 992) {
             const roles = getRoles();
-            const currentRole = roles[roleIdx];
-            
-            if (isDeleting) {
-                typedEl.textContent = currentRole.substring(0, charIdx - 1);
-                charIdx--;
-                typingSpeed = 50;
-            } else {
-                typedEl.textContent = currentRole.substring(0, charIdx + 1);
-                charIdx++;
-                typingSpeed = 100;
+            typedEl.textContent = roles[0];
+        } else {
+            // Add cursor element for desktop
+            const cursor = document.createElement('span');
+            cursor.className = 'typing-cursor';
+            typedEl.after(cursor);
+
+            function typeEffect() {
+                if (window.scrollY > 350) {
+                    setTimeout(typeEffect, 1000);
+                    return;
+                }
+                const roles = getRoles();
+                const currentRole = roles[roleIdx];
+                
+                if (isDeleting) {
+                    typedEl.textContent = currentRole.substring(0, charIdx - 1);
+                    charIdx--;
+                    typingSpeed = 50;
+                } else {
+                    typedEl.textContent = currentRole.substring(0, charIdx + 1);
+                    charIdx++;
+                    typingSpeed = 100;
+                }
+
+                if (!isDeleting && charIdx === currentRole.length) {
+                    isDeleting = true;
+                    typingSpeed = 1500;
+                } else if (isDeleting && charIdx === 0) {
+                    isDeleting = false;
+                    roleIdx = (roleIdx + 1) % roles.length;
+                    typingSpeed = 500;
+                }
+
+                setTimeout(typeEffect, typingSpeed);
             }
 
-            if (!isDeleting && charIdx === currentRole.length) {
-                isDeleting = true;
-                typingSpeed = 1500;
-            } else if (isDeleting && charIdx === 0) {
-                isDeleting = false;
-                roleIdx = (roleIdx + 1) % roles.length;
-                typingSpeed = 500;
-            }
-
-            setTimeout(typeEffect, typingSpeed);
+            typeEffect();
         }
-
-        typeEffect();
     }
 
     // ============================================================
@@ -1010,7 +1024,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const subject = subjectInput ? subjectInput.value.trim() : '';
             const message = messageInput ? messageInput.value.trim() : '';
 
-            let waText = `Halo Hiu Kencana Widhi,\n\nSaya ingin menghubungi Anda via Portofolio:\n`;
+            let waText = `Halo Hiu Kencana Widhi. S.T.,\n\nSaya ingin menghubungi Anda via Portofolio:\n`;
             if (name) waText += `• *Nama*: ${name}\n`;
             if (email) waText += `• *Email*: ${email}\n`;
             if (subject) waText += `• *Subjek*: ${subject}\n`;

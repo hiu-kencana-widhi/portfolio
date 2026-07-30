@@ -99,13 +99,57 @@ body.dark-mode a:not(.btn) {
 /* --- RESET & BASE --- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html, body {
+html {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
-    position: relative;
+    overflow-x: clip;
+    -webkit-overflow-scrolling: touch;
     margin: 0;
     padding: 0;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- ULTRA-COMPACT APPLE MAC OS STYLE SCROLLBAR (ALL DEVICES & BROWSERS) --- */
+html, body, * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+
+body.dark-mode, body.dark-mode * {
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+/* WebKit Custom Scrollbar (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+    width: 4px !important;
+    height: 4px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.22) !important;
+    border-radius: 9999px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(40, 79, 140, 0.6) !important;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22) !important;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: rgba(77, 124, 199, 0.6) !important;
 }
 
 body {
@@ -115,7 +159,6 @@ body {
     line-height: 1.65;
     font-size: 0.95rem;
     letter-spacing: -0.011em;
-    overflow-x: hidden;
     animation: page-enter 0.32s ease both;
     -webkit-overflow-scrolling: touch;
     overflow-wrap: break-word;
@@ -129,7 +172,6 @@ body {
 }
 
 main {
-    overflow-x: hidden;
     width: 100%;
 }
 
@@ -2601,26 +2643,28 @@ body.dark-mode .text-muted * {
 }
 
 /* ============================================================
-   HARDCORE ZERO-LAG MOBILE PERFORMANCE OPTIMIZATION (MAX SPEED)
+   EXTREME 1ST-GEN MOBILE & ULTRA-LOW-END ZERO-LAG OPTIMIZATION
    ============================================================ */
 
 @media (max-width: 991px), (hover: none) {
-    html {
-        scroll-behavior: auto !important;
-        -webkit-tap-highlight-color: transparent;
-        text-rendering: optimizeSpeed;
+    /* 1. Fast Native System UI Fonts - Zero network font loading overhead */
+    body, h1, h2, h3, h4, h5, h6, .navbar-brand, .btn, .nav-link {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+        text-rendering: optimizeSpeed !important;
     }
 
-    /* 1. Eliminate all GPU pixel shaders & expensive filters */
+    /* 2. Zero CSS Animations & Transitions on Mobile (0% CPU/GPU overhead) */
     *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         filter: none !important;
         box-shadow: none !important;
         text-shadow: none !important;
+        will-change: auto !important;
     }
 
-    /* 2. Disable hover transforms on touch screens to prevent scroll stutter */
     *:hover {
         transform: none !important;
     }
@@ -2687,15 +2731,17 @@ body.dark-mode .text-muted * {
         contain: content;
     }
 
-    /* 5. Instantaneous 0.05s color transitions */
-    * {
-        transition-duration: 0.05s !important;
+    /* 5. Defer offscreen HTML rendering & zero touch latency */
+    html, body {
+        scroll-behavior: auto !important;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
-    /* 6. Defer offscreen HTML rendering */
-    section {
+    section, article, footer, header, .modal {
         content-visibility: auto;
-        contain-intrinsic-size: 1px 300px;
+        contain: content;
+        contain-intrinsic-size: 1px 200px;
     }
 
     img {
