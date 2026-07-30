@@ -158,20 +158,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- NAVBAR --- */
 .navbar {
-    background-color: var(--surface) !important;
-    border-bottom: 1px solid var(--border) !important;
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
     border-radius: 0 !important;
-    box-shadow: var(--shadow);
+    box-shadow: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity  0.28s ease;
+    transition: all 0.3s ease;
 }
 
 /* Adjust body to prevent content from hiding under compact fixed navbar */
@@ -427,6 +426,166 @@ body.dark-mode .drawer-nav .nav-link.active {
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--muted);
+}
+
+/* --- UNIFORM APPLE SLIDING SWITCHES (SAKLAR MODE & BAHASA DESKTOP & MOBILE) --- */
+.switch-toggle,
+.navbar .switch-toggle {
+    position: relative !important;
+    width: 74px !important;
+    height: 32px !important;
+    min-width: 74px !important;
+    min-height: 32px !important;
+    max-width: 74px !important;
+    max-height: 32px !important;
+    padding: 3px !important;
+    border-radius: 9999px !important;
+    background: rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    overflow: hidden !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease !important;
+    margin: 0 !important;
+}
+
+body.dark-mode .switch-toggle,
+body.dark-mode .navbar .switch-toggle {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* Sliding White Knob Handle */
+.switch-toggle .switch-handle {
+    position: absolute !important;
+    top: 3px !important;
+    left: 3px !important;
+    width: 32px !important;
+    height: 24px !important;
+    border-radius: 9999px !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18) !important;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 1 !important;
+}
+
+body.dark-mode .switch-toggle .switch-handle {
+    background: #284F8C !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Options Left & Right inside Switch */
+.switch-toggle .switch-option {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 32px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    color: var(--muted) !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Theme Switch: Light Mode (Left 0px) vs Dark Mode (Right 34px) */
+body:not(.dark-mode) .switch-toggle.theme-toggle .switch-handle {
+    transform: translateX(0) !important;
+}
+body.dark-mode .switch-toggle.theme-toggle .switch-handle {
+    transform: translateX(34px) !important;
+}
+
+body:not(.dark-mode) .switch-toggle.theme-toggle .opt-left {
+    color: #f59e0b !important;
+}
+body.dark-mode .switch-toggle.theme-toggle .opt-right {
+    color: #ffffff !important;
+}
+
+/* Lang Switch: ID (Left 0px) vs EN (Right 34px) */
+.switch-toggle[data-active-lang="id"] .switch-handle {
+    transform: translateX(0) !important;
+}
+.switch-toggle[data-active-lang="en"] .switch-handle {
+    transform: translateX(34px) !important;
+}
+
+.switch-toggle[data-active-lang="id"] .opt-left {
+    color: #284F8C !important;
+}
+body.dark-mode .switch-toggle[data-active-lang="id"] .opt-left {
+    color: #ffffff !important;
+}
+
+.switch-toggle[data-active-lang="en"] .opt-right {
+    color: #284F8C !important;
+}
+body.dark-mode .switch-toggle[data-active-lang="en"] .opt-right {
+    color: #ffffff !important;
+}
+
+/* --- COMPACT DESKTOP NAVBAR SWITCHES (MAC OS MENU BAR FIT) --- */
+@media (min-width: 992px) {
+    .navbar .switch-toggle {
+        width: 58px !important;
+        height: 24px !important;
+        min-width: 58px !important;
+        min-height: 24px !important;
+        max-width: 58px !important;
+        max-height: 24px !important;
+        padding: 2px !important;
+        border-radius: 9999px !important;
+    }
+
+    .navbar .switch-toggle .switch-handle {
+        top: 2px !important;
+        left: 2px !important;
+        width: 25px !important;
+        height: 18px !important;
+        border-radius: 9999px !important;
+    }
+
+    .navbar .switch-toggle .switch-option {
+        width: 25px !important;
+        height: 18px !important;
+        font-size: 0.64rem !important;
+    }
+
+    .navbar .switch-toggle .switch-option i {
+        font-size: 0.68rem !important;
+    }
+
+    /* Desktop Handle Translation (0px Left vs 27px Right) */
+    body:not(.dark-mode) .navbar .switch-toggle.theme-toggle .switch-handle {
+        transform: translateX(0) !important;
+    }
+    body.dark-mode .navbar .switch-toggle.theme-toggle .switch-handle {
+        transform: translateX(27px) !important;
+    }
+
+    .navbar .switch-toggle[data-active-lang="id"] .switch-handle {
+        transform: translateX(0) !important;
+    }
+    .navbar .switch-toggle[data-active-lang="en"] .switch-handle {
+        transform: translateX(27px) !important;
+    }
+
+    /* Center Nav Links in Desktop Navbar */
+    .navbar .navbar-collapse {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    .navbar .navbar-nav {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
 
 /* Prevent body scroll when drawer open */
@@ -960,8 +1119,13 @@ body.dark-mode .project-tag {
 
 /* --- FOOTER --- */
 .footer {
-    background-color: var(--surface);
-    border-top: 1px solid var(--border);
+    background-color: #E4E7ED;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .footer {
+    background-color: #0e1628;
+    border-top-color: rgba(255, 255, 255, 0.08);
 }
 
 .bg-glass {
@@ -1541,7 +1705,7 @@ body.dark-mode .modal-content {
 .contact-hero {
     position: relative;
     padding: 60px 0;
-    background: radial-gradient(circle at top right, rgba(29, 78, 216, 0.05), transparent);
+    background: transparent;
     border-radius: 30px;
     margin-bottom: 40px;
 }
@@ -1662,23 +1826,19 @@ body.dark-mode .contact-info-card:hover {
    APPLE macOS / iOS VIBRANT GLASSMORPHISM (CLEAR OS) THEME OVERRIDES
    ========================================================================== */
 
-/* --- DYNAMIC AMBIENT MESH BACKGROUND --- */
+/* --- CLEAN SOLID BACKGROUND (NO GLOW MESH, NO FIXED ATTACHMENT) --- */
 body {
-    background: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%), 
-                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.12) 0px, transparent 50%), 
-                radial-gradient(at 50% 100%, rgba(56, 189, 248, 0.12) 0px, transparent 50%), 
-                #f8fafc !important;
-    background-attachment: fixed !important;
+    background-color: var(--bg) !important;
+    background: var(--bg) !important;
+    background-attachment: scroll !important;
     color: #1d1d1f !important;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", sans-serif !important;
+    font-family: var(--font-apple-text) !important;
 }
 
 body.dark-mode {
-    background: radial-gradient(at 0% 0%, rgba(30, 27, 75, 0.6) 0px, transparent 50%), 
-                radial-gradient(at 100% 0%, rgba(88, 28, 135, 0.4) 0px, transparent 50%), 
-                radial-gradient(at 50% 100%, rgba(15, 23, 42, 0.8) 0px, transparent 50%), 
-                #090d16 !important;
-    background-attachment: fixed !important;
+    background-color: #090d16 !important;
+    background: #090d16 !important;
+    background-attachment: scroll !important;
     color: #f5f5f7 !important;
 }
 
@@ -1785,20 +1945,35 @@ body.dark-mode .cert-card {
 
 /* --- APPLE MAC OS COMPACT NAVBAR & MENU BAR --- */
 .navbar {
-    background: rgba(255, 255, 255, 0.65) !important;
-    backdrop-filter: blur(25px) saturate(190%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02) !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid transparent !important;
+    box-shadow: none !important;
     padding: 3px 0 !important;
     min-height: 38px !important;
-    transition: all 0.3s ease !important;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, transform 0.28s ease, opacity 0.28s ease !important;
 }
 
 body.dark-mode .navbar {
-    background: rgba(11, 15, 25, 0.7) !important;
+    background: transparent !important;
+    border-bottom: 1px solid transparent !important;
+    box-shadow: none !important;
+}
+
+/* Scrolled Navbar Appearance */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(25px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.dark-mode .navbar.scrolled {
+    background: rgba(11, 15, 25, 0.8) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
 }
 
 .navbar .container {
@@ -1867,17 +2042,7 @@ body.dark-mode .navbar .nav-link.active {
     background: rgba(77, 124, 199, 0.15) !important;
 }
 
-.navbar .lang-toggle {
-    height: 24px !important;
-    padding: 1px 6px !important;
-    font-size: 0.7rem !important;
-}
-
-.navbar .theme-toggle {
-    width: 26px !important;
-    height: 26px !important;
-    font-size: 0.78rem !important;
-}
+/* Squeezing overrides removed for uniform switch toggles */
 
 /* --- APPLE FLOATING DROPDOWN CARD MENU OVERRIDES --- */
 .nav-drawer {
@@ -1980,8 +2145,8 @@ body.dark-mode .drawer-footer {
 
 /* --- APPLE BUTTONS & CONTROLS --- */
 .btn,
-.lang-toggle,
-.theme-toggle,
+.lang-toggle:not(.switch-toggle),
+.theme-toggle:not(.switch-toggle),
 .social-btn,
 .back-to-top,
 .contact-fab,
@@ -2001,8 +2166,8 @@ body.dark-mode .drawer-footer {
 }
 
 body.dark-mode .btn,
-body.dark-mode .lang-toggle,
-body.dark-mode .theme-toggle,
+body.dark-mode .lang-toggle:not(.switch-toggle),
+body.dark-mode .theme-toggle:not(.switch-toggle),
 body.dark-mode .social-btn,
 body.dark-mode .back-to-top,
 body.dark-mode .contact-fab,
@@ -2033,8 +2198,8 @@ body.dark-mode .lang-btn {
 
 /* Button Hover Interactive Lift */
 .btn:hover,
-.lang-toggle:hover,
-.theme-toggle:hover,
+.lang-toggle:not(.switch-toggle):hover,
+.theme-toggle:not(.switch-toggle):hover,
 .social-btn:hover,
 .back-to-top:hover,
 .contact-fab:hover,
@@ -2048,8 +2213,8 @@ body.dark-mode .lang-btn {
 }
 
 body.dark-mode .btn:hover,
-body.dark-mode .lang-toggle:hover,
-body.dark-mode .theme-toggle:hover,
+body.dark-mode .lang-toggle:not(.switch-toggle):hover,
+body.dark-mode .theme-toggle:not(.switch-toggle):hover,
 body.dark-mode .social-btn:hover,
 body.dark-mode .back-to-top:hover,
 body.dark-mode .contact-fab:hover,
@@ -2303,14 +2468,14 @@ body.dark-mode .hero-img {
 
 /* --- FOOTER GLASS STYLING --- */
 .footer {
-    background: rgba(255, 255, 255, 0.45) !important;
-    backdrop-filter: blur(20px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.4) !important;
+    background: #E4E7ED !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 body.dark-mode .footer {
-    background: rgba(11, 15, 25, 0.6) !important;
+    background: #0e1628 !important;
     border-top-color: rgba(255, 255, 255, 0.08) !important;
 }
 
@@ -2373,6 +2538,121 @@ body.dark-mode .text-muted {
 body.dark-mode .text-muted,
 body.dark-mode .text-muted * {
     color: #a1a1a6 !important;
+}
+
+/* ============================================================
+   ULTRA-LIGHTWEIGHT LEGACY & MOBILE PERFORMANCE (ZERO-LAG GUARANTEE)
+   Compatible with legacy devices (iPhone 5s/6/6s, Samsung A/J series)
+   ============================================================ */
+
+@media (max-width: 991px) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    /* 1. Eliminate heavy real-time GPU backdrop sampling & filter shaders */
+    *, *::before, *::after {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        filter: none !important;
+        box-shadow: none !important;
+    }
+
+    /* 2. Fast solid surfaces with crisp 1px borders (0 GPU cost) */
+    .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.98) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    body.dark-mode .navbar.scrolled {
+        background: rgba(9, 13, 22, 0.98) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .nav-drawer {
+        background: rgba(255, 255, 255, 0.99) !important;
+        border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    }
+
+    body.dark-mode .nav-drawer {
+        background: rgba(18, 24, 38, 0.99) !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    }
+
+    .footer {
+        background: #E4E7ED !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    }
+
+    body.dark-mode .footer {
+        background: #0e1628 !important;
+        border-top-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    /* 3. High performance solid cards */
+    .card,
+    .skill-bento-card,
+    .exp-bento-card,
+    .project-card,
+    .cert-card {
+        background-color: #ffffff !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        will-change: auto !important;
+    }
+
+    body.dark-mode .card,
+    body.dark-mode .skill-bento-card,
+    body.dark-mode .exp-bento-card,
+    body.dark-mode .project-card,
+    body.dark-mode .cert-card {
+        background-color: #0f172a !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        will-change: auto !important;
+    }
+
+    /* 4. Disable expensive hover/scroll transition calculations on mobile */
+    .card,
+    .skill-bento-card,
+    .exp-bento-card,
+    .project-card,
+    .cert-card,
+    .btn,
+    .nav-link,
+    .social-btn,
+    .lang-toggle,
+    .theme-toggle,
+    .back-to-top,
+    .contact-fab,
+    .drawer-close,
+    .lang-btn,
+    .icon-box,
+    .skill-badge,
+    .project-tag,
+    .focus-badge,
+    .badge {
+        transition: color 0.1s ease, background-color 0.1s ease, opacity 0.1s ease !important;
+        will-change: auto !important;
+    }
+
+    /* 5. Skip rendering of offscreen HTML content */
+    section {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 300px;
+    }
+
+    img {
+        decoding: async;
+    }
+}
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 

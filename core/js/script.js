@@ -440,6 +440,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth >= 992) closeDrawer();
     });
 
+    // Navbar transparent on top, glass surface on scroll (RAF Throttled + Passive)
+    let isScrollTicking = false;
+    function handleNavbarScroll() {
+        if (!navbarEl) return;
+        const isScrolled = window.scrollY > 20;
+        if (navbarEl.classList.contains('scrolled') !== isScrolled) {
+            navbarEl.classList.toggle('scrolled', isScrolled);
+        }
+    }
+    window.addEventListener('scroll', () => {
+        if (!isScrollTicking) {
+            window.requestAnimationFrame(() => {
+                handleNavbarScroll();
+                isScrollTicking = false;
+            });
+            isScrollTicking = true;
+        }
+    }, { passive: true });
+    handleNavbarScroll();
+
 
     // ============================================================
     // 2. THEME TOGGLE
@@ -617,6 +637,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+        document.querySelectorAll('.switch-toggle[data-lang-switch]').forEach(sw => {
+            sw.setAttribute('data-active-lang', lang);
         });
     }
 
