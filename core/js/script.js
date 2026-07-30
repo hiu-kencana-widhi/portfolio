@@ -439,6 +439,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         if (window.innerWidth >= 992) closeDrawer();
     });
+    if (window.innerWidth >= 992) {
+        closeDrawer();
+    }
 
     // Navbar transparent on top, glass surface on scroll (RAF Throttled + Passive)
     let isScrollTicking = false;
@@ -543,6 +546,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function typeEffect() {
+            // Pause typing DOM reflows when scrolled past hero header
+            if (window.scrollY > 350) {
+                setTimeout(typeEffect, 1000);
+                return;
+            }
             const roles = getRoles();
             const currentRole = roles[roleIdx];
             

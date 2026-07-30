@@ -13,7 +13,7 @@
     --font-apple-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     --bg-main:     #FAFAF9;         /* White Linen: Putih hangat, mengurangi silau */
-    --bg-surface:  rgba(255, 255, 255, 0.55);
+    --bg-surface:  #FFFFFF;
     --bg-hover:    #284F8C;         
     --bg-hover-text: #FFFFFF;
     --border-color: rgba(255, 255, 255, 0.6);
@@ -31,7 +31,7 @@
     --blue:        #284F8C;
     --blue-light:  #1d3b6a;
     --bg:          #FAFAF9;
-    --surface:     rgba(255, 255, 255, 0.55);
+    --surface:     #FFFFFF;
     --border:      rgba(255, 255, 255, 0.6);
     --text:        #1d1d1f;
     --muted:       #6e6e73;
@@ -48,7 +48,7 @@
 
 body.dark-mode {
     --bg-main:     #090d16;         
-    --bg-surface:  rgba(18, 24, 38, 0.55); 
+    --bg-surface:  #0f172a; 
     --bg-hover:    #4D7CC7;         
     --bg-hover-text: #ffffff;
     --border-color: rgba(255, 255, 255, 0.12);
@@ -66,7 +66,7 @@ body.dark-mode {
     --blue:        #4D7CC7;
     --blue-light:  #284F8C;
     --bg:          #090d16;
-    --surface:     rgba(18, 24, 38, 0.55);
+    --surface:     #0f172a;
     --border:      rgba(255, 255, 255, 0.12);
     --text:        #f5f5f7;
     --muted:       #a1a1a6;
@@ -242,18 +242,26 @@ body.dark-mode .nav-link.active {
 }
 
 .navbar-toggler {
-    border: 1px solid var(--border);
-    padding: 5px 8px; /* Slightly more compact */
-    border-radius: 5px;
-    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
     cursor: pointer;
     display: none; /* shown via media query */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4px;
-    width: 34px; /* Reduced from 38px */
-    height: 34px; /* Reduced from 38px */
+    gap: 3px;
+    width: 28px !important;
+    height: 28px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+body.dark-mode .navbar-toggler {
+    background: #0f172a !important;
+    border-color: rgba(255, 255, 255, 0.16) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
 }
 
 .navbar-toggler:focus { box-shadow: none; outline: none; }
@@ -261,10 +269,10 @@ body.dark-mode .nav-link.active {
 /* Hamburger icon lines */
 .navbar-toggler .tog-bar {
     display: block;
-    width: 20px;
-    height: 2px;
+    width: 14px;
+    height: 1.6px;
     background-color: var(--text);
-    border-radius: 2px;
+    border-radius: 9999px;
     transition: transform 0.25s ease, opacity 0.2s ease, width 0.25s ease;
     transform-origin: center;
 }
@@ -299,10 +307,10 @@ body.dark-mode .nav-link.active {
     max-width: calc(100vw - 24px);
     height: auto;
     max-height: calc(100dvh - 60px);
-    background-color: var(--surface);
-    border: 1px solid var(--border);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 18px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
     z-index: 1050;
     transform: translateY(-8px) scale(0.96);
     opacity: 0;
@@ -341,25 +349,30 @@ body.dark-mode .nav-link.active {
 }
 
 .drawer-close {
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: transparent;
-    color: var(--text);
+    width: 24px !important;
+    height: 24px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border-radius: 50% !important;
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: var(--text) !important;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
-    transition: background-color 0.15s, color 0.15s;
+    font-size: 0.75rem;
+    transition: all 0.2s ease !important;
     padding: 0;
 }
 
+body.dark-mode .drawer-close {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
 .drawer-close:hover {
-    background-color: var(--accent);
-    color: #fff;
-    border-color: var(--accent);
+    background-color: var(--accent) !important;
+    color: #fff !important;
+    border-color: var(--accent) !important;
 }
 
 /* Drawer nav links */
@@ -585,6 +598,15 @@ body.dark-mode .switch-toggle[data-active-lang="en"] .opt-right {
     .navbar .navbar-nav {
         margin-left: auto !important;
         margin-right: auto !important;
+    }
+
+    /* Hide Mobile Drawer Popover completely on Desktop Viewports */
+    .nav-drawer,
+    .drawer-backdrop {
+        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        visibility: hidden !important;
     }
 }
 
@@ -944,11 +966,41 @@ body.dark-mode .form-control:focus {
     transform: translateY(-3px);
 }
 
-/* --- MODAL (dark mode fix) --- */
-body.dark-mode .modal-content {
-    background-color: #1e293b;
-    color: #f1f5f9;
-    border: 1px solid #334155;
+/* --- UNIVERSAL 100% SOLID OPAQUE POPUP CARDS & MODALS (NO TRANSPARENCY) --- */
+.modal-content,
+.modal-body,
+.modal-header,
+.modal-footer,
+.nav-drawer,
+.popover,
+.dropdown-menu,
+.card,
+.skill-bento-card,
+.exp-bento-card,
+.project-card,
+.cert-card {
+    background-color: #ffffff !important;
+    color: #1d1d1f;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+body.dark-mode .modal-content,
+body.dark-mode .modal-body,
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer,
+body.dark-mode .nav-drawer,
+body.dark-mode .popover,
+body.dark-mode .dropdown-menu,
+body.dark-mode .card,
+body.dark-mode .skill-bento-card,
+body.dark-mode .exp-bento-card,
+body.dark-mode .project-card,
+body.dark-mode .cert-card {
+    background-color: #0f172a !important;
+    color: #f5f5f7;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 body.dark-mode .modal-header,
@@ -1961,18 +2013,20 @@ body.dark-mode .navbar {
     box-shadow: none !important;
 }
 
-/* Scrolled Navbar Appearance */
+/* Scrolled Navbar Appearance (100% SOLID OPAQUE) */
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.75) !important;
-    backdrop-filter: blur(25px) saturate(190%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
 }
 
 body.dark-mode .navbar.scrolled {
-    background: rgba(11, 15, 25, 0.8) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #090d16 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
 }
 
@@ -2044,22 +2098,24 @@ body.dark-mode .navbar .nav-link.active {
 
 /* Squeezing overrides removed for uniform switch toggles */
 
-/* --- APPLE FLOATING DROPDOWN CARD MENU OVERRIDES --- */
+/* --- APPLE FLOATING DROPDOWN CARD MENU OVERRIDES (SOLID 100% OPAQUE) --- */
 .nav-drawer {
     right: 12px !important;
     left: auto !important;
-    background: rgba(255, 255, 255, 0.96) !important;
-    backdrop-filter: blur(30px) saturate(190%) !important;
-    -webkit-backdrop-filter: blur(30px) saturate(190%) !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
     border-radius: 18px !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2) !important;
 }
 
 body.dark-mode .nav-drawer {
-    background: rgba(18, 24, 38, 0.96) !important;
+    background: #0f172a !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
 }
 
 .drawer-header {
@@ -2474,6 +2530,10 @@ body.dark-mode .hero-img {
     border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
+.footer iframe {
+    pointer-events: none !important;
+}
+
 body.dark-mode .footer {
     background: #0e1628 !important;
     border-top-color: rgba(255, 255, 255, 0.08) !important;
@@ -2541,42 +2601,57 @@ body.dark-mode .text-muted * {
 }
 
 /* ============================================================
-   ULTRA-LIGHTWEIGHT LEGACY & MOBILE PERFORMANCE (ZERO-LAG GUARANTEE)
-   Compatible with legacy devices (iPhone 5s/6/6s, Samsung A/J series)
+   HARDCORE ZERO-LAG MOBILE PERFORMANCE OPTIMIZATION (MAX SPEED)
    ============================================================ */
 
-@media (max-width: 991px) {
+@media (max-width: 991px), (hover: none) {
     html {
         scroll-behavior: auto !important;
+        -webkit-tap-highlight-color: transparent;
+        text-rendering: optimizeSpeed;
     }
 
-    /* 1. Eliminate heavy real-time GPU backdrop sampling & filter shaders */
+    /* 1. Eliminate all GPU pixel shaders & expensive filters */
     *, *::before, *::after {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         filter: none !important;
         box-shadow: none !important;
+        text-shadow: none !important;
     }
 
-    /* 2. Fast solid surfaces with crisp 1px borders (0 GPU cost) */
+    /* 2. Disable hover transforms on touch screens to prevent scroll stutter */
+    *:hover {
+        transform: none !important;
+    }
+
+    /* 3. Fast solid surfaces with crisp 1px borders (0 GPU cost) */
     .navbar.scrolled {
-        background: rgba(255, 255, 255, 0.98) !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+        background: #ffffff !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
     }
     
     body.dark-mode .navbar.scrolled {
-        background: rgba(9, 13, 22, 0.98) !important;
+        background: #090d16 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
     .nav-drawer {
-        background: rgba(255, 255, 255, 0.99) !important;
+        background: #ffffff !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         border: 1px solid rgba(0, 0, 0, 0.12) !important;
     }
 
     body.dark-mode .nav-drawer {
-        background: rgba(18, 24, 38, 0.99) !important;
-        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        background: #0f172a !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
     }
 
     .footer {
@@ -2589,7 +2664,7 @@ body.dark-mode .text-muted * {
         border-top-color: rgba(255, 255, 255, 0.08) !important;
     }
 
-    /* 3. High performance solid cards */
+    /* 4. High performance solid cards with DOM containment */
     .card,
     .skill-bento-card,
     .exp-bento-card,
@@ -2598,6 +2673,7 @@ body.dark-mode .text-muted * {
         background-color: #ffffff !important;
         border: 1px solid rgba(0, 0, 0, 0.08) !important;
         will-change: auto !important;
+        contain: content;
     }
 
     body.dark-mode .card,
@@ -2608,33 +2684,15 @@ body.dark-mode .text-muted * {
         background-color: #0f172a !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
         will-change: auto !important;
+        contain: content;
     }
 
-    /* 4. Disable expensive hover/scroll transition calculations on mobile */
-    .card,
-    .skill-bento-card,
-    .exp-bento-card,
-    .project-card,
-    .cert-card,
-    .btn,
-    .nav-link,
-    .social-btn,
-    .lang-toggle,
-    .theme-toggle,
-    .back-to-top,
-    .contact-fab,
-    .drawer-close,
-    .lang-btn,
-    .icon-box,
-    .skill-badge,
-    .project-tag,
-    .focus-badge,
-    .badge {
-        transition: color 0.1s ease, background-color 0.1s ease, opacity 0.1s ease !important;
-        will-change: auto !important;
+    /* 5. Instantaneous 0.05s color transitions */
+    * {
+        transition-duration: 0.05s !important;
     }
 
-    /* 5. Skip rendering of offscreen HTML content */
+    /* 6. Defer offscreen HTML rendering */
     section {
         content-visibility: auto;
         contain-intrinsic-size: 1px 300px;
@@ -2642,6 +2700,10 @@ body.dark-mode .text-muted * {
 
     img {
         decoding: async;
+    }
+
+    iframe {
+        pointer-events: none !important;
     }
 }
 
