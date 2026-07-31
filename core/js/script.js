@@ -720,269 +720,223 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Project Modal Logic ---
-    // --- Project Modal Logic ---
-    const projModal = document.getElementById('projModal');
-    if (projModal) {
-        document.querySelectorAll('.project-card, .footer-project-link').forEach(card => {
-            card.addEventListener('click', (e) => {
-                e.preventDefault();
-                // If clicked on a button or link inside the card, don't open modal
-                // (Unless it is the footer link itself)
-                if (!card.classList.contains('footer-project-link') && e.target.closest('a, button')) return;
+    // ============================================================
+    // GLOBAL EVENT DELEGATION FOR ALL MODALS & POPUPS (SPA PROOF)
+    // ============================================================
+    function openProjectModal(card) {
+        const projModal = document.getElementById('projModal');
+        if (!projModal) return;
 
-                const titleKey = card.getAttribute('data-title');
-                const catKey   = card.getAttribute('data-cat');
-                const descKey  = card.getAttribute('data-desc');
-                const tagsStr  = card.getAttribute('data-tags');
-                const demoUrl  = card.getAttribute('data-demo');
-                
-                // Images
-                const img1 = card.getAttribute('data-img1');
-                const img2 = card.getAttribute('data-img2');
+        const titleKey = card.getAttribute('data-title');
+        const catKey   = card.getAttribute('data-cat');
+        const descKey  = card.getAttribute('data-desc');
+        const tagsStr  = card.getAttribute('data-tags');
+        const demoUrl  = card.getAttribute('data-demo');
+        const img1 = card.getAttribute('data-img1');
+        const img2 = card.getAttribute('data-img2');
 
-                // Update text
-                const modalTitle = document.getElementById('modalProjTitle');
-                const modalCat   = document.getElementById('modalProjCat');
-                const modalDesc  = document.getElementById('modalProjDesc');
-                
-                modalTitle.setAttribute('data-t', titleKey);
-                modalCat.setAttribute('data-t', catKey);
-                modalDesc.setAttribute('data-t', descKey);
+        const modalTitle = document.getElementById('modalProjTitle');
+        const modalCat   = document.getElementById('modalProjCat');
+        const modalDesc  = document.getElementById('modalProjDesc');
+        
+        if (modalTitle) modalTitle.setAttribute('data-t', titleKey);
+        if (modalCat) modalCat.setAttribute('data-t', catKey);
+        if (modalDesc) modalDesc.setAttribute('data-t', descKey);
 
-                // Update tags
-                const tagsContainer = document.getElementById('modalProjTags');
-                tagsContainer.innerHTML = '';
-                if (tagsStr) {
-                    tagsStr.split(',').forEach(tag => {
-                        const trimmedTag = tag.trim();
-                        const span = document.createElement('span');
-                        span.className = 'project-tag';
-                        
-                        // Try to find a translation key for this tag (e.g. "tag_inbound")
-                        // If not found, use the raw text
-                        const translationKey = Object.keys(translations[currentLang]).find(key => 
-                            translations['id'][key] === trimmedTag || translations['en'][key] === trimmedTag || key === trimmedTag
-                        );
-
-                        if (translationKey) {
-                            span.setAttribute('data-t', translationKey);
-                            span.textContent = translations[currentLang][translationKey];
-                        } else {
-                            span.textContent = trimmedTag;
-                        }
-                        
-                        tagsContainer.appendChild(span);
-                    });
-                }
-
-                // Handle images vs iframe
-                const carousel = document.getElementById('modalProjCarousel');
-                const carouselInner = document.getElementById('modalProjImages');
-                const iframeContainer = document.getElementById('modalProjIframeContainer');
-                const iframe = document.getElementById('modalProjIframe');
-                const modalBtn = document.getElementById('modalProjBtn');
-
-                carouselInner.innerHTML = '';
-                const imagesAttr = card.getAttribute('data-images');
-                let imageList = [];
-                if (imagesAttr) {
-                    imageList = imagesAttr.split(',').map(img => img.trim());
-                } else {
-                    if (img1) imageList.push(img1);
-                    if (img2) imageList.push(img2);
-                }
-
-                if (imageList.length > 0) {
-                    carousel.style.display = 'block';
-                    iframeContainer.style.display = 'none';
-                    
-                    imageList.forEach((imgSrc, index) => {
-                        const activeClass = index === 0 ? 'active' : '';
-                        carouselInner.innerHTML += `
-                            <div class="carousel-item ${activeClass} h-100">
-                                <img src="${imgSrc}" class="d-block w-100 h-100" style="object-fit:contain;" alt="Project Image ${index + 1}" onerror="this.src='https://via.placeholder.com/600x400?text=Image+Not+Found'">
-                            </div>
-                        `;
-                    });
-                } else if (demoUrl) {
-                    carousel.style.display = 'none';
-                    iframeContainer.style.display = 'block';
-                    iframe.src = demoUrl;
-                }
-
-                // Update button
-                if (demoUrl) {
-                    modalBtn.href = demoUrl;
-                    modalBtn.style.display = 'block';
-                    // Update button text based on project type
-                    const btnSpan = modalBtn.querySelector('[data-t]');
-                    if (btnSpan) {
-                        btnSpan.setAttribute('data-t', catKey === 'proj_web_cat' ? 'proj_demo' : 'proj_live');
-                    }
-                } else {
-                    modalBtn.style.display = 'none';
-                }
-
-                setLanguage(currentLang);
-                const modal = new bootstrap.Modal(projModal);
-                modal.show();
-            });
-        });
-    }
-
-    // --- Skill Modal Logic ---
-    const skillModal = document.getElementById('skillModal');
-    if (skillModal) {
-        document.querySelectorAll('.skill-bento-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const titleKey = card.getAttribute('data-title');
-                const descKey  = card.getAttribute('data-desc');
-                const iconClass = card.getAttribute('data-icon');
-                const themeColor = card.getAttribute('data-color');
-                const imgPath = card.getAttribute('data-img');
-                
-                // Get original badges from the card
-                const badgesContainer = card.querySelector('.mt-auto');
-                const badgesHtml = badgesContainer ? badgesContainer.innerHTML : '';
-
-                document.getElementById('modalSkillTitle').setAttribute('data-t', titleKey);
-                document.getElementById('modalSkillDesc').setAttribute('data-t', descKey);
-                
-                const modalIcon = document.getElementById('modalSkillIcon');
-                modalIcon.className = iconClass + ' fs-1';
-                modalIcon.style.color = themeColor;
-                
-                const iconBox = document.getElementById('modalSkillIconBox');
-                iconBox.style.backgroundColor = `${themeColor}10`;
-                iconBox.style.borderColor = `${themeColor}30`;
-
-                // Handle Image
-                const imgContainer = document.getElementById('modalSkillImageContainer');
-                const modalImg = document.getElementById('modalSkillImage');
-                if (imgPath) {
-                    modalImg.src = imgPath;
-                    imgContainer.classList.remove('d-none');
-                    iconBox.classList.add('d-none'); // Hide icon box if we have a cool image
-                } else {
-                    imgContainer.classList.add('d-none');
-                    iconBox.classList.remove('d-none');
-                }
-
-                document.getElementById('modalSkillBadges').innerHTML = badgesHtml;
-
-                setLanguage(currentLang);
-                const modal = new bootstrap.Modal(skillModal);
-                modal.show();
-            });
-        });
-    }
-
-    // --- Back to Top Logic ---
-    const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        let bttTicking = false;
-        window.addEventListener('scroll', () => {
-            if (!bttTicking) {
-                window.requestAnimationFrame(() => {
-                    if (window.scrollY > 500) {
-                        backToTop.classList.add('show');
-                    } else {
-                        backToTop.classList.remove('show');
-                    }
-                    bttTicking = false;
-                });
-                bttTicking = true;
-            }
-        }, { passive: true });
-        backToTop.addEventListener('click', () => {
-            const isMobile = window.innerWidth < 992 || ('ontouchstart' in window);
-            window.scrollTo({ top: 0, behavior: isMobile ? 'auto' : 'smooth' });
-        });
-    }
-
-    // --- Profile Photo Modal Logic ---
-    const heroPhotoBtn = document.getElementById('heroPhotoBtn');
-    const profileModal = document.getElementById('profileModal');
-    if (heroPhotoBtn && profileModal) {
-        heroPhotoBtn.addEventListener('click', () => {
-            setLanguage(currentLang);
-            const modal = new bootstrap.Modal(profileModal);
-            modal.show();
-        });
-    }
-
-    // --- About Me Modal Logic ---
-    const aboutCardBtn = document.getElementById('aboutCardBtn');
-    const aboutModal = document.getElementById('aboutModal');
-    if (aboutCardBtn && aboutModal) {
-        aboutCardBtn.addEventListener('click', () => {
-            setLanguage(currentLang);
-            const modal = new bootstrap.Modal(aboutModal);
-            modal.show();
-        });
-    }
-
-    // --- CTA Contact Modal Logic ---
-    const ctaCardBtn = document.getElementById('ctaCardBtn');
-    const contactModal = document.getElementById('contactModal');
-    if (ctaCardBtn && contactModal) {
-        ctaCardBtn.addEventListener('click', () => {
-            setLanguage(currentLang);
-            const modal = new bootstrap.Modal(contactModal);
-            modal.show();
-        });
-    }
-
-    // --- Footer Project Link Logic ---
-    const footerProjectLinks = document.querySelectorAll('.footer-project-link');
-    if (footerProjectLinks.length > 0 && projModal) {
-        footerProjectLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const title = link.getAttribute('data-title');
-                const cat = link.getAttribute('data-cat');
-                const desc = link.getAttribute('data-desc');
-                const tags = link.getAttribute('data-tags');
-                const images = link.getAttribute('data-images');
-                const demo = link.getAttribute('data-demo');
-
-                document.getElementById('modalProjTitle').innerText = translations[currentLang][title] || title;
-                document.getElementById('modalProjCat').innerText = translations[currentLang][cat] || cat;
-                document.getElementById('modalProjDesc').innerText = translations[currentLang][desc] || desc;
-                
-                const tagsContainer = document.getElementById('modalProjTags');
-                tagsContainer.innerHTML = '';
-                tags.split(',').forEach(tag => {
+        const tagsContainer = document.getElementById('modalProjTags');
+        if (tagsContainer) {
+            tagsContainer.innerHTML = '';
+            if (tagsStr) {
+                tagsStr.split(',').forEach(tag => {
+                    const trimmedTag = tag.trim();
                     const span = document.createElement('span');
-                    span.className = 'badge bg-light text-dark border me-1 mb-1';
-                    span.innerText = tag.trim();
+                    span.className = 'project-tag';
+                    const translationKey = Object.keys(translations[currentLang]).find(key => 
+                        translations['id'][key] === trimmedTag || translations['en'][key] === trimmedTag || key === trimmedTag
+                    );
+
+                    if (translationKey) {
+                        span.setAttribute('data-t', translationKey);
+                        span.textContent = translations[currentLang][translationKey];
+                    } else {
+                        span.textContent = trimmedTag;
+                    }
                     tagsContainer.appendChild(span);
                 });
+            }
+        }
 
-                const carouselInner = document.getElementById('modalProjImages');
-                carouselInner.innerHTML = '';
-                images.split(',').forEach((img, index) => {
-                    const div = document.createElement('div');
-                    div.className = `carousel-item ${index === 0 ? 'active' : ''}`;
-                    div.innerHTML = `<img src="${img.trim()}" class="d-block w-100" style="height:220px; object-fit:cover;" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Image'">`;
-                    carouselInner.appendChild(div);
+        const carousel = document.getElementById('modalProjCarousel');
+        const carouselInner = document.getElementById('modalProjImages');
+        const iframeContainer = document.getElementById('modalProjIframeContainer');
+        const iframe = document.getElementById('modalProjIframe');
+        const modalBtn = document.getElementById('modalProjBtn');
+
+        if (carouselInner) {
+            carouselInner.innerHTML = '';
+            const imagesAttr = card.getAttribute('data-images');
+            let imageList = [];
+            if (imagesAttr) {
+                imageList = imagesAttr.split(',').map(img => img.trim());
+            } else {
+                if (img1) imageList.push(img1);
+                if (img2) imageList.push(img2);
+            }
+
+            if (imageList.length > 0) {
+                if (carousel) carousel.style.display = 'block';
+                if (iframeContainer) iframeContainer.style.display = 'none';
+                
+                imageList.forEach((imgSrc, index) => {
+                    const activeClass = index === 0 ? 'active' : '';
+                    carouselInner.innerHTML += `
+                        <div class="carousel-item ${activeClass} h-100">
+                            <img src="${imgSrc}" class="d-block w-100 h-100" style="object-fit:contain;" alt="Project Image ${index + 1}" onerror="this.src='https://via.placeholder.com/600x400?text=Image+Not+Found'">
+                        </div>
+                    `;
                 });
+            } else if (demoUrl && iframeContainer) {
+                if (carousel) carousel.style.display = 'none';
+                iframeContainer.style.display = 'block';
+                if (iframe) iframe.src = demoUrl;
+            }
+        }
 
-                const demoBtn = document.getElementById('modalProjBtn');
-                if (demo) {
-                    demoBtn.href = demo;
-                    demoBtn.style.display = 'block';
-                } else {
-                    demoBtn.style.display = 'none';
+        if (modalBtn) {
+            if (demoUrl) {
+                modalBtn.href = demoUrl;
+                modalBtn.style.display = 'block';
+                const btnSpan = modalBtn.querySelector('[data-t]');
+                if (btnSpan) {
+                    btnSpan.setAttribute('data-t', catKey === 'proj_web_cat' ? 'proj_demo' : 'proj_live');
                 }
+            } else {
+                modalBtn.style.display = 'none';
+            }
+        }
 
-                setLanguage(currentLang);
-                const modal = new bootstrap.Modal(projModal);
-                modal.show();
-            });
-        });
+        setLanguage(currentLang);
+        const modalInstance = bootstrap.Modal.getInstance(projModal) || new bootstrap.Modal(projModal);
+        modalInstance.show();
     }
+
+    function openSkillModal(card) {
+        const skillModal = document.getElementById('skillModal');
+        if (!skillModal) return;
+
+        const titleKey = card.getAttribute('data-title');
+        const descKey  = card.getAttribute('data-desc');
+        const iconClass = card.getAttribute('data-icon');
+        const themeColor = card.getAttribute('data-color');
+        const imgPath = card.getAttribute('data-img');
+        
+        const badgesContainer = card.querySelector('.mt-auto');
+        const badgesHtml = badgesContainer ? badgesContainer.innerHTML : '';
+
+        const titleEl = document.getElementById('modalSkillTitle');
+        const descEl = document.getElementById('modalSkillDesc');
+        if (titleEl) titleEl.setAttribute('data-t', titleKey);
+        if (descEl) descEl.setAttribute('data-t', descKey);
+        
+        const modalIcon = document.getElementById('modalSkillIcon');
+        if (modalIcon) {
+            modalIcon.className = iconClass + ' fs-1';
+            modalIcon.style.color = themeColor;
+        }
+        
+        const iconBox = document.getElementById('modalSkillIconBox');
+        if (iconBox) {
+            iconBox.style.backgroundColor = `${themeColor}10`;
+            iconBox.style.borderColor = `${themeColor}30`;
+        }
+
+        const imgContainer = document.getElementById('modalSkillImageContainer');
+        const modalImg = document.getElementById('modalSkillImage');
+        if (imgPath && modalImg && imgContainer) {
+            modalImg.src = imgPath;
+            imgContainer.classList.remove('d-none');
+            if (iconBox) iconBox.classList.add('d-none');
+        } else if (imgContainer) {
+            imgContainer.classList.add('d-none');
+            if (iconBox) iconBox.classList.remove('d-none');
+        }
+
+        const badgesEl = document.getElementById('modalSkillBadges');
+        if (badgesEl) badgesEl.innerHTML = badgesHtml;
+
+        setLanguage(currentLang);
+        const modalInstance = bootstrap.Modal.getInstance(skillModal) || new bootstrap.Modal(skillModal);
+        modalInstance.show();
+    }
+
+    // Global Click Delegation for Dynamic Elements & Modals
+    document.addEventListener('click', (e) => {
+        // CTA Contact Modal
+        const ctaBtn = e.target.closest('#ctaCardBtn');
+        if (ctaBtn) {
+            const contactModal = document.getElementById('contactModal');
+            if (contactModal) {
+                setLanguage(currentLang);
+                const modal = bootstrap.Modal.getInstance(contactModal) || new bootstrap.Modal(contactModal);
+                modal.show();
+            }
+            return;
+        }
+
+        // Hero Photo Modal
+        const photoBtn = e.target.closest('#heroPhotoBtn');
+        if (photoBtn) {
+            const profileModal = document.getElementById('profileModal');
+            if (profileModal) {
+                setLanguage(currentLang);
+                const modal = bootstrap.Modal.getInstance(profileModal) || new bootstrap.Modal(profileModal);
+                modal.show();
+            }
+            return;
+        }
+
+        // About Modal
+        const aboutBtn = e.target.closest('#aboutCardBtn');
+        if (aboutBtn) {
+            const aboutModal = document.getElementById('aboutModal');
+            if (aboutModal) {
+                setLanguage(currentLang);
+                const modal = bootstrap.Modal.getInstance(aboutModal) || new bootstrap.Modal(aboutModal);
+                modal.show();
+            }
+            return;
+        }
+
+        // Project Card & Footer Project Link
+        const projCard = e.target.closest('.project-card, .footer-project-link');
+        if (projCard) {
+            if (!projCard.classList.contains('footer-project-link') && e.target.closest('a, button')) return;
+            e.preventDefault();
+            openProjectModal(projCard);
+            return;
+        }
+
+        // Skill Bento Card
+        const skillCard = e.target.closest('.skill-bento-card');
+        if (skillCard) {
+            openSkillModal(skillCard);
+            return;
+        }
+    });
+
+    // Global Lightbox Image Modal Listener
+    document.addEventListener('show.bs.modal', (e) => {
+        if (e.target && e.target.id === 'imageModal') {
+            const button = e.relatedTarget;
+            if (button) {
+                const src = button.getAttribute('data-src');
+                const modalImg = e.target.querySelector('#lightboxImg');
+                if (modalImg && src) {
+                    modalImg.src = src;
+                }
+            }
+        }
+    });
 
     // --- Contact Form Submission to WhatsApp ---
     const contactForm = document.getElementById('contactForm');
@@ -1217,7 +1171,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (doc.title) document.title = doc.title;
 
                     mainContent.innerHTML = newMain.innerHTML;
-                    mainContent.className = newMain.className;
+                    // Sync/inject all modals from target page into DOM
+                    const targetModals = doc.querySelectorAll('.modal');
+                    targetModals.forEach(targetModal => {
+                        if (!targetModal.id) return;
+                        const existingModal = document.getElementById(targetModal.id);
+                        if (existingModal) {
+                            existingModal.innerHTML = targetModal.innerHTML;
+                        } else {
+                            document.body.appendChild(targetModal.cloneNode(true));
+                        }
+                    });
 
                     if (pushState && window.location.href !== url) {
                         history.pushState(null, '', url);
@@ -1258,6 +1222,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function reinitPageScripts() {
+        // Clean up any stale modal backdrops & scroll locks
+        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+        document.body.classList.remove('modal-open');
+        document.body.style.removeProperty('padding-right');
+        document.body.style.removeProperty('overflow');
+
         const currentLang = localStorage.getItem('portfolio_lang') || 'id';
         if (typeof updateLanguage === 'function') updateLanguage(currentLang);
         
