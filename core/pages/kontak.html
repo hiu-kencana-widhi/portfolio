@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -108,7 +108,7 @@
         </div>
     </nav>
 
-    <main class="container py-5">
+    <main id="main-content" class="container py-5">
         <div class="page-header pt-0 mb-5 reveal">
             <h1 class="h3 fw-bold mb-1" data-t="contact_page_title">Get in Touch</h1>
             <p data-t="contact_page_desc">Let's discuss projects, job opportunities, or other collaborations.</p>
@@ -120,27 +120,37 @@
                 <div class="d-flex flex-column gap-3">
                                        <!-- Email Card -->
                     <div class="card contact-info-card p-3 border-0 shadow-sm rounded-4" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#emailInfoModal">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="contact-icon-wrapper bg-primary bg-opacity-10 text-primary">
-                                <i class="bi bi-envelope-at"></i>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="contact-icon-wrapper bg-primary bg-opacity-10 text-primary">
+                                    <i class="bi bi-envelope-at"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h6 fw-bold mb-0 text-muted small text-uppercase" style="letter-spacing:1px;" data-t="contact_email">Email</h3>
+                                    <div class="fw-semibold text-main">widhi.limited@gmail.com</div>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="h6 fw-bold mb-0 text-muted small text-uppercase" style="letter-spacing:1px;" data-t="contact_email">Email</h3>
-                                <div class="fw-semibold text-main">widhi.limited@gmail.com</div>
-                            </div>
+                            <button type="button" class="btn btn-sm btn-outline-primary rounded-circle" style="width:34px; height:34px; padding:0; display:inline-flex; align-items:center; justify-content:center;" onclick="event.stopPropagation(); copyToClipboard('widhi.limited@gmail.com');" title="Salin Email">
+                                <i class="bi bi-copy"></i>
+                            </button>
                         </div>
                     </div>
 
                     <!-- WhatsApp Card -->
                     <div class="card contact-info-card p-3 border-0 shadow-sm rounded-4" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#waInfoModal">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="contact-icon-wrapper bg-success bg-opacity-10 text-success">
-                                <i class="bi bi-whatsapp"></i>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="contact-icon-wrapper bg-success bg-opacity-10 text-success">
+                                    <i class="bi bi-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h6 fw-bold mb-0 text-muted small text-uppercase" style="letter-spacing:1px;" data-t="contact_wa">WhatsApp</h3>
+                                    <div class="fw-semibold text-main">+62 851-7420-8810</div>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="h6 fw-bold mb-0 text-muted small text-uppercase" style="letter-spacing:1px;" data-t="contact_wa">WhatsApp</h3>
-                                <div class="fw-semibold text-main">+62 851-7420-8810</div>
-                            </div>
+                            <button type="button" class="btn btn-sm btn-outline-success rounded-circle" style="width:34px; height:34px; padding:0; display:inline-flex; align-items:center; justify-content:center;" onclick="event.stopPropagation(); copyToClipboard('+6285174208810');" title="Salin Nomor WhatsApp">
+                                <i class="bi bi-copy"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -264,11 +274,14 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h4 class="h6 fw-bold mb-3" data-t="footer_social">Sosial Media</h4>
-                    <div class="d-flex gap-2 mb-3">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
                         <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                        <a href="mailto:widhi.limited@gmail.com" class="social-btn" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
                         <a href="https://github.com/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://wa.me/6285174208810" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.threads.net/@hiyoubob" target="_blank" rel="noopener" class="social-btn" aria-label="Threads" title="Threads (@hiyoubob)"><i class="bi bi-threads"></i></a>
+                        <a href="https://t.me/+6285174208810" target="_blank" rel="noopener" class="social-btn" aria-label="Telegram" title="Telegram (+62 851-7420-8810)"><i class="bi bi-telegram"></i></a>
                         <a href="https://instagram.com/hiukencana" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="mailto:widhi.limited@gmail.com" class="social-btn" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
                     </div>
                     <div class="rounded-3 overflow-hidden" style="height: 120px; border: 1px solid var(--border);">
                         <iframe 

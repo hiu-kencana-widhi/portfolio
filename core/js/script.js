@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         id: {
             nav_home: "Beranda", nav_exp: "Pengalaman", nav_proj: "Proyek", nav_skill: "Keahlian", nav_cert: "Sertifikat", nav_doc: "Dokumentasi", nav_contact: "Kontak",
-            hero_title: "Adaptif, Kreatif, dan Responsif", hero_subtitle: "Hiu Kencana Widhi. S.T.", hero_loc: "Pemalang, Jawa Tengah",
+            hero_title: "Adaptif, Kreatif, dan Responsif", hero_subtitle: "Hiu Kencana Widhi. S.T.", hero_loc: "Pemalang, Jawa Tengah", availability_status: "Tersedia untuk Peluang Kerja",
             btn_email: "Email Saya", btn_wa: "WhatsApp", btn_cv: "Unduh CV", btn_view_doc: "Lihat Dokumentasi",
             click_detail: "Klik untuk detail lebih lanjut",
             modal_about_exp: "Pengalaman", modal_about_cert: "Sertifikat",
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             nav_home: "Home", nav_exp: "Experience", nav_proj: "Projects", nav_skill: "Skills", nav_cert: "Certificates", nav_doc: "Gallery", nav_contact: "Contact",
-            hero_title: "Adaptive, Creative, and Responsive", hero_subtitle: "Hiu Kencana Widhi. S.T.", hero_loc: "Pemalang, Central Java",
+            hero_title: "Adaptive, Creative, and Responsive", hero_subtitle: "Hiu Kencana Widhi. S.T.", hero_loc: "Pemalang, Central Java", availability_status: "Available for Opportunities",
             btn_email: "Email Me", btn_wa: "WhatsApp", btn_cv: "Download CV", btn_view_doc: "View Gallery",
             click_detail: "Click for more details",
             modal_about_exp: "Experience", modal_about_cert: "Certificates",
@@ -510,25 +510,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (linkFile === currentFile) {
             link.classList.add('active');
         }
-
-        // Transition Logic
-        const isExternal = href.startsWith('http') || href.startsWith('//');
-        const isAnchor   = href.startsWith('#');
-        const isSpecial  = href.startsWith('mailto') || href.startsWith('tel');
-        const isFile     = /\.(pdf|zip|docx?|xlsx?)$/i.test(href);
-
-        if (isExternal || isAnchor || isSpecial || isFile) return;
-
-        link.addEventListener('click', (e) => {
-            closeDrawer();
-            if (window.innerWidth < 992) {
-                // Instant mobile navigation (0ms delay)
-                return;
-            }
-            e.preventDefault();
-            document.body.classList.add('page-exit');
-            setTimeout(() => { window.location.href = href; }, 120);
-        });
     });
 
 
@@ -539,10 +520,10 @@ document.addEventListener('DOMContentLoaded', () => {
         function getRoles() {
             const lang = localStorage.getItem('language') || 'en';
             return [
+                translations[lang].role_data,
                 translations[lang].role_log,
                 translations[lang].role_web,
-                translations[lang].role_net,
-                translations[lang].role_data
+                translations[lang].role_net
             ];
         }
 
@@ -561,6 +542,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 typedEl.classList.remove('fade-out');
             }, 300);
         }, 2800);
+    }
+
+    // ============================================================
+    // NAVBAR TRANSPARENT ON TOP / SCROLLED STATE
+    // ============================================================
+    const mainNavbar = document.querySelector('.navbar');
+    if (mainNavbar) {
+        function updateNavbarScroll() {
+            const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+            if (scrollPos > 20) {
+                mainNavbar.classList.add('scrolled');
+            } else {
+                mainNavbar.classList.remove('scrolled');
+            }
+        }
+        window.addEventListener('scroll', updateNavbarScroll, { passive: true });
+        updateNavbarScroll();
     }
 
     // ============================================================
@@ -1099,7 +1097,287 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ============================================================
+    // DYNAMIC SPA AJAX ROUTER (ZERO NAVBAR RELOAD)
+    // ============================================================
+    const SITE_ROOT = (function() {
+        const href = window.location.href;
+        const idx = href.indexOf('/core/pages/');
+        if (idx !== -1) {
+            return href.substring(0, idx) + '/';
+        } else {
+            let clean = href.split('?')[0].split('#')[0];
+            const lastSlash = clean.lastIndexOf('/');
+            return lastSlash >= 0 ? clean.substring(0, lastSlash + 1) : href;
+        }
+    })();
+
+    function resolvePortfolioUrl(href) {
+        if (!href) return null;
+        let clean = href.trim();
+
+        if (clean.endsWith('index.html') || clean === '/' || clean === '../../index.html' || clean === './index.html') {
+            return SITE_ROOT + 'index.html';
+        }
+
+        const pages = ['pengalaman.html', 'proyek.html', 'keahlian.html', 'sertifikat.html', 'dokumentasi.html', 'kontak.html'];
+        for (let page of pages) {
+            if (clean.includes(page)) {
+                return SITE_ROOT + 'core/pages/' + page;
+            }
+        }
+
+        try {
+            return new URL(href, window.location.href).href;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function initSpaRouter() {
+        document.addEventListener('click', function (e) {
+            const anchor = e.target.closest('a');
+            if (!anchor) return;
+
+            const href = anchor.getAttribute('href');
+            if (!href) return;
+
+            if (
+                anchor.target === '_blank' ||
+                anchor.hasAttribute('download') ||
+                href.startsWith('#') ||
+                href.startsWith('mailto:') ||
+                href.startsWith('tel:') ||
+                href.startsWith('javascript:') ||
+                href.endsWith('.pdf') ||
+                e.ctrlKey || e.metaKey || e.shiftKey
+            ) {
+                return;
+            }
+
+            const targetAbsoluteUrl = resolvePortfolioUrl(href);
+            if (!targetAbsoluteUrl) return;
+
+            e.preventDefault();
+
+            if (typeof closeDrawer === 'function') {
+                closeDrawer();
+            }
+
+            const targetObj = new URL(targetAbsoluteUrl);
+            if (targetObj.pathname === window.location.pathname && targetObj.search === window.location.search) {
+                if (targetObj.hash) {
+                    const el = document.querySelector(targetObj.hash);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }
+                return;
+            }
+
+            navigateTo(targetAbsoluteUrl);
+        });
+
+        window.addEventListener('popstate', function () {
+            navigateTo(window.location.href, false);
+        });
+    }
+
+    function navigateTo(url, pushState = true) {
+        const mainContent = document.getElementById('main-content');
+        if (!mainContent) {
+            window.location.href = url;
+            return;
+        }
+
+        // 1. Immediately fade out main content only
+        mainContent.classList.add('page-fade-out');
+
+        // 2. Sync navbar scroll state immediately to prevent background flash
+        const mainNavbar = document.querySelector('.navbar');
+        if (mainNavbar) {
+            mainNavbar.classList.remove('scrolled');
+        }
+        window.scrollTo(0, 0);
+
+        fetch(url)
+            .then(res => {
+                if (!res.ok) throw new Error('Page load failed HTTP ' + res.status);
+                return res.text();
+            })
+            .then(htmlText => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+                const newMain = doc.getElementById('main-content');
+
+                if (!newMain) {
+                    window.location.href = url;
+                    return;
+                }
+
+                setTimeout(() => {
+                    if (doc.title) document.title = doc.title;
+
+                    mainContent.innerHTML = newMain.innerHTML;
+                    mainContent.className = newMain.className;
+
+                    if (pushState && window.location.href !== url) {
+                        history.pushState(null, '', url);
+                    }
+
+                    updateActiveNavLinks(url);
+                    reinitPageScripts();
+
+                    mainContent.classList.remove('page-fade-out');
+                    mainContent.classList.add('page-fade-in');
+                    setTimeout(() => mainContent.classList.remove('page-fade-in'), 280);
+                }, 140);
+            })
+            .catch(err => {
+                console.warn('[Router] SPA navigation notice:', err);
+                window.location.href = url;
+            });
+    }
+
+    function updateActiveNavLinks(url) {
+        const targetResolved = resolvePortfolioUrl(url) || url;
+        const targetPath = new URL(targetResolved, window.location.href).pathname;
+        
+        const navLinks = document.querySelectorAll('.nav-link, .nav-drawer-link');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+            const linkResolved = resolvePortfolioUrl(href);
+            if (!linkResolved) return;
+            const linkPath = new URL(linkResolved, window.location.href).pathname;
+            
+            if (targetPath === linkPath || (targetPath.endsWith('/') && linkPath.endsWith('index.html'))) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    function reinitPageScripts() {
+        const currentLang = localStorage.getItem('portfolio_lang') || 'id';
+        if (typeof updateLanguage === 'function') updateLanguage(currentLang);
+        
+        const mainNavbar = document.querySelector('.navbar');
+        if (mainNavbar) {
+            const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+            if (scrollPos > 20) {
+                mainNavbar.classList.add('scrolled');
+            } else {
+                mainNavbar.classList.remove('scrolled');
+            }
+        }
+        
+        const reveals = document.querySelectorAll('.reveal');
+        if (reveals.length > 0 && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            reveals.forEach(r => observer.observe(r));
+        }
+
+        if (document.getElementById('typed-text')) {
+            if (typeof initTypedText === 'function') initTypedText();
+        }
+    }
+
+    initSpaRouter();
+
 });
+
+// ============================================================
+// APPLE-STYLE TOAST NOTIFICATION & QUICK COPY UTILITY
+// ============================================================
+window.showToast = function (msg, iconClass = 'bi-check-circle-fill') {
+    let container = document.getElementById('appleToastContainer');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'appleToastContainer';
+        container.className = 'apple-toast-container';
+        document.body.appendChild(container);
+    }
+
+    const existingToasts = container.querySelectorAll('.apple-toast-pill');
+    existingToasts.forEach(t => {
+        t.classList.remove('active');
+        t.classList.add('exit');
+        setTimeout(() => t.remove(), 250);
+    });
+
+    const toast = document.createElement('div');
+    toast.className = 'apple-toast-pill';
+    toast.innerHTML = `<i class="bi ${iconClass} toast-icon"></i><span>${msg}</span>`;
+
+    container.appendChild(toast);
+
+    requestAnimationFrame(() => {
+        toast.classList.add('active');
+    });
+
+    setTimeout(() => {
+        toast.classList.remove('active');
+        toast.classList.add('exit');
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 2500);
+};
+
+window.copyToClipboard = function (text, customMsg) {
+    if (!text) return;
+
+    function handleSuccess() {
+        const currentLang = document.documentElement.lang || 'id';
+        let msg = customMsg;
+        let icon = 'bi-clipboard-check-fill';
+
+        if (!msg) {
+            if (text.includes('@')) {
+                msg = currentLang === 'en' ? 'Email copied to clipboard!' : 'Email disalin ke clipboard!';
+                icon = 'bi-envelope-check-fill';
+            } else if (text.includes('wa.me') || text.includes('+62') || text.includes('851')) {
+                msg = currentLang === 'en' ? 'WhatsApp contact copied!' : 'Nomor WhatsApp disalin!';
+                icon = 'bi-whatsapp';
+            } else {
+                msg = currentLang === 'en' ? 'Copied to clipboard!' : 'Tersalin ke clipboard!';
+            }
+        }
+        window.showToast(msg, icon);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(handleSuccess).catch(() => fallbackCopy());
+    } else {
+        fallbackCopy();
+    }
+
+    function fallbackCopy() {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.top = '-9999px';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            handleSuccess();
+        } catch (err) {
+            console.error('Copy failed', err);
+        }
+        document.body.removeChild(textArea);
+    }
+};
 
 
 

@@ -152,7 +152,7 @@
         </div>
     </aside>
 
-    <nav class="navbar navbar-expand-lg shadow-sm">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <!-- Brand: left -->
             <a class="navbar-brand" href="index.html">PORTFOLIO</a>
@@ -191,37 +191,71 @@
         </div>
     </nav>
 
-    <!-- HERO -->
-    <header class="hero-section">
+    <!-- MAIN CONTENT WRAPPER -->
+    <main id="main-content">
+        <!-- HERO -->
+        <header class="hero-section">
         <div class="container">
-            <div class="row align-items-center justify-content-between flex-column-reverse flex-lg-row g-5">
+            <div class="row align-items-center justify-content-between flex-column-reverse flex-lg-row g-4 g-lg-5">
                 <!-- Text -->
-                <div class="col-lg-8 text-center text-lg-start">
-                    <p class="text-muted fw-semibold mb-1 text-uppercase" style="letter-spacing:3px; font-size:0.8rem;"
+                <div class="col-lg-7 text-center text-lg-start">
+                    <p class="hero-tagline text-muted fw-semibold mb-2 text-uppercase" style="letter-spacing:3px; font-size:0.85rem;"
                         data-t="hero_title">Adaptif, Kreatif, dan Responsif</p>
-                    <h1 class="display-3 fw-bold mb-1" data-t="hero_subtitle">Hiu Kencana Widhi. S.T.</h1>
-                    <p class="fw-semibold text-accent mb-1" style="font-size:1.5rem;">
-                        <span id="typed-text">Logistics Engineer</span>
+                    <h1 class="hero-name display-3 fw-bold mb-2" data-t="hero_subtitle">Hiu Kencana Widhi. S.T.</h1>
+                    <p class="hero-role fw-semibold text-accent mb-2">
+                        <span id="typed-text">Data Analytics</span>
                     </p>
-                    <p class="text-muted mb-3 fs-5">
+                    <p class="text-muted mb-4 fs-5">
                         <i class="bi bi-geo-alt-fill text-danger me-1"></i><span data-t="hero_loc">Pemalang, Central Java</span>
                     </p>
-                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2">
-                        <a href="core/docs/CV_Hiu_Kencana_Widhi_Teknik_Logistik_S1.pdf" class="btn btn-primary px-4">
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 mb-4">
+                        <a href="core/docs/CV_Hiu_Kencana_Widhi_Teknik_Logistik_S1.pdf" class="btn btn-primary px-4 py-2 shadow-sm">
                             <i class="bi bi-file-earmark-pdf me-2"></i><span data-t="btn_cv">Download CV</span>
+                        </a>
+                        <a href="core/pages/kontak.html" class="btn btn-primary px-4 py-2 shadow-sm">
+                            <i class="bi bi-envelope me-2"></i><span data-t="nav_contact">Contact</span>
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start gap-2 flex-wrap">
+                        <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="https://wa.me/6285174208810" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://www.threads.net/@hiyoubob" target="_blank" rel="noopener" class="social-btn" aria-label="Threads" title="Threads (@hiyoubob)">
+                            <i class="bi bi-threads"></i>
+                        </a>
+                        <a href="https://t.me/+6285174208810" target="_blank" rel="noopener" class="social-btn" aria-label="Telegram" title="Telegram (+62 851-7420-8810)">
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        <a href="mailto:widhi.limited@gmail.com" class="social-btn" aria-label="Email">
+                            <i class="bi bi-envelope-fill"></i>
                         </a>
                     </div>
                 </div>
+
                 <!-- Photo -->
-                <div class="col-lg-4 text-center">
+                <div class="col-lg-5 text-center">
                     <div class="hero-img-wrap" id="heroPhotoBtn" style="cursor:pointer;">
+                        <div class="hero-glow-backdrop"></div>
                         <img src="assets/images/profile/profile.webp" alt="Foto Profil Hiu Kencana Widhi. S.T." class="hero-img"
                              loading="eager" decoding="async"
-                             onerror="this.src='https://via.placeholder.com/290'">
+                             onerror="this.src='https://via.placeholder.com/350'">
                     </div>
                 </div>
             </div>
         </div>
+        <a href="#profil" class="hero-scroll-down" aria-label="Gulir ke bawah">
+            <i class="bi bi-chevron-double-down"></i>
+        </a>
     </header>
 
     <!-- PROFIL -->
@@ -356,6 +390,7 @@
             </div>
         </div>
     </div>
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer pt-5 pb-4">
@@ -437,15 +472,21 @@
                 <!-- CONTACT & SOCIAL -->
                 <div class="col-lg-4 col-md-6">
                     <h4 class="h6 fw-bold mb-3" data-t="footer_social">Sosial Media</h4>
-                    <div class="d-flex gap-2 mb-3">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
                         <a href="https://www.linkedin.com/in/hiu-kencana-widhi" target="_blank" rel="noopener"
                             class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                        <a href="mailto:widhi.limited@gmail.com" class="social-btn" aria-label="Email"><i
-                                class="bi bi-envelope-fill"></i></a>
                         <a href="https://github.com/hiu-kencana-widhi" target="_blank" rel="noopener" class="social-btn"
                             aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://wa.me/6285174208810" target="_blank" rel="noopener" class="social-btn"
+                            aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.threads.net/@hiyoubob" target="_blank" rel="noopener" class="social-btn"
+                            aria-label="Threads" title="Threads (@hiyoubob)"><i class="bi bi-threads"></i></a>
+                        <a href="https://t.me/+6285174208810" target="_blank" rel="noopener" class="social-btn"
+                            aria-label="Telegram" title="Telegram (+62 851-7420-8810)"><i class="bi bi-telegram"></i></a>
                         <a href="https://instagram.com/hiukencana" target="_blank" rel="noopener" class="social-btn"
                             aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="mailto:widhi.limited@gmail.com" class="social-btn" aria-label="Email"><i
+                                class="bi bi-envelope-fill"></i></a>
                     </div>
                     <div class="rounded-3 overflow-hidden" style="height: 120px; border: 1px solid var(--border);">
                         <iframe 
