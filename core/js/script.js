@@ -1219,6 +1219,32 @@ document.addEventListener('DOMContentLoaded', () => {
                     mainContent.innerHTML = newMain.innerHTML;
                     mainContent.className = newMain.className;
 
+                    // --- INJECT MODALS FROM NEW PAGE ---
+                    // Remove previously injected SPA modals to prevent duplicates
+                    document.querySelectorAll('[data-spa-injected]').forEach(el => el.remove());
+
+                    // Find all modals in the fetched page that are OUTSIDE main-content
+                    const newModals = doc.querySelectorAll('.modal');
+                    newModals.forEach(modal => {
+                        // Skip if this modal is inside main-content (already included)
+                        if (modal.closest('#main-content')) return;
+                        // Clone and inject into current page
+                        const clone = modal.cloneNode(true);
+                        clone.setAttribute('data-spa-injected', 'true');
+                        // Remove any existing modal with the same ID to prevent duplicates
+                        const existingModal = document.getElementById(clone.id);
+                        if (existingModal && !existingModal.closest('#main-content')) {
+                            // Only remove if it was also SPA-injected or doesn't belong to the current "base" page
+                            if (existingModal.hasAttribute('data-spa-injected')) {
+                                existingModal.remove();
+                            }
+                        }
+                        // Only inject if no modal with this ID currently exists
+                        if (!document.getElementById(clone.id)) {
+                            document.body.appendChild(clone);
+                        }
+                    });
+
                     if (pushState && window.location.href !== url) {
                         history.pushState(null, '', url);
                     }
@@ -1258,9 +1284,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function reinitPageScripts() {
-        const currentLang = localStorage.getItem('portfolio_lang') || 'id';
-        if (typeof updateLanguage === 'function') updateLanguage(currentLang);
-        
+        // 1. RE-APPLY LANGUAGE — use the correct localStorage key
+        setLanguage(currentLang);
+
+        // 2. NAVBAR SCROLL STATE
         const mainNavbar = document.querySelector('.navbar');
         if (mainNavbar) {
             const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
@@ -1271,6 +1298,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
+        // 3. REVEAL ANIMATIONS
         const reveals = document.querySelectorAll('.reveal');
         if (reveals.length > 0 && 'IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
@@ -1283,8 +1311,366 @@ document.addEventListener('DOMContentLoaded', () => {
             reveals.forEach(r => observer.observe(r));
         }
 
-        if (document.getElementById('typed-text')) {
-            if (typeof initTypedText === 'function') initTypedText();
+        // 4. TYPED TEXT (hero section)
+        const typedEl = document.getElementById('typed-text');
+        if (typedEl) {
+            let roleIdx = 0;
+            function getRolesReinit() {
+                const lang = localStorage.getItem('language') || 'en';
+                return [
+                    translations[lang].role_data,
+                    translations[lang].role_log,
+                    translations[lang].role_web,
+                    translations[lang].role_net
+                ];
+            }
+            const roles = getRolesReinit();
+            typedEl.textContent = roles[0];
+            setInterval(() => {
+                if (window.scrollY > 400) return;
+                const currentRoles = getRolesReinit();
+                roleIdx = (roleIdx + 1) % currentRoles.length;
+                typedEl.classList.add('fade-out');
+                setTimeout(() => {
+                    typedEl.textContent = currentRoles[roleIdx];
+                    typedEl.classList.remove('fade-out');
+                }, 300);
+            }, 2800);
+        }
+
+        // 5. RE-INIT CERTIFICATE MODAL
+        const certModal = document.getElementById('certModal');
+        if (certModal) {
+            const modalImg = document.getElementById('modalCertImg');
+            const modalTitle = document.getElementById('certModalLabel');
+            document.querySelectorAll('.cert-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const img = card.querySelector('img');
+                    const title = card.querySelector('h3');
+                    if (img && modalImg) {
+                        modalImg.src = img.src;
+                        modalImg.alt = img.alt;
+                    }
+                    if (title && modalTitle) {
+                        modalTitle.textContent = title.textContent;
+                    }
+                    const bsModal = new bootstrap.Modal(certModal);
+                    bsModal.show();
+                });
+            });
+        }
+
+        // 6. RE-INIT EXPERIENCE MODAL
+        const expModal = document.getElementById('expModal');
+        if (expModal) {
+            document.querySelectorAll('.exp-bento-card').forEach(card => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    const title = card.getAttribute('data-title');
+                    const comp = card.getAttribute('data-comp');
+                    const loc = card.getAttribute('data-loc');
+                    const descKey = card.getAttribute('data-desc');
+                    const logoPath = card.getAttribute('data-logo');
+                    const iconClass = card.getAttribute('data-icon');
+
+                    document.getElementById('modalExpTitle').setAttribute('data-t', title);
+                    document.getElementById('modalExpComp').setAttribute('data-t', comp);
+                    document.getElementById('modalExpLoc').setAttribute('data-t', loc);
+                    document.getElementById('modalExpDesc').setAttribute('data-t', descKey);
+                    
+                    const modalIcon = document.getElementById('modalExpIcon');
+                    const modalLogo = document.getElementById('modalExpLogo');
+
+                    if (logoPath) {
+                        modalLogo.src = logoPath;
+                        modalLogo.style.display = 'block';
+                        modalIcon.style.display = 'none';
+                    } else if (iconClass) {
+                        modalIcon.className = iconClass + ' fs-1';
+                        modalIcon.style.color = card.querySelector('i').style.color;
+                        modalIcon.style.display = 'block';
+                        modalLogo.style.display = 'none';
+                    }
+
+                    setLanguage(currentLang);
+                    const modal = new bootstrap.Modal(expModal);
+                    modal.show();
+                });
+            });
+        }
+
+        // 7. RE-INIT PROJECT MODAL
+        const projModal = document.getElementById('projModal');
+        if (projModal) {
+            document.querySelectorAll('.project-card, .footer-project-link').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!card.classList.contains('footer-project-link') && e.target.closest('a, button')) return;
+
+                    const titleKey = card.getAttribute('data-title');
+                    const catKey   = card.getAttribute('data-cat');
+                    const descKey  = card.getAttribute('data-desc');
+                    const tagsStr  = card.getAttribute('data-tags');
+                    const demoUrl  = card.getAttribute('data-demo');
+                    
+                    const img1 = card.getAttribute('data-img1');
+                    const img2 = card.getAttribute('data-img2');
+
+                    const modalTitle = document.getElementById('modalProjTitle');
+                    const modalCat   = document.getElementById('modalProjCat');
+                    const modalDesc  = document.getElementById('modalProjDesc');
+                    
+                    modalTitle.setAttribute('data-t', titleKey);
+                    modalCat.setAttribute('data-t', catKey);
+                    modalDesc.setAttribute('data-t', descKey);
+
+                    const tagsContainer = document.getElementById('modalProjTags');
+                    tagsContainer.innerHTML = '';
+                    if (tagsStr) {
+                        tagsStr.split(',').forEach(tag => {
+                            const trimmedTag = tag.trim();
+                            const span = document.createElement('span');
+                            span.className = 'project-tag';
+                            
+                            const translationKey = Object.keys(translations[currentLang]).find(key => 
+                                translations['id'][key] === trimmedTag || translations['en'][key] === trimmedTag || key === trimmedTag
+                            );
+
+                            if (translationKey) {
+                                span.setAttribute('data-t', translationKey);
+                                span.textContent = translations[currentLang][translationKey];
+                            } else {
+                                span.textContent = trimmedTag;
+                            }
+                            
+                            tagsContainer.appendChild(span);
+                        });
+                    }
+
+                    const carousel = document.getElementById('modalProjCarousel');
+                    const carouselInner = document.getElementById('modalProjImages');
+                    const iframeContainer = document.getElementById('modalProjIframeContainer');
+                    const iframe = document.getElementById('modalProjIframe');
+                    const modalBtn = document.getElementById('modalProjBtn');
+
+                    carouselInner.innerHTML = '';
+                    const imagesAttr = card.getAttribute('data-images');
+                    let imageList = [];
+                    if (imagesAttr) {
+                        imageList = imagesAttr.split(',').map(img => img.trim());
+                    } else {
+                        if (img1) imageList.push(img1);
+                        if (img2) imageList.push(img2);
+                    }
+
+                    if (imageList.length > 0) {
+                        carousel.style.display = 'block';
+                        if (iframeContainer) iframeContainer.style.display = 'none';
+                        
+                        imageList.forEach((imgSrc, index) => {
+                            const activeClass = index === 0 ? 'active' : '';
+                            carouselInner.innerHTML += `
+                                <div class="carousel-item ${activeClass} h-100">
+                                    <img src="${imgSrc}" class="d-block w-100 h-100" style="object-fit:contain;" alt="Project Image ${index + 1}" onerror="this.src='https://via.placeholder.com/600x400?text=Image+Not+Found'">
+                                </div>
+                            `;
+                        });
+                    } else if (demoUrl) {
+                        carousel.style.display = 'none';
+                        if (iframeContainer) iframeContainer.style.display = 'block';
+                        if (iframe) iframe.src = demoUrl;
+                    }
+
+                    if (demoUrl) {
+                        modalBtn.href = demoUrl;
+                        modalBtn.style.display = 'block';
+                        const btnSpan = modalBtn.querySelector('[data-t]');
+                        if (btnSpan) {
+                            btnSpan.setAttribute('data-t', catKey === 'proj_web_cat' ? 'proj_demo' : 'proj_live');
+                        }
+                    } else {
+                        modalBtn.style.display = 'none';
+                    }
+
+                    setLanguage(currentLang);
+                    const modal = new bootstrap.Modal(projModal);
+                    modal.show();
+                });
+            });
+        }
+
+        // 8. RE-INIT SKILL MODAL
+        const skillModal = document.getElementById('skillModal');
+        if (skillModal) {
+            document.querySelectorAll('.skill-bento-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const titleKey = card.getAttribute('data-title');
+                    const descKey  = card.getAttribute('data-desc');
+                    const iconClass = card.getAttribute('data-icon');
+                    const themeColor = card.getAttribute('data-color');
+                    const imgPath = card.getAttribute('data-img');
+                    
+                    const badgesContainer = card.querySelector('.mt-auto');
+                    const badgesHtml = badgesContainer ? badgesContainer.innerHTML : '';
+
+                    document.getElementById('modalSkillTitle').setAttribute('data-t', titleKey);
+                    document.getElementById('modalSkillDesc').setAttribute('data-t', descKey);
+                    
+                    const modalIcon = document.getElementById('modalSkillIcon');
+                    modalIcon.className = iconClass + ' fs-1';
+                    modalIcon.style.color = themeColor;
+                    
+                    const iconBox = document.getElementById('modalSkillIconBox');
+                    iconBox.style.backgroundColor = `${themeColor}10`;
+                    iconBox.style.borderColor = `${themeColor}30`;
+
+                    const imgContainer = document.getElementById('modalSkillImageContainer');
+                    const modalImg = document.getElementById('modalSkillImage');
+                    if (imgPath) {
+                        modalImg.src = imgPath;
+                        imgContainer.classList.remove('d-none');
+                        iconBox.classList.add('d-none');
+                    } else {
+                        imgContainer.classList.add('d-none');
+                        iconBox.classList.remove('d-none');
+                    }
+
+                    document.getElementById('modalSkillBadges').innerHTML = badgesHtml;
+
+                    setLanguage(currentLang);
+                    const modal = new bootstrap.Modal(skillModal);
+                    modal.show();
+                });
+            });
+        }
+
+        // 9. RE-INIT BACK TO TOP
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            let bttTicking = false;
+            window.addEventListener('scroll', () => {
+                if (!bttTicking) {
+                    window.requestAnimationFrame(() => {
+                        if (window.scrollY > 500) {
+                            backToTop.classList.add('show');
+                        } else {
+                            backToTop.classList.remove('show');
+                        }
+                        bttTicking = false;
+                    });
+                    bttTicking = true;
+                }
+            }, { passive: true });
+            backToTop.addEventListener('click', () => {
+                const isMobile = window.innerWidth < 992 || ('ontouchstart' in window);
+                window.scrollTo({ top: 0, behavior: isMobile ? 'auto' : 'smooth' });
+            });
+        }
+
+        // 10. RE-INIT PROFILE PHOTO MODAL
+        const heroPhotoBtn = document.getElementById('heroPhotoBtn');
+        const profileModal = document.getElementById('profileModal');
+        if (heroPhotoBtn && profileModal) {
+            heroPhotoBtn.addEventListener('click', () => {
+                setLanguage(currentLang);
+                const modal = new bootstrap.Modal(profileModal);
+                modal.show();
+            });
+        }
+
+        // 11. RE-INIT ABOUT MODAL
+        const aboutCardBtn = document.getElementById('aboutCardBtn');
+        const aboutModal = document.getElementById('aboutModal');
+        if (aboutCardBtn && aboutModal) {
+            aboutCardBtn.addEventListener('click', () => {
+                setLanguage(currentLang);
+                const modal = new bootstrap.Modal(aboutModal);
+                modal.show();
+            });
+        }
+
+        // 12. RE-INIT CTA CONTACT MODAL
+        const ctaCardBtn = document.getElementById('ctaCardBtn');
+        const contactModal = document.getElementById('contactModal');
+        if (ctaCardBtn && contactModal) {
+            ctaCardBtn.addEventListener('click', () => {
+                setLanguage(currentLang);
+                const modal = new bootstrap.Modal(contactModal);
+                modal.show();
+            });
+        }
+
+        // 13. RE-INIT EDUCATION MODAL
+        const eduModal = document.getElementById('eduModal');
+        if (eduModal) {
+            document.querySelectorAll('.edu-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const title = item.querySelector('[data-t^="edu_"]').getAttribute('data-t');
+                    const degree = item.querySelector('[data-t^="edu_s"]').getAttribute('data-t');
+                    const loc = item.querySelector('[data-t^="loc_"]').getAttribute('data-t');
+                    const grade = item.querySelector('.badge').textContent;
+                    const logoSrc = item.querySelector('img').src;
+                    
+                    let descKey = "";
+                    if (title === "edu_iticm") descKey = "edu_iticm_desc";
+                    else if (title === "edu_smk_name") descKey = "edu_smk_desc";
+                    else if (title === "edu_smp_name") descKey = "edu_smp_desc";
+
+                    document.getElementById('modalEduTitle').setAttribute('data-t', title);
+                    document.getElementById('modalEduDegree').setAttribute('data-t', degree);
+                    document.getElementById('modalEduLoc').setAttribute('data-t', loc);
+                    document.getElementById('modalEduGrade').textContent = grade;
+                    document.getElementById('modalEduDesc').setAttribute('data-t', descKey);
+                    document.getElementById('modalEduLogo').src = logoSrc;
+
+                    setLanguage(currentLang);
+                    const modal = new bootstrap.Modal(eduModal);
+                    modal.show();
+                });
+            });
+        }
+
+        // 14. RE-INIT IMAGE LIGHTBOX (Gallery/Documentation)
+        const imageModal = document.getElementById('imageModal');
+        if (imageModal) {
+            imageModal.addEventListener('show.bs.modal', event => {
+                const button = event.relatedTarget;
+                if (button) {
+                    const src = button.getAttribute('data-src');
+                    const modalImg = imageModal.querySelector('#lightboxImg');
+                    if (modalImg && src) {
+                        modalImg.src = src;
+                    }
+                }
+            });
+        }
+
+        // 15. RE-INIT CONTACT FORM
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const subjectInput = document.getElementById('subject');
+                const messageInput = document.getElementById('message');
+
+                const name = nameInput ? nameInput.value.trim() : '';
+                const email = emailInput ? emailInput.value.trim() : '';
+                const subject = subjectInput ? subjectInput.value.trim() : '';
+                const message = messageInput ? messageInput.value.trim() : '';
+
+                let waText = `Halo Hiu Kencana Widhi. S.T.,\n\nSaya ingin menghubungi Anda via Portofolio:\n`;
+                if (name) waText += `• *Nama*: ${name}\n`;
+                if (email) waText += `• *Email*: ${email}\n`;
+                if (subject) waText += `• *Subjek*: ${subject}\n`;
+                if (message) waText += `\n*Pesan*:\n${message}`;
+
+                const waUrl = `https://wa.me/6285174208810?text=${encodeURIComponent(waText)}`;
+                window.open(waUrl, '_blank');
+                contactForm.reset();
+            });
         }
     }
 
