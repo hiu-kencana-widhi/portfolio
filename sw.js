@@ -14,9 +14,8 @@ const PRECACHE_ASSETS = [
     './core/pages/sertifikat.html',
     './resume/index.html',
     './assets/images/profile/profile.webp',
-    './assets/images/badge/badge.png',
-    './assets/images/icons/icon-192.png',
-    './assets/images/icons/icon-512.png'
+    './assets/images/icons/icon-192.webp',
+    './assets/images/icons/icon-512.webp'
 ];
 
 // Install Event — Precaching core assets

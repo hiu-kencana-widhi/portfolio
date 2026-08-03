@@ -4,4 +4,4 @@ HTML | CSS | JavaScript
 
 https://hiu-kencana-widhi.github.io/portfolio/ | GitHub @hiu-kencana-widhi
 
-![Deskripsi](resume/RESUME-HIU.png)
+![Deskripsi](resume/RESUME-HIU.webp)
