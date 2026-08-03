@@ -1,4 +1,4 @@
-const CACHE_NAME = 'portfolio-pwa-v1.0';
+const CACHE_NAME = 'portfolio-pwa-v1.4';
 
 const PRECACHE_ASSETS = [
     './',
@@ -14,6 +14,7 @@ const PRECACHE_ASSETS = [
     './core/pages/sertifikat.html',
     './resume/index.html',
     './assets/images/profile/profile.webp',
+    './assets/images/badge/badge.png',
     './assets/images/icons/icon-192.png',
     './assets/images/icons/icon-512.png'
 ];

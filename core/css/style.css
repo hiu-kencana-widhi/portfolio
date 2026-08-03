@@ -49,8 +49,8 @@
 }
 
 body.dark-mode {
-    --bg-main:     #090d16;         
-    --bg-surface:  #0f172a; 
+    --bg-main:     #000000;         
+    --bg-surface:  #121212; 
     --bg-hover:    #4D7CC7;         
     --bg-hover-text: #ffffff;
     --border-color: rgba(255, 255, 255, 0.12);
@@ -67,8 +67,8 @@ body.dark-mode {
 
     --blue:        #4D7CC7;
     --blue-light:  #284F8C;
-    --bg:          #090d16;
-    --surface:     #0f172a;
+    --bg:          #000000;
+    --surface:     #121212;
     --border:      rgba(255, 255, 255, 0.12);
     --text:        #f5f5f7;
     --muted:       #a1a1a6;
@@ -76,8 +76,8 @@ body.dark-mode {
     --accent-secondary: #2DD4BF;
     --accent-rgb:  77, 124, 199;
     --radius:      16px;
-    --shadow:      0 8px 30px rgba(0, 0, 0, 0.4);
-    --shadow-md:   0 15px 35px rgba(0, 0, 0, 0.5);
+    --shadow:      0 8px 30px rgba(0, 0, 0, 0.6);
+    --shadow-md:   0 15px 35px rgba(0, 0, 0, 0.7);
     
     /* Bootstrap Override */
     --bs-primary-rgb: 77, 124, 199;
@@ -253,9 +253,9 @@ body:not(.dark-mode) .navbar.scrolled {
 }
 
 body.dark-mode .navbar.scrolled {
-    background-color: rgba(9, 13, 22, 0.92) !important;
+    background-color: rgba(0, 0, 0, 0.92) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
 }
@@ -346,7 +346,7 @@ body.dark-mode .nav-link.active {
 }
 
 body.dark-mode .navbar-toggler {
-    background: #0f172a !important;
+    background: #121212 !important;
     border-color: rgba(255, 255, 255, 0.16) !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
 }
@@ -394,8 +394,8 @@ body.dark-mode .navbar-toggler {
     max-width: calc(100vw - 24px);
     height: auto;
     max-height: calc(100dvh - 60px);
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 18px;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
     z-index: 1050;
@@ -407,6 +407,12 @@ body.dark-mode .navbar-toggler {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+
+body.dark-mode .nav-drawer {
+    background: #121212;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
 .nav-drawer.open {
@@ -961,6 +967,34 @@ body.dark-mode .hero-glow-backdrop {
     .hero-img { width: 360px; height: 360px; }
 }
 
+/* --- OPEN TO WORK BADGE OVERLAY IMAGE --- */
+.hero-badge-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 2;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#heroPhotoBtn:hover .hero-badge-overlay {
+    transform: scale(1.02);
+}
+
+.modal-badge-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 2;
+}
+
 /* Floating Scroll Down Indicator */
 .hero-scroll-down {
     position: absolute;
@@ -1255,7 +1289,7 @@ body.dark-mode .skill-bento-card,
 body.dark-mode .exp-bento-card,
 body.dark-mode .project-card,
 body.dark-mode .cert-card {
-    background-color: #0f172a !important;
+    background-color: #121212 !important;
     color: #f5f5f7;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -2009,7 +2043,7 @@ body.dark-mode .modal-content {
     #modalProjCarousel,
     #modalProjCarousel .carousel-inner {
         height: 180px !important;
-        background: #0f172a; /* Dark background to frame contained images */
+        background: #121212; /* Dark background to frame contained images */
     }
 
     #modalProjCarousel .carousel-item img {
@@ -2179,8 +2213,8 @@ body {
 }
 
 body.dark-mode {
-    background-color: #090d16 !important;
-    background: #090d16 !important;
+    background-color: #000000 !important;
+    background: #000000 !important;
     background-attachment: scroll !important;
     color: #f5f5f7 !important;
 }
@@ -2242,11 +2276,11 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
     body.dark-mode .contact-form-card, 
     body.dark-mode .contact-info-card, 
     body.dark-mode .contact-option-row {
-        background: rgba(18, 24, 38, 0.55) !important;
+        background: rgba(18, 18, 18, 0.85) !important;
         backdrop-filter: blur(25px) saturate(190%) !important;
         -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
         border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
     }
 }
 
@@ -2318,11 +2352,11 @@ body.dark-mode .navbar {
 }
 
 body.dark-mode .navbar.scrolled {
-    background: #090d16 !important;
+    background: #000000 !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
 }
 
 .navbar .container {
@@ -2406,7 +2440,7 @@ body.dark-mode .navbar .nav-link.active {
 }
 
 body.dark-mode .nav-drawer {
-    background: #0f172a !important;
+    background: #121212 !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
@@ -2656,11 +2690,11 @@ body.dark-mode .lang-btn:hover {
 }
 
 body.dark-mode .modal-content {
-    background: #141a2a !important;
+    background: #121212 !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border: 1px solid rgba(255, 255, 255, 0.14) !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
 }
 
 .modal-header {
@@ -2897,7 +2931,7 @@ body.dark-mode .hero-img {
 }
 
 body.dark-mode .footer {
-    background: #0e1628 !important;
+    background: #0a0a0a !important;
     border-top-color: rgba(255, 255, 255, 0.08) !important;
 }
 
@@ -3018,8 +3052,8 @@ body.dark-mode .text-muted * {
         background: #FAFAF9 !important;
     }
     body.dark-mode {
-        background-color: #090d16 !important;
-        background: #090d16 !important;
+        background-color: #000000 !important;
+        background: #000000 !important;
     }
 
     .card,
@@ -3046,8 +3080,8 @@ body.dark-mode .text-muted * {
     body.dark-mode .contact-form-card,
     body.dark-mode .contact-info-card,
     body.dark-mode .contact-option-row {
-        background-color: #0f172a !important;
-        background: #0f172a !important;
+        background-color: #121212 !important;
+        background: #121212 !important;
         border: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
 
@@ -3059,7 +3093,7 @@ body.dark-mode .text-muted * {
     }
     body.dark-mode .navbar,
     body.dark-mode .navbar.scrolled {
-        background: #090d16 !important;
+        background: #000000 !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
 
@@ -3069,7 +3103,7 @@ body.dark-mode .text-muted * {
         border: 1px solid rgba(0, 0, 0, 0.12) !important;
     }
     body.dark-mode .nav-drawer {
-        background: #0f172a !important;
+        background: #121212 !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
@@ -3085,8 +3119,8 @@ body.dark-mode .text-muted * {
     body.dark-mode .modal-body,
     body.dark-mode .modal-header,
     body.dark-mode .modal-footer {
-        background-color: #0f172a !important;
-        background: #0f172a !important;
+        background-color: #121212 !important;
+        background: #121212 !important;
     }
     /* ── 6. MODAL 3D BOX SPIN POPUP (ULTRA LIGHTWEIGHT GPU) ── */
     .modal.fade .modal-dialog {
@@ -3121,7 +3155,7 @@ body.dark-mode .text-muted * {
     body.dark-mode .contact-fab,
     body.dark-mode .drawer-close,
     body.dark-mode .lang-btn {
-        background: #1e293b !important;
+        background: #1a1a1a !important;
         border-color: rgba(255, 255, 255, 0.12) !important;
         color: #f5f5f7 !important;
     }
@@ -3142,7 +3176,7 @@ body.dark-mode .text-muted * {
     }
     body.dark-mode .form-control,
     body.dark-mode .form-select {
-        background: #0f172a !important;
+        background: #121212 !important;
         border-color: rgba(255, 255, 255, 0.12) !important;
         color: #f5f5f7 !important;
     }
@@ -3153,7 +3187,7 @@ body.dark-mode .text-muted * {
         border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
     }
     body.dark-mode .footer {
-        background: #0e1628 !important;
+        background: #0a0a0a !important;
         border-top-color: rgba(255, 255, 255, 0.08) !important;
     }
 
