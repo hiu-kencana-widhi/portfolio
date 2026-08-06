@@ -500,7 +500,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================================
     // 3. ACTIVE NAV LINK & PAGE TRANSITION
     // ============================================================
-    const currentFile = location.pathname.split('/').pop() || 'index.html';
+    let currentFile = location.pathname.split('/').pop();
+    if (!currentFile || currentFile === '') currentFile = 'index.html';
     
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = link.getAttribute('href');
@@ -509,6 +510,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const linkFile = href.split('/').pop();
         if (linkFile === currentFile) {
             link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+        } else {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
         }
     });
 

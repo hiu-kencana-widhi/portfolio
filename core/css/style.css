@@ -14,70 +14,88 @@
     --font-apple-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-apple-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-    --bg-main:     #FAFAF9;         /* White Linen: Putih hangat, mengurangi silau */
-    --bg-surface:  #FFFFFF;
-    --bg-hover:    #284F8C;         
+    /* Neumorphism Design System - Light Mode Base (Soft Slate Tint) */
+    --bg-main:       #E6ECF5;         
+    --bg-surface:    #E6ECF5;
+    --bg:            #E6ECF5;
+    --surface:       #E6ECF5;
+    --bg-hover:      #284F8C;         
     --bg-hover-text: #FFFFFF;
-    --border-color: rgba(255, 255, 255, 0.6);
-    --border-light: #FFFFFF;
-    --primary:     #284F8C;         
-    --primary-hover: #1d3b6a;       
+    --border-color:  rgba(255, 255, 255, 0.7);
+    --border-light:  #FFFFFF;
+    --primary:       #284F8C;         
+    --primary-hover: #1D3B6A;       
     --primary-light: rgba(40, 79, 140, 0.08);
-    --primary-border: rgba(255, 255, 255, 0.6);
-    --secondary:   #0F766E;         
+    --primary-border: rgba(255, 255, 255, 0.7);
+    --secondary:     #0F766E;         
     --secondary-glow: transparent;
-    --text-main:   #1d1d1f;         
-    --text-muted:  #6e6e73;         
-    --text-light:  #86868b;
+    --text-main:     #1E293B;         
+    --text-muted:    #64748B;         
+    --text-light:    #94A3B8;
     
-    --blue:        #284F8C;
-    --blue-light:  #1d3b6a;
-    --bg:          #FAFAF9;
-    --surface:     #FFFFFF;
-    --border:      rgba(255, 255, 255, 0.6);
-    --text:        #1d1d1f;
-    --muted:       #6e6e73;
-    --accent:      #284F8C;
-    --accent-secondary: #30B0C7;
-    --accent-rgb:  40, 79, 140;
-    --radius:      16px;
-    --shadow:      0 8px 30px rgba(0, 0, 0, 0.05);
-    --shadow-md:   0 15px 35px rgba(40, 79, 140, 0.1);
+    --blue:          #284F8C;
+    --blue-light:    #1D3B6A;
+    --border:        rgba(255, 255, 255, 0.7);
+    --text:          #1E293B;
+    --muted:         #64748B;
+    --accent:        #284F8C;
+    --accent-secondary: #0F766E;
+    --accent-rgb:    40, 79, 140;
+    --radius:        20px;
+
+    /* Tight, Crisp Neumorphism Dual Shadow Tokens - Light Mode Base (#E6ECF5) */
+    --neu-flat-shadow:    6px 6px 12px #B0C0D5, -6px -6px 12px #FFFFFF;
+    --neu-pressed-shadow: inset 4px 4px 8px #B0C0D5, inset -4px -4px 8px #FFFFFF;
+    --neu-hover-shadow:   8px 8px 16px #A4B5CC, -8px -8px 16px #FFFFFF;
+    --neu-sm-shadow:      4px 4px 8px #B0C0D5, -4px -4px 8px #FFFFFF;
+    --neu-sm-pressed:     inset 2px 2px 5px #B0C0D5, inset -2px -2px 5px #FFFFFF;
+
+    --shadow:        var(--neu-flat-shadow);
+    --shadow-md:     var(--neu-hover-shadow);
     
     /* Bootstrap Override */
     --bs-primary-rgb: 40, 79, 140;
 }
 
 body.dark-mode {
-    --bg-main:     #000000;         
-    --bg-surface:  #121212; 
-    --bg-hover:    #4D7CC7;         
-    --bg-hover-text: #ffffff;
-    --border-color: rgba(255, 255, 255, 0.12);
-    --border-light: rgba(255, 255, 255, 0.2);
-    --primary:     #4D7CC7;         
+    /* Neumorphism Design System - Dark Mode Base (Deep Soft Slate) */
+    --bg-main:       #1C2027;         
+    --bg-surface:    #1C2027; 
+    --bg:            #1C2027;
+    --surface:       #1C2027;
+    --bg-hover:      #4D7CC7;         
+    --bg-hover-text: #FFFFFF;
+    --border-color:  rgba(255, 255, 255, 0.05);
+    --border-light:  rgba(255, 255, 255, 0.1);
+    --primary:       #4D7CC7;         
     --primary-hover: #284F8C;
     --primary-light: rgba(77, 124, 199, 0.12);
-    --primary-border: rgba(255, 255, 255, 0.12);
-    --secondary:   #2DD4BF;         
+    --primary-border: rgba(255, 255, 255, 0.08);
+    --secondary:     #2DD4BF;         
     --secondary-glow: transparent;
-    --text-main:   #f5f5f7;         
-    --text-muted:  #a1a1a6;         
-    --text-light:  #86868b;
+    --text-main:     #F1F5F9;         
+    --text-muted:    #94A3B8;         
+    --text-light:    #64748B;
 
-    --blue:        #4D7CC7;
-    --blue-light:  #284F8C;
-    --bg:          #000000;
-    --surface:     #121212;
-    --border:      rgba(255, 255, 255, 0.12);
-    --text:        #f5f5f7;
-    --muted:       #a1a1a6;
-    --accent:      #4D7CC7;
+    --blue:          #4D7CC7;
+    --blue-light:    #284F8C;
+    --border:        rgba(255, 255, 255, 0.05);
+    --text:          #F1F5F9;
+    --muted:         #94A3B8;
+    --accent:        #4D7CC7;
     --accent-secondary: #2DD4BF;
-    --accent-rgb:  77, 124, 199;
-    --radius:      16px;
-    --shadow:      0 8px 30px rgba(0, 0, 0, 0.6);
-    --shadow-md:   0 15px 35px rgba(0, 0, 0, 0.7);
+    --accent-rgb:    77, 124, 199;
+    --radius:        24px;
+
+    /* Tight, Crisp Neumorphism Dual Shadow Tokens - Dark Mode Base (#1C2027) */
+    --neu-flat-shadow:    6px 6px 12px #0E1015, -6px -6px 12px #242933;
+    --neu-pressed-shadow: inset 4px 4px 8px #0E1015, inset -4px -4px 8px #242933;
+    --neu-hover-shadow:   8px 8px 16px #0A0C0F, -8px -8px 16px #272D37;
+    --neu-sm-shadow:      4px 4px 8px #0E1015, -4px -4px 8px #242933;
+    --neu-sm-pressed:     inset 2px 2px 5px #0E1015, inset -2px -2px 5px #242933;
+
+    --shadow:        var(--neu-flat-shadow);
+    --shadow-md:     var(--neu-hover-shadow);
     
     /* Bootstrap Override */
     --bs-primary-rgb: 77, 124, 199;
@@ -493,16 +511,26 @@ body.dark-mode .drawer-close {
     margin: 0;
 }
 
-.drawer-nav .nav-link:hover,
-.drawer-nav .nav-link.active {
-    background-color: rgba(29, 78, 216, 0.08);
+.drawer-nav .nav-link:hover {
+    background-color: rgba(40, 79, 140, 0.08);
     color: var(--accent) !important;
 }
 
-body.dark-mode .drawer-nav .nav-link:hover,
-body.dark-mode .drawer-nav .nav-link.active {
-    background-color: rgba(96, 165, 250, 0.1);
+.drawer-nav .nav-link.active {
+    background: var(--bg) !important;
     color: var(--accent) !important;
+    font-weight: 700 !important;
+    border-left: 4px solid var(--accent) !important;
+    border-radius: 12px !important;
+    box-shadow: inset 4px 4px 8px #B0C0D5, inset -4px -4px 8px #FFFFFF !important;
+}
+
+body.dark-mode .drawer-nav .nav-link.active {
+    background: var(--bg) !important;
+    color: var(--accent) !important;
+    border-left: 4px solid var(--accent) !important;
+    border-radius: 12px !important;
+    box-shadow: inset 4px 4px 8px #0D0F14, inset -4px -4px 8px #292F3A !important;
 }
 
 .drawer-nav .nav-link .nav-icon {
@@ -516,6 +544,16 @@ body.dark-mode .drawer-nav .nav-link.active {
 .drawer-nav .nav-link.active .nav-icon,
 .drawer-nav .nav-link:hover .nav-icon {
     color: var(--accent);
+    font-weight: 700;
+}
+
+.drawer-nav .nav-link.active::after {
+    content: '•';
+    margin-left: auto;
+    color: var(--accent);
+    font-size: 1.3rem;
+    font-weight: 900;
+    line-height: 1;
 }
 
 /* Drawer footer — theme toggle */
@@ -534,66 +572,67 @@ body.dark-mode .drawer-nav .nav-link.active {
     color: var(--muted);
 }
 
-/* --- UNIFORM APPLE SLIDING SWITCHES (SAKLAR MODE & BAHASA DESKTOP & MOBILE) --- */
+/* --- UNIFORM NEUMORPHIC SLIDING SWITCHES (THEME & LANGUAGE SWITCHES) --- */
 .switch-toggle,
 .navbar .switch-toggle {
     position: relative !important;
-    width: 74px !important;
-    height: 32px !important;
-    min-width: 74px !important;
-    min-height: 32px !important;
-    max-width: 74px !important;
-    max-height: 32px !important;
+    width: 76px !important;
+    height: 34px !important;
+    min-width: 76px !important;
+    min-height: 34px !important;
+    max-width: 76px !important;
+    max-height: 34px !important;
     padding: 3px !important;
     border-radius: 9999px !important;
-    background: rgba(0, 0, 0, 0.08) !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     cursor: pointer !important;
     user-select: none !important;
     overflow: hidden !important;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+    box-shadow: inset 3px 3px 6px #B0C0D5, inset -3px -3px 6px #FFFFFF !important;
     transition: background-color 0.2s ease, border-color 0.2s ease !important;
     margin: 0 !important;
 }
 
 body.dark-mode .switch-toggle,
 body.dark-mode .navbar .switch-toggle {
-    background: rgba(255, 255, 255, 0.12) !important;
-    border-color: rgba(255, 255, 255, 0.16) !important;
+    background: var(--bg) !important;
+    border-color: var(--border) !important;
+    box-shadow: inset 3px 3px 6px #0E1015, inset -3px -3px 6px #242933 !important;
 }
 
-/* Sliding White Knob Handle */
+/* Sliding Handle Pill (100% Identical geometry for Theme & Lang switches) */
 .switch-toggle .switch-handle {
     position: absolute !important;
     top: 3px !important;
     left: 3px !important;
-    width: 32px !important;
-    height: 24px !important;
+    width: 35px !important;
+    height: 26px !important;
     border-radius: 9999px !important;
     background: #ffffff !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18) !important;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.18) !important;
     transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
     z-index: 1 !important;
 }
 
 body.dark-mode .switch-toggle .switch-handle {
     background: #284F8C !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Options Left & Right inside Switch */
 .switch-toggle .switch-option {
     position: relative !important;
     z-index: 2 !important;
-    width: 32px !important;
-    height: 24px !important;
+    width: 35px !important;
+    height: 26px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 0.75rem !important;
+    font-size: 0.78rem !important;
     font-weight: 700 !important;
     color: var(--muted) !important;
     transition: color 0.2s ease !important;
@@ -1230,7 +1269,7 @@ body.dark-mode .form-control:focus {
     transform: translateY(-3px);
 }
 
-/* --- UNIVERSAL 100% SOLID OPAQUE POPUP CARDS & MODALS (NO TRANSPARENCY) --- */
+/* --- UNIVERSAL NEUMORPHIC CARDS & MODALS SURFACE --- */
 .modal-content,
 .modal-body,
 .modal-header,
@@ -1243,8 +1282,9 @@ body.dark-mode .form-control:focus {
 .exp-bento-card,
 .project-card,
 .cert-card {
-    background-color: #ffffff !important;
-    color: #1d1d1f;
+    background-color: var(--bg) !important;
+    background: var(--bg) !important;
+    color: var(--text) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
@@ -1261,19 +1301,20 @@ body.dark-mode .skill-bento-card,
 body.dark-mode .exp-bento-card,
 body.dark-mode .project-card,
 body.dark-mode .cert-card {
-    background-color: #121212 !important;
-    color: #f5f5f7;
+    background-color: var(--bg) !important;
+    background: var(--bg) !important;
+    color: var(--text) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
 
 body.dark-mode .modal-header,
 body.dark-mode .modal-footer {
-    border-color: #334155;
+    border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 body.dark-mode .btn-close {
-    filter: invert(1) grayscale(100%) brightness(200%);
+    filter: invert(1) grayscale(100%) brightness(200%) !important;
 }
 
 /* ============================================================
@@ -2172,26 +2213,26 @@ body.dark-mode .contact-info-card:hover {
 
 
 /* ==========================================================================
-   APPLE macOS / iOS VIBRANT GLASSMORPHISM (CLEAR OS) THEME OVERRIDES
+   NEUMORPHISM (SOFT UI) COMPLETE OVERRIDE SYSTEM
    ========================================================================== */
 
-/* --- CLEAN SOLID BACKGROUND (NO GLOW MESH, NO FIXED ATTACHMENT) --- */
+/* --- BASE BODY & UNIFIED NEUMORPHIC SURFACE --- */
 body {
     background-color: var(--bg) !important;
     background: var(--bg) !important;
     background-attachment: scroll !important;
-    color: #1d1d1f !important;
+    color: var(--text) !important;
     font-family: var(--font-apple-text) !important;
 }
 
 body.dark-mode {
-    background-color: #000000 !important;
-    background: #000000 !important;
+    background-color: var(--bg) !important;
+    background: var(--bg) !important;
     background-attachment: scroll !important;
-    color: #f5f5f7 !important;
+    color: var(--text) !important;
 }
 
-/* --- APPLE MAC OS SCROLLBAR --- */
+/* --- SCROLLBAR --- */
 ::-webkit-scrollbar {
     width: 8px !important;
     height: 8px !important;
@@ -2206,57 +2247,51 @@ body.dark-mode {
     background-clip: content-box !important;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 122, 255, 0.5) !important;
+    background: rgba(40, 79, 140, 0.5) !important;
 }
 body.dark-mode ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.22) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
 }
 body.dark-mode ::-webkit-scrollbar-thumb:hover {
-    background: rgba(96, 165, 250, 0.6) !important;
+    background: rgba(77, 124, 199, 0.6) !important;
 }
 
-/* --- GLASSMORPHIC CARDS, PANELS & CONTAINERS (DESKTOP ONLY) --- */
-@media (min-width: 992px) and (hover: hover) {
-    .card, 
-    .skill-bento-card, 
-    .exp-bento-card, 
-    .project-card, 
-    .edu-item, 
-    .cert-card, 
-    .contact-form-card, 
-    .contact-info-card, 
-    .contact-option-row {
-        background: rgba(255, 255, 255, 0.55) !important;
-        backdrop-filter: blur(25px) saturate(190%) !important;
-        -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.6) !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
-        border-radius: 20px !important;
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                    border-color 0.3s ease !important;
-    }
+/* --- NEUMORPHIC CARDS, BENTO PANELS & CONTAINERS --- */
+.card, 
+.skill-bento-card, 
+.exp-bento-card, 
+.project-card, 
+.edu-item, 
+.cert-card, 
+.contact-form-card, 
+.contact-info-card, 
+.contact-option-row {
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: var(--neu-flat-shadow) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
-@media (min-width: 992px) and (hover: hover) {
-    body.dark-mode .card, 
-    body.dark-mode .skill-bento-card, 
-    body.dark-mode .exp-bento-card, 
-    body.dark-mode .project-card, 
-    body.dark-mode .edu-item, 
-    body.dark-mode .cert-card, 
-    body.dark-mode .contact-form-card, 
-    body.dark-mode .contact-info-card, 
-    body.dark-mode .contact-option-row {
-        background: rgba(18, 18, 18, 0.85) !important;
-        backdrop-filter: blur(25px) saturate(190%) !important;
-        -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-    }
+body.dark-mode .card, 
+body.dark-mode .skill-bento-card, 
+body.dark-mode .exp-bento-card, 
+body.dark-mode .project-card, 
+body.dark-mode .edu-item, 
+body.dark-mode .cert-card, 
+body.dark-mode .contact-form-card, 
+body.dark-mode .contact-info-card, 
+body.dark-mode .contact-option-row {
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--neu-flat-shadow) !important;
 }
 
-/* Card Hover Elevation (Clean Floating Window Effect without Glow) */
+/* Card Hover Elevation (Soft Tactile Lift) */
 .card:hover, 
 .skill-bento-card:hover, 
 .exp-bento-card:hover, 
@@ -2267,8 +2302,8 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 .contact-info-card:hover,
 .contact-option-row:hover {
     transform: translateY(-5px) !important;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
-    border-color: rgba(0, 122, 255, 0.4) !important;
+    box-shadow: var(--neu-hover-shadow) !important;
+    border-color: rgba(40, 79, 140, 0.3) !important;
 }
 
 body.dark-mode .card:hover, 
@@ -2280,227 +2315,95 @@ body.dark-mode .cert-card:hover,
 body.dark-mode .contact-form-card:hover, 
 body.dark-mode .contact-info-card:hover,
 body.dark-mode .contact-option-row:hover {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5) !important;
-    border-color: rgba(96, 165, 250, 0.4) !important;
+    box-shadow: var(--neu-hover-shadow) !important;
+    border-color: rgba(77, 124, 199, 0.3) !important;
 }
 
-/* Clean up accent top bar for glass design */
-.card, .skill-bento-card, .exp-bento-card, .project-card, .cert-card {
-    border-top: 1px solid rgba(255, 255, 255, 0.6) !important;
-}
-body.dark-mode .card, 
-body.dark-mode .skill-bento-card, 
-body.dark-mode .exp-bento-card, 
-body.dark-mode .project-card, 
-body.dark-mode .cert-card {
-    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
-}
-
-/* --- APPLE MAC OS COMPACT NAVBAR & MENU BAR --- */
+/* --- NEUMORPHIC NAVBAR --- */
 .navbar {
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border-bottom: 1px solid transparent !important;
     box-shadow: none !important;
-    padding: 3px 0 !important;
-    min-height: 38px !important;
-    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, transform 0.28s ease, opacity 0.28s ease !important;
+    padding: 6px 0 !important;
+    transition: all 0.3s ease !important;
 }
 
-body.dark-mode .navbar {
-    background: transparent !important;
-    border-bottom: 1px solid transparent !important;
-    box-shadow: none !important;
-}
-
-/* Scrolled Navbar Appearance (100% SOLID OPAQUE) */
 .navbar.scrolled {
-    background: #ffffff !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+    background: var(--bg) !important;
+    border-bottom: 1px solid var(--border) !important;
+    box-shadow: var(--neu-flat-shadow) !important;
 }
 
 body.dark-mode .navbar.scrolled {
-    background: #000000 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
-}
-
-.navbar .container {
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
-}
-
-.navbar .navbar-brand,
-.drawer-brand {
-    font-family: var(--font-apple-display) !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.05em !important;
-    font-size: 0.85rem !important;
-    color: #1d1d1f !important;
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    transition: all 0.25s ease !important;
-}
-
-body.dark-mode .navbar .navbar-brand,
-body.dark-mode .drawer-brand {
-    color: #f5f5f7 !important;
-    background: transparent !important;
-    border: none !important;
-}
-
-.navbar .navbar-brand:hover,
-.drawer-brand:hover {
-    transform: scale(1.02) !important;
-    box-shadow: none !important;
-    color: #284F8C !important;
-}
-body.dark-mode .navbar .navbar-brand:hover,
-body.dark-mode .drawer-brand:hover {
-    color: #4D7CC7 !important;
+    background: var(--bg) !important;
+    border-bottom: 1px solid var(--border) !important;
+    box-shadow: var(--neu-flat-shadow) !important;
 }
 
 .navbar .nav-link {
     font-family: var(--font-apple-text) !important;
     font-weight: 500 !important;
-    font-size: 0.78rem !important;
-    color: #515154 !important;
-    border-radius: 8px !important;
-    padding: 3px 9px !important;
-    margin: 0 1px !important;
-    border: none !important;
+    font-size: 0.8rem !important;
+    color: var(--muted) !important;
+    border-radius: 9999px !important;
+    padding: 4px 12px !important;
+    margin: 0 2px !important;
+    border: 1px solid transparent !important;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-body.dark-mode .navbar .nav-link {
-    color: #a1a1a6 !important;
 }
 
 .navbar .nav-link:hover,
 .navbar .nav-link.active {
-    color: #284F8C !important;
-    background: rgba(40, 79, 140, 0.1) !important;
+    color: var(--accent) !important;
+    background: var(--bg) !important;
+    border-color: var(--border) !important;
+    box-shadow: var(--neu-pressed-shadow) !important;
 }
 
-body.dark-mode .navbar .nav-link:hover,
-body.dark-mode .navbar .nav-link.active {
-    color: #4D7CC7 !important;
-    background: rgba(77, 124, 199, 0.15) !important;
-}
-
-/* Squeezing overrides removed for uniform switch toggles */
-
-/* --- APPLE FLOATING DROPDOWN CARD MENU OVERRIDES (SOLID 100% OPAQUE) --- */
+/* --- MOBILE DRAWER POPUP --- */
 .nav-drawer {
     right: 12px !important;
     left: auto !important;
-    background: #ffffff !important;
+    background: var(--bg) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-    border-radius: 18px !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 20px !important;
+    box-shadow: var(--neu-hover-shadow) !important;
 }
 
 body.dark-mode .nav-drawer {
-    background: #121212 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--neu-hover-shadow) !important;
 }
 
-.drawer-header {
-    padding: 12px 16px !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-}
-body.dark-mode .drawer-header {
-    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
-}
-
-.drawer-nav {
-    padding: 4px 0 !important;
-    flex: 1 !important;
-    overflow-y: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-}
-
-.drawer-nav .nav-link {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    padding: 12px 18px !important;
-    border-radius: 0 !important;
-    font-size: 0.88rem !important;
-    font-family: var(--font-apple-text) !important;
-    font-weight: 500 !important;
-    color: var(--text) !important;
-    text-decoration: none !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-    transition: background-color 0.15s, color 0.15s !important;
-    margin: 0 !important;
-}
-
-body.dark-mode .drawer-nav .nav-link {
-    border-bottom-color: rgba(255, 255, 255, 0.06) !important;
-}
-
-.drawer-nav .nav-link:last-child {
-    border-bottom: none !important;
-}
-
-.drawer-nav .nav-link:hover,
-.drawer-nav .nav-link.active {
+.drawer-nav .nav-link:hover {
     background: rgba(40, 79, 140, 0.08) !important;
-    color: #284F8C !important;
+    color: var(--accent) !important;
 }
 
-body.dark-mode .drawer-nav .nav-link:hover,
+.drawer-nav .nav-link.active {
+    background: var(--bg) !important;
+    color: var(--accent) !important;
+    font-weight: 700 !important;
+    border-left: 4px solid var(--accent) !important;
+    border-radius: 12px !important;
+    box-shadow: inset 4px 4px 8px #B0C0D5, inset -4px -4px 8px #FFFFFF !important;
+}
+
 body.dark-mode .drawer-nav .nav-link.active {
-    background: rgba(77, 124, 199, 0.15) !important;
-    color: #4D7CC7 !important;
+    background: var(--bg) !important;
+    color: var(--accent) !important;
+    font-weight: 700 !important;
+    border-left: 4px solid var(--accent) !important;
+    border-radius: 12px !important;
+    box-shadow: inset 4px 4px 8px #0D0F14, inset -4px -4px 8px #292F3A !important;
 }
 
-.drawer-nav .nav-link .nav-icon {
-    font-size: 1.05rem !important;
-    width: 22px !important;
-    text-align: center !important;
-    color: var(--muted) !important;
-}
-
-.drawer-nav .nav-link:hover .nav-icon,
-.drawer-nav .nav-link.active .nav-icon {
-    color: #284F8C !important;
-}
-
-body.dark-mode .drawer-nav .nav-link:hover .nav-icon,
-body.dark-mode .drawer-nav .nav-link.active .nav-icon {
-    color: #4D7CC7 !important;
-}
-
-.drawer-footer {
-    padding: 12px 16px !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-}
-
-body.dark-mode .drawer-footer {
-    border-top-color: rgba(255, 255, 255, 0.08) !important;
-    background: rgba(255, 255, 255, 0.02) !important;
-}
-
-/* --- APPLE BUTTONS & CONTROLS --- */
+/* --- NEUMORPHIC BUTTONS & CONTROLS --- */
 .btn,
 .lang-toggle:not(.switch-toggle),
 .theme-toggle:not(.switch-toggle),
@@ -2509,17 +2412,16 @@ body.dark-mode .drawer-footer {
 .contact-fab,
 .drawer-close,
 .lang-btn {
-    border-radius: 12px !important;
+    border-radius: 9999px !important;
     font-family: var(--font-apple-text) !important;
     font-weight: 600 !important;
     font-size: 0.875rem !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    background: rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    color: #1d1d1f !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    background: var(--bg) !important;
+    color: var(--text) !important;
+    box-shadow: var(--neu-sm-shadow) !important;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    backdrop-filter: none !important;
 }
 
 body.dark-mode .btn:not(.btn-primary):not(.btn-light):not(.btn-outline-light),
@@ -2530,196 +2432,206 @@ body.dark-mode .back-to-top,
 body.dark-mode .contact-fab,
 body.dark-mode .drawer-close,
 body.dark-mode .lang-btn {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(255, 255, 255, 0.12) !important;
-    color: #f5f5f7 !important;
-    border-radius: 9999px !important;
+    background: var(--bg) !important;
+    border-color: var(--border) !important;
+    color: var(--text) !important;
+    box-shadow: var(--neu-sm-shadow) !important;
 }
 
-/* CTA Card Light Button Fix for Light & Dark Mode */
-.btn-light,
-body.dark-mode .btn-light,
-body .btn-light {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
-    color: #1d3b6a !important;
-    border: none !important;
-    border-radius: 9999px !important;
-}
-
-.btn-light i,
-.btn-light span,
-body.dark-mode .btn-light i,
-body.dark-mode .btn-light span {
-    color: #1d3b6a !important;
-}
-
-.btn-light:hover,
-body.dark-mode .btn-light:hover {
-    background-color: #f1f5f9 !important;
-    background: #f1f5f9 !important;
-    color: #0f172a !important;
-    transform: translateY(-2px) !important;
-}
-
-.btn-light:hover i,
-.btn-light:hover span,
-body.dark-mode .btn-light:hover i,
-body.dark-mode .btn-light:hover span {
-    color: #0f172a !important;
-}
-
-/* CTA Card Outline Light Button Fix */
-.btn-outline-light,
-body.dark-mode .btn-outline-light,
-body .btn-outline-light {
-    background: transparent !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    color: #ffffff !important;
-    border-radius: 9999px !important;
-}
-
-.btn-outline-light i,
-.btn-outline-light span,
-body.dark-mode .btn-outline-light i,
-body.dark-mode .btn-outline-light span {
-    color: #ffffff !important;
-}
-
-.btn-outline-light:hover,
-body.dark-mode .btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-    color: #ffffff !important;
-    transform: translateY(-2px) !important;
-}
-
-/* Primary Action Pill (Solid #284F8C Blue) */
-.btn-primary,
-.btn-primary:focus,
-body.dark-mode .btn-primary {
-    background: #284F8C !important;
-    color: #ffffff !important;
-    border: none !important;
-    border-radius: 9999px !important;
-    padding: 10px 24px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
-}
-
-.btn-primary:hover {
-    background: #1d3b6a !important;
-    color: #ffffff !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Button Hover Interactive Lift */
 .btn:hover,
-.lang-toggle:not(.switch-toggle):hover,
-.theme-toggle:not(.switch-toggle):hover,
 .social-btn:hover,
 .back-to-top:hover,
 .contact-fab:hover,
 .drawer-close:hover,
 .lang-btn:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
-    background: rgba(255, 255, 255, 0.75) !important;
-    border-color: rgba(40, 79, 140, 0.4) !important;
-    color: #284F8C !important;
+    box-shadow: var(--neu-hover-shadow) !important;
+    color: var(--accent) !important;
 }
 
-body.dark-mode .btn:hover,
-body.dark-mode .lang-toggle:not(.switch-toggle):hover,
-body.dark-mode .theme-toggle:not(.switch-toggle):hover,
-body.dark-mode .social-btn:hover,
-body.dark-mode .back-to-top:hover,
-body.dark-mode .contact-fab:hover,
-body.dark-mode .drawer-close:hover,
-body.dark-mode .lang-btn:hover {
-    background: rgba(255, 255, 255, 0.16) !important;
-    border-color: rgba(77, 124, 199, 0.4) !important;
-    color: #4D7CC7 !important;
+.btn:active,
+.social-btn:active,
+.back-to-top:active,
+.contact-fab:active,
+.drawer-close:active,
+.lang-btn:active {
+    transform: translateY(1px) !important;
+    box-shadow: var(--neu-pressed-shadow) !important;
+}
+
+/* Primary Action Pill (Solid Primary with Neumorphic Relief) */
+.btn-primary,
+.btn-primary:focus,
+body.dark-mode .btn-primary {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 9999px !important;
+    padding: 10px 24px !important;
+    box-shadow: var(--neu-sm-shadow) !important;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: var(--neu-hover-shadow) !important;
+}
+
+.btn-primary:active {
+    transform: translateY(1px) !important;
+    box-shadow: var(--neu-pressed-shadow) !important;
+}
+
+/* Light button variants */
+.btn-light,
+body.dark-mode .btn-light {
+    background: var(--bg) !important;
+    color: var(--accent) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--neu-sm-shadow) !important;
+    border-radius: 9999px !important;
+}
+
+.btn-light:hover {
+    box-shadow: var(--neu-hover-shadow) !important;
+    transform: translateY(-2px) !important;
+}
+
+.btn-outline-light,
+body.dark-mode .btn-outline-light {
+    background: var(--bg) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--neu-sm-shadow) !important;
+    border-radius: 9999px !important;
 }
 
 /* Circle Controls (FAB, Back to top, Theme, Close) */
-.theme-toggle,
+.theme-toggle:not(.switch-toggle),
 .social-btn,
 .back-to-top,
 .contact-fab,
 .drawer-close {
-    border-radius: 9999px !important;
-}
-
-/* --- APPLE MODAL & TRAFFIC LIGHT CLOSE --- */
-.modal-content {
-    background: #ffffff !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: 1px solid rgba(255, 255, 255, 0.8) !important;
-    border-radius: 24px !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12) !important;
-    overflow: hidden !important;
-}
-
-body.dark-mode .modal-content {
-    background: #121212 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: 1px solid rgba(255, 255, 255, 0.14) !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
-}
-
-.modal-header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
-    padding: 1.25rem 1.5rem !important;
-}
-
-body.dark-mode .modal-header {
-    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
-}
-
-/* macOS Traffic Light Close Button (No Glow) */
-.btn-close {
-    width: 14px !important;
-    height: 14px !important;
-    min-width: 14px !important;
     border-radius: 50% !important;
-    background-color: #FF5F56 !important;
-    border: 1px solid #E0443E !important;
-    opacity: 1 !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    transition: all 0.2s ease !important;
-    background-image: none !important;
 }
 
-.btn-close:hover {
-    background-color: #ff3b30 !important;
-    transform: scale(1.1) !important;
-    box-shadow: none !important;
-}
-
-body.dark-mode .btn-close {
-    background-image: none !important;
+/* --- ABSOLUTE ZERO-GLOW PURIFICATION SYSTEM --- */
+*,
+*::before,
+*::after {
+    text-shadow: none !important;
     filter: none !important;
 }
 
-/* --- APPLE BADGES, TAGS & CHIPS --- */
+.shadow-sm,
+.shadow,
+.shadow-lg,
+.shadow-inset {
+    box-shadow: none !important;
+}
+
+.hero-glow-backdrop,
+.glow-bg,
+.glow-effect,
+[class*="glow"] {
+    display: none !important;
+    background: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+}
+
+/* --- NEUMORPHIC MODAL PANELS (ZERO GLOW SYSTEM) --- */
+.modal,
+.modal-dialog,
+.modal-content,
+.modal-header,
+.modal-body,
+.modal-footer,
+.nav-drawer,
+.popover,
+.tooltip {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+.modal-content,
+.nav-drawer {
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25) !important;
+    overflow: hidden !important;
+}
+
+body.dark-mode .modal-content,
+body.dark-mode .nav-drawer {
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Zero Glow Backdrop Overlay */
+.modal-backdrop,
+.drawer-backdrop {
+    background-color: rgba(0, 0, 0, 0.45) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+}
+
+body.dark-mode .modal-backdrop,
+body.dark-mode .drawer-backdrop {
+    background-color: rgba(0, 0, 0, 0.65) !important;
+}
+
+/* Zero Glow for All Elements Inside Popups (social-btn, img, btn, badge) */
+.modal-content *,
+.nav-drawer * {
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+.modal-content .social-btn,
+.modal-content .btn:not(.btn-primary),
+.modal-content img,
+.modal-content .badge,
+.modal-content .icon-box,
+.nav-drawer .social-btn,
+.nav-drawer .btn {
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+.modal-content .social-btn:hover,
+.modal-content .btn:not(.btn-primary):hover,
+.nav-drawer .social-btn:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-2px) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border) !important;
+    padding: 1.25rem 1.5rem !important;
+}
+
+/* --- NEUMORPHIC BADGES, TAGS & CHIPS --- */
 .skill-badge,
 .project-tag,
 .focus-badge,
 .badge {
-    border-radius: 12px !important;
+    border-radius: 9999px !important;
     font-family: var(--font-apple-text) !important;
     font-size: 0.78rem !important;
     font-weight: 600 !important;
-    padding: 5px 12px !important;
-    background: rgba(40, 79, 140, 0.08) !important;
-    color: #284F8C !important;
-    border: 1px solid rgba(40, 79, 140, 0.2) !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none !important;
+    padding: 6px 14px !important;
+    background: var(--bg) !important;
+    color: var(--accent) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--neu-sm-shadow) !important;
     transition: all 0.2s ease !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -2730,130 +2642,100 @@ body.dark-mode .skill-badge,
 body.dark-mode .project-tag,
 body.dark-mode .focus-badge,
 body.dark-mode .badge {
-    background: rgba(77, 124, 199, 0.12) !important;
-    color: #4D7CC7 !important;
-    border-color: rgba(77, 124, 199, 0.25) !important;
+    background: var(--bg) !important;
+    color: var(--accent) !important;
+    border-color: var(--border) !important;
+    box-shadow: var(--neu-sm-shadow) !important;
 }
 
 .skill-badge:hover,
 .project-tag:hover,
 .focus-badge:hover {
     transform: translateY(-2px) !important;
-    background: rgba(40, 79, 140, 0.18) !important;
+    box-shadow: var(--neu-hover-shadow) !important;
 }
 
-body.dark-mode .skill-badge:hover,
-body.dark-mode .project-tag:hover,
-body.dark-mode .focus-badge:hover {
-    background: rgba(77, 124, 199, 0.22) !important;
+.skill-badge:active,
+.project-tag:active,
+.focus-badge:active {
+    box-shadow: var(--neu-sm-pressed) !important;
 }
 
 /* Badge primary override */
 .badge.text-bg-primary,
 .badge.bg-primary {
-    background: #284F8C !important;
+    background: var(--accent) !important;
     color: #ffffff !important;
     border: none !important;
+    box-shadow: var(--neu-sm-shadow) !important;
 }
 
-/* --- APPLE FORM CONTROLS --- */
+/* --- NEUMORPHIC SUNKEN FORM CONTROLS --- */
 .form-control,
 .form-select {
-    border-radius: 12px !important;
+    border-radius: 14px !important;
     font-family: var(--font-apple-text) !important;
-    background: #ffffff !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-    color: #1d1d1f !important;
-    padding: 10px 14px !important;
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+    padding: 12px 16px !important;
+    box-shadow: var(--neu-pressed-shadow) !important;
     transition: all 0.2s ease !important;
 }
 
 body.dark-mode .form-control,
 body.dark-mode .form-select {
-    background: rgba(255, 255, 255, 0.06) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
-    color: #f5f5f7 !important;
+    background: var(--bg) !important;
+    border-color: var(--border) !important;
+    color: var(--text) !important;
+    box-shadow: var(--neu-pressed-shadow) !important;
 }
 
 .form-control:focus,
 .form-select:focus {
-    background: rgba(255, 255, 255, 0.8) !important;
-    border-color: #284F8C !important;
-    box-shadow: none !important;
+    background: var(--bg) !important;
+    border-color: var(--accent) !important;
+    box-shadow: var(--neu-pressed-shadow) !important;
+    outline: none !important;
 }
 
 body.dark-mode .form-control:focus,
 body.dark-mode .form-select:focus {
-    background: rgba(18, 24, 38, 0.8) !important;
-    border-color: #4D7CC7 !important;
-    box-shadow: none !important;
+    background: var(--bg) !important;
+    border-color: var(--accent) !important;
+    box-shadow: var(--neu-pressed-shadow) !important;
+    outline: none !important;
 }
 
-/* --- MODERN ACCENT TEXT & HERO ROLE TRANSITION --- */
-#typed-text,
-.text-accent,
-.page-header h1 span,
-.page-header h2 span {
-    font-family: 'Plus Jakarta Sans', 'Outfit', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    font-weight: 800 !important;
-    color: #284F8C !important;
-    background: none !important;
-    -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: unset !important;
-    display: inline-block !important;
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-#typed-text.fade-out {
-    opacity: 0 !important;
-    transform: translateY(6px) !important;
-}
-
-body.dark-mode #typed-text,
-body.dark-mode .text-accent,
-body.dark-mode .page-header h1 span,
-body.dark-mode .page-header h2 span {
-    color: #4D7CC7 !important;
-}
-
-.page-header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-    padding-bottom: 1.5rem !important;
-    margin-bottom: 2.5rem !important;
-}
-
-body.dark-mode .page-header {
-    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
-}
-
-/* --- HERO PROFILE IMAGE GLASS WRAP (NO GLOW) --- */
+/* --- HERO PROFILE IMAGE DUAL NEUMORPHIC RIM --- */
 .hero-img {
     border-radius: 50% !important;
-    border: 4px solid rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+    border: 4px solid var(--border) !important;
+    background: var(--bg) !important;
+    box-shadow: 8px 8px 16px #B0C0D5, -8px -8px 16px #FFFFFF, inset 4px 4px 8px #B0C0D5, inset -4px -4px 8px #FFFFFF !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
 }
 
 body.dark-mode .hero-img {
-    border-color: rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+    border-color: var(--border) !important;
+    box-shadow: 8px 8px 16px #0E1015, -8px -8px 16px #242933, inset 4px 4px 8px #0E1015, inset -4px -4px 8px #242933 !important;
 }
 
 #heroPhotoBtn:hover .hero-img {
-    transform: translateY(-6px) !important;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-4px) scale(1.01) !important;
+    box-shadow: 10px 10px 20px #A4B5CC, -10px -10px 20px #FFFFFF, inset 4px 4px 8px #B0C0D5, inset -4px -4px 8px #FFFFFF !important;
 }
 
-/* --- CTA CARD CLEAN APPLE GLASS STYLING (#284F8C) --- */
+body.dark-mode #heroPhotoBtn:hover .hero-img {
+    box-shadow: 10px 10px 20px #0A0C0F, -10px -10px 20px #272D37, inset 4px 4px 8px #0E1015, inset -4px -4px 8px #242933 !important;
+}
+
+/* --- CTA CARD NEUMORPHIC CONTAINER --- */
 #ctaCardBtn {
-    background: #284F8C !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: var(--accent) !important;
+    border: 1px solid var(--border) !important;
     border-radius: 24px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: var(--neu-flat-shadow) !important;
 }
 
 #ctaCardBtn h3,
@@ -2861,88 +2743,39 @@ body.dark-mode .hero-img {
     color: #ffffff !important;
 }
 
-#ctaCardBtn .btn-light {
-    background: rgba(255, 255, 255, 0.95) !important;
-    color: #284F8C !important;
-    border-radius: 9999px !important;
-    border: none !important;
-    font-weight: 700 !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
-}
-
-#ctaCardBtn .btn-light:hover {
-    background: #ffffff !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
-}
-
-#ctaCardBtn .btn-outline-light {
-    background: rgba(255, 255, 255, 0.15) !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    border-radius: 9999px !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-}
-
-#ctaCardBtn .btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.3) !important;
-    transform: translateY(-2px) !important;
-}
-
-/* --- FOOTER GLASS STYLING --- */
+/* --- FOOTER NEUMORPHIC OVERRIDE --- */
 .footer {
-    background: #E4E7ED !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
-}
-
-.footer iframe {
-    pointer-events: none !important;
+    background: var(--bg) !important;
+    border-top: 1px solid var(--border) !important;
 }
 
 body.dark-mode .footer {
-    background: #0a0a0a !important;
-    border-top-color: rgba(255, 255, 255, 0.08) !important;
+    background: var(--bg) !important;
+    border-top-color: var(--border) !important;
 }
 
-/* --- TIMELINE DECORATION (NO GLOW) --- */
+/* --- TIMELINE DECORATION --- */
 .timeline::before {
     background: rgba(40, 79, 140, 0.3) !important;
-    width: 2px !important;
-    border: none !important;
+    width: 3px !important;
 }
 .timeline-item::before {
     border-radius: 50% !important;
-    border: 2px solid #ffffff !important;
-    background-color: #284F8C !important;
-    box-shadow: none !important;
-    width: 14px !important;
-    height: 14px !important;
-    left: -29px !important;
-    top: 4px !important;
+    border: 3px solid var(--bg) !important;
+    background-color: var(--accent) !important;
+    box-shadow: var(--neu-sm-shadow) !important;
+    width: 16px !important;
+    height: 16px !important;
+    left: -30px !important;
+    top: 3px !important;
 }
 
-body.dark-mode .timeline-item::before {
-    border-color: #0b0f19 !important;
-    background-color: #4D7CC7 !important;
-    box-shadow: none !important;
-}
-
-/* --- ICON BOX GLASS WRAPPER --- */
+/* --- ICON BOX SUNKEN/EXTRUDED --- */
 .icon-box {
-    border-radius: 14px !important;
-    background: rgba(40, 79, 140, 0.08) !important;
-    border: 1px solid rgba(40, 79, 140, 0.15) !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none !important;
-}
-
-body.dark-mode .icon-box {
-    background: rgba(77, 124, 199, 0.1) !important;
-    border-color: rgba(77, 124, 199, 0.2) !important;
+    border-radius: 16px !important;
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--neu-sm-shadow) !important;
 }
 
 /* --- MACBOOK MOCKUP CORNERS --- */
@@ -2993,20 +2826,13 @@ body.dark-mode .text-muted * {
         overflow: clip !important;
     }
 
-    /* ── 1. HAPUS TOTAL SEMUA EFEK BERAT (GPU Compositing) ── */
+    /* ── 1. LIGHTWEIGHT GPU OPTIMIZATIONS ── */
     *,
     *::before,
     *::after {
-        animation: none !important;
-        animation-duration: 0ms !important;
-        transition: none !important;
-        transition-duration: 0ms !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
-        filter: none !important;
-        box-shadow: none !important;
         text-shadow: none !important;
-        will-change: auto !important;
     }
 
     /* ── 2. SYSTEM FONT — Zero network overhead ── */
@@ -3018,14 +2844,14 @@ body.dark-mode .text-muted * {
         text-rendering: optimizeSpeed !important;
     }
 
-    /* ── 3. SOLID SURFACES — Tanpa transparansi/blur ── */
+    /* ── 3. NEUMORPHIC SURFACES & CARDS (MOBILE OPTIMIZED) ── */
     body {
-        background-color: #FAFAF9 !important;
-        background: #FAFAF9 !important;
+        background-color: var(--bg) !important;
+        background: var(--bg) !important;
     }
     body.dark-mode {
-        background-color: #000000 !important;
-        background: #000000 !important;
+        background-color: var(--bg) !important;
+        background: var(--bg) !important;
     }
 
     .card,
@@ -3037,10 +2863,11 @@ body.dark-mode .text-muted * {
     .contact-form-card,
     .contact-info-card,
     .contact-option-row {
-        background-color: #ffffff !important;
-        background: #ffffff !important;
-        border: 1px solid rgba(0, 0, 0, 0.08) !important;
-        border-radius: 16px !important;
+        background-color: var(--bg) !important;
+        background: var(--bg) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: var(--radius) !important;
+        box-shadow: var(--neu-sm-shadow) !important;
     }
 
     body.dark-mode .card,
@@ -3052,74 +2879,94 @@ body.dark-mode .text-muted * {
     body.dark-mode .contact-form-card,
     body.dark-mode .contact-info-card,
     body.dark-mode .contact-option-row {
-        background-color: #121212 !important;
-        background: #121212 !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        background-color: var(--bg) !important;
+        background: var(--bg) !important;
+        border: 1px solid var(--border) !important;
+        box-shadow: var(--neu-sm-shadow) !important;
     }
 
-    /* ── 4. NAVBAR SOLID ── */
+    /* ── 4. NAVBAR MOBILE ── */
     .navbar,
     .navbar.scrolled {
-        background: #ffffff !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+        background: var(--bg) !important;
+        border-bottom: 1px solid var(--border) !important;
+        box-shadow: var(--neu-sm-shadow) !important;
     }
     body.dark-mode .navbar,
     body.dark-mode .navbar.scrolled {
-        background: #000000 !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        background: var(--bg) !important;
+        border-bottom: 1px solid var(--border) !important;
+        box-shadow: var(--neu-sm-shadow) !important;
     }
 
-    /* ── 5. DRAWER SOLID ── */
+    /* ── 5. DRAWER MOBILE (ZERO GLOW SYSTEM) ── */
     .nav-drawer {
-        background: #ffffff !important;
-        border: 1px solid rgba(0, 0, 0, 0.12) !important;
+        background: var(--bg) !important;
+        border: 1px solid var(--border) !important;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        filter: none !important;
     }
     body.dark-mode .nav-drawer {
-        background: #121212 !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        background: var(--bg) !important;
+        border: 1px solid var(--border) !important;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
     }
 
-    /* ── 6. MODAL SOLID ── */
+    .drawer-nav .nav-link,
+    .drawer-close {
+        box-shadow: none !important;
+        filter: none !important;
+    }
+
+    .drawer-nav .nav-link.active {
+        background: var(--bg) !important;
+        color: var(--accent) !important;
+        font-weight: 700 !important;
+        border-left: 4px solid var(--accent) !important;
+        border-radius: 12px !important;
+        box-shadow: inset 4px 4px 8px #B0C0D5, inset -4px -4px 8px #FFFFFF !important;
+        filter: none !important;
+    }
+
+    body.dark-mode .drawer-nav .nav-link.active {
+        background: var(--bg) !important;
+        color: var(--accent) !important;
+        font-weight: 700 !important;
+        border-left: 4px solid var(--accent) !important;
+        border-radius: 12px !important;
+        box-shadow: inset 4px 4px 8px #0D0F14, inset -4px -4px 8px #292F3A !important;
+        filter: none !important;
+    }
+
+    /* ── 6. MODAL MOBILE ── */
     .modal-content,
     .modal-body,
     .modal-header,
     .modal-footer {
-        background-color: #ffffff !important;
-        background: #ffffff !important;
+        background-color: var(--bg) !important;
+        background: var(--bg) !important;
     }
     body.dark-mode .modal-content,
     body.dark-mode .modal-body,
     body.dark-mode .modal-header,
     body.dark-mode .modal-footer {
-        background-color: #121212 !important;
-        background: #121212 !important;
-    }
-    /* ── 6. MODAL 3D BOX SPIN POPUP (ULTRA LIGHTWEIGHT GPU) ── */
-    .modal.fade .modal-dialog {
-        perspective: 1200px;
-        transform-style: preserve-3d;
-        transform: perspective(1000px) rotateY(-35deg) rotateX(12deg) scale(0.72) translateY(-20px) !important;
-        opacity: 0 !important;
-        transition: transform 0.38s cubic-bezier(0.34, 1.45, 0.64, 1),
-                    opacity 0.28s ease !important;
-        will-change: transform, opacity;
+        background-color: var(--bg) !important;
+        background: var(--bg) !important;
     }
 
-    .modal.show .modal-dialog {
-        transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1) translateY(0) !important;
-        opacity: 1 !important;
-    }
-
-    /* ── 7. BUTTONS SOLID ── */
+    /* ── 7. BUTTONS & CONTROLS MOBILE ── */
     .btn,
     .social-btn,
     .back-to-top,
     .contact-fab,
     .drawer-close,
     .lang-btn {
-        background: #ffffff !important;
-        border: 1px solid rgba(0, 0, 0, 0.12) !important;
-        color: #1d1d1f !important;
+        background: var(--bg) !important;
+        border: 1px solid var(--border) !important;
+        color: var(--text) !important;
+        box-shadow: var(--neu-sm-shadow) !important;
     }
     body.dark-mode .btn,
     body.dark-mode .social-btn,
@@ -3127,40 +2974,44 @@ body.dark-mode .text-muted * {
     body.dark-mode .contact-fab,
     body.dark-mode .drawer-close,
     body.dark-mode .lang-btn {
-        background: #1a1a1a !important;
-        border-color: rgba(255, 255, 255, 0.12) !important;
-        color: #f5f5f7 !important;
+        background: var(--bg) !important;
+        border-color: var(--border) !important;
+        color: var(--text) !important;
+        box-shadow: var(--neu-sm-shadow) !important;
     }
     .btn-primary,
     .btn-primary:focus,
     .btn-primary:hover {
-        background: #284F8C !important;
+        background: var(--accent) !important;
         color: #ffffff !important;
         border: none !important;
+        box-shadow: var(--neu-sm-shadow) !important;
     }
 
-    /* ── 8. FORM CONTROLS SOLID ── */
+    /* ── 8. FORM CONTROLS MOBILE ── */
     .form-control,
     .form-select {
-        background: #ffffff !important;
-        border: 1px solid rgba(0, 0, 0, 0.12) !important;
-        color: #1d1d1f !important;
+        background: var(--bg) !important;
+        border: 1px solid var(--border) !important;
+        color: var(--text) !important;
+        box-shadow: var(--neu-sm-pressed) !important;
     }
     body.dark-mode .form-control,
     body.dark-mode .form-select {
-        background: #121212 !important;
-        border-color: rgba(255, 255, 255, 0.12) !important;
-        color: #f5f5f7 !important;
+        background: var(--bg) !important;
+        border-color: var(--border) !important;
+        color: var(--text) !important;
+        box-shadow: var(--neu-sm-pressed) !important;
     }
 
-    /* ── 9. FOOTER SOLID ── */
+    /* ── 9. FOOTER MOBILE ── */
     .footer {
-        background: #E4E7ED !important;
-        border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+        background: var(--bg) !important;
+        border-top: 1px solid var(--border) !important;
     }
     body.dark-mode .footer {
-        background: #0a0a0a !important;
-        border-top-color: rgba(255, 255, 255, 0.08) !important;
+        background: var(--bg) !important;
+        border-top-color: var(--border) !important;
     }
 
     /* ── 10. PETA FOOTER DI MOBILE ── */
@@ -3185,26 +3036,16 @@ body.dark-mode .text-muted * {
         decoding: async;
     }
 
-    /* ── 13. CARD TOP BORDER SEDERHANA ── */
-    .card, .skill-bento-card, .exp-bento-card, .project-card {
-        border-top: 3px solid #284F8C !important;
-    }
-    body.dark-mode .card,
-    body.dark-mode .skill-bento-card,
-    body.dark-mode .exp-bento-card,
-    body.dark-mode .project-card {
-        border-top-color: #4D7CC7 !important;
-    }
-    #ctaCardBtn { border-top: none !important; }
-
-    /* ── 14. ICON BOX SOLID ── */
+    /* ── 13. ICON BOX MOBILE ── */
     .icon-box {
-        background: rgba(40, 79, 140, 0.08) !important;
-        border: 1px solid rgba(40, 79, 140, 0.15) !important;
+        background: var(--bg) !important;
+        border: 1px solid var(--border) !important;
+        box-shadow: var(--neu-sm-shadow) !important;
     }
     body.dark-mode .icon-box {
-        background: rgba(77, 124, 199, 0.1) !important;
-        border-color: rgba(77, 124, 199, 0.2) !important;
+        background: var(--bg) !important;
+        border-color: var(--border) !important;
+        box-shadow: var(--neu-sm-shadow) !important;
     }
 
     /* ── 15. DRAWER 3D BOX SPIN UNFOLD ANIMATION (ULTRA LIGHTWEIGHT GPU) ── */
