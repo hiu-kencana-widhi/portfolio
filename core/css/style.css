@@ -2419,7 +2419,8 @@ body.dark-mode .drawer-nav .nav-link.active {
     border: 1px solid var(--border) !important;
     background: var(--bg) !important;
     color: var(--text) !important;
-    box-shadow: var(--neu-sm-shadow) !important;
+    box-shadow: none !important;
+    filter: none !important;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     backdrop-filter: none !important;
 }
@@ -2435,7 +2436,8 @@ body.dark-mode .lang-btn {
     background: var(--bg) !important;
     border-color: var(--border) !important;
     color: var(--text) !important;
-    box-shadow: var(--neu-sm-shadow) !important;
+    box-shadow: none !important;
+    filter: none !important;
 }
 
 .btn:hover,
@@ -2445,7 +2447,8 @@ body.dark-mode .lang-btn {
 .drawer-close:hover,
 .lang-btn:hover {
     transform: translateY(-2px) !important;
-    box-shadow: var(--neu-hover-shadow) !important;
+    box-shadow: none !important;
+    filter: none !important;
     color: var(--accent) !important;
 }
 
@@ -2456,7 +2459,8 @@ body.dark-mode .lang-btn {
 .drawer-close:active,
 .lang-btn:active {
     transform: translateY(1px) !important;
-    box-shadow: var(--neu-pressed-shadow) !important;
+    box-shadow: none !important;
+    filter: none !important;
 }
 
 /* Primary Action Pill (Solid Primary with Neumorphic Relief) */
@@ -2468,43 +2472,60 @@ body.dark-mode .btn-primary {
     border: none !important;
     border-radius: 9999px !important;
     padding: 10px 24px !important;
-    box-shadow: var(--neu-sm-shadow) !important;
+    box-shadow: none !important;
+    filter: none !important;
 }
 
 .btn-primary:hover {
     background: var(--primary-hover) !important;
     color: #ffffff !important;
     transform: translateY(-2px) !important;
-    box-shadow: var(--neu-hover-shadow) !important;
+    box-shadow: none !important;
+    filter: none !important;
 }
 
 .btn-primary:active {
     transform: translateY(1px) !important;
-    box-shadow: var(--neu-pressed-shadow) !important;
+    box-shadow: none !important;
+    filter: none !important;
 }
 
 /* Light button variants */
 .btn-light,
 body.dark-mode .btn-light {
-    background: var(--bg) !important;
-    color: var(--accent) !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: var(--neu-sm-shadow) !important;
+    background: #ffffff !important;
+    color: var(--blue, #284F8C) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: none !important;
+    filter: none !important;
     border-radius: 9999px !important;
 }
 
 .btn-light:hover {
-    box-shadow: var(--neu-hover-shadow) !important;
+    background: #f8fafc !important;
+    color: var(--blue-light, #1D3B6A) !important;
+    box-shadow: none !important;
+    filter: none !important;
     transform: translateY(-2px) !important;
 }
 
 .btn-outline-light,
 body.dark-mode .btn-outline-light {
-    background: var(--bg) !important;
-    color: var(--text) !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: var(--neu-sm-shadow) !important;
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: none !important;
+    filter: none !important;
     border-radius: 9999px !important;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    box-shadow: none !important;
+    filter: none !important;
+    transform: translateY(-2px) !important;
 }
 
 /* Circle Controls (FAB, Back to top, Theme, Close) */
@@ -2966,7 +2987,8 @@ body.dark-mode .text-muted * {
         background: var(--bg) !important;
         border: 1px solid var(--border) !important;
         color: var(--text) !important;
-        box-shadow: var(--neu-sm-shadow) !important;
+        box-shadow: none !important;
+        filter: none !important;
     }
     body.dark-mode .btn,
     body.dark-mode .social-btn,
@@ -2977,7 +2999,8 @@ body.dark-mode .text-muted * {
         background: var(--bg) !important;
         border-color: var(--border) !important;
         color: var(--text) !important;
-        box-shadow: var(--neu-sm-shadow) !important;
+        box-shadow: none !important;
+        filter: none !important;
     }
     .btn-primary,
     .btn-primary:focus,
@@ -2985,7 +3008,8 @@ body.dark-mode .text-muted * {
         background: var(--accent) !important;
         color: #ffffff !important;
         border: none !important;
-        box-shadow: var(--neu-sm-shadow) !important;
+        box-shadow: none !important;
+        filter: none !important;
     }
 
     /* ── 8. FORM CONTROLS MOBILE ── */
