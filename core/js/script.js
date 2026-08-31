@@ -657,30 +657,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const eduModal = document.getElementById('eduModal');
     if (eduModal) {
         document.querySelectorAll('.edu-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const title = item.querySelector('[data-t^="edu_"]').getAttribute('data-t');
-                const degree = item.querySelector('[data-t^="edu_s"]').getAttribute('data-t');
-                const loc = item.querySelector('[data-t^="loc_"]').getAttribute('data-t');
-                const grade = item.querySelector('.badge').textContent;
-                const logoSrc = item.querySelector('img').src;
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const titleKey = item.getAttribute('data-title') || item.querySelector('h4')?.getAttribute('data-t') || "edu_iticm";
+                const degreeKey = item.getAttribute('data-degree') || item.querySelector('p.text-accent')?.getAttribute('data-t') || "edu_s1";
+                const locKey = item.getAttribute('data-loc') || item.querySelector('[data-t^="loc_"]')?.getAttribute('data-t') || "loc_sidoarjo";
                 
-                // Get description key based on education item
-                let descKey = "";
-                if (title === "edu_iticm") descKey = "edu_iticm_desc";
-                else if (title === "edu_smk_name") descKey = "edu_smk_desc";
-                else if (title === "edu_smp_name") descKey = "edu_smp_desc";
+                let descKey = item.getAttribute('data-desc');
+                if (!descKey) {
+                    if (titleKey === "edu_iticm") descKey = "edu_iticm_desc";
+                    else if (titleKey === "edu_smk_name") descKey = "edu_smk_desc";
+                    else if (titleKey === "edu_smp_name") descKey = "edu_smp_desc";
+                    else descKey = "edu_iticm_desc";
+                }
 
-                document.getElementById('modalEduTitle').setAttribute('data-t', title);
-                document.getElementById('modalEduDegree').setAttribute('data-t', degree);
-                document.getElementById('modalEduLoc').setAttribute('data-t', loc);
-                document.getElementById('modalEduGrade').textContent = grade;
-                document.getElementById('modalEduDesc').setAttribute('data-t', descKey);
-                document.getElementById('modalEduLogo').src = logoSrc;
+                const gradeTypeKey = item.getAttribute('data-grade-type') || 'edu_gpa';
+                const gradeVal = item.getAttribute('data-grade-val') || '3.85 / 4.00';
+                const logoSrc = item.getAttribute('data-logo') || item.querySelector('img')?.src || '';
+
+                const titleEl = document.getElementById('modalEduTitle');
+                const degreeEl = document.getElementById('modalEduDegree');
+                const locEl = document.getElementById('modalEduLoc');
+                const descEl = document.getElementById('modalEduDesc');
+                const logoEl = document.getElementById('modalEduLogo');
+                const gradeTypeEl = document.getElementById('modalEduGradeType');
+                const gradeValEl = document.getElementById('modalEduGradeVal');
+
+                if (titleEl) titleEl.setAttribute('data-t', titleKey);
+                if (degreeEl) degreeEl.setAttribute('data-t', degreeKey);
+                if (locEl) locEl.setAttribute('data-t', locKey);
+                if (descEl) descEl.setAttribute('data-t', descKey);
+                if (logoEl && logoSrc) logoEl.src = logoSrc;
+
+                if (gradeTypeEl) gradeTypeEl.setAttribute('data-t', gradeTypeKey);
+                if (gradeValEl) gradeValEl.textContent = gradeVal;
 
                 // Re-trigger translation for modal
                 setLanguage(currentLang);
 
-                const modal = new bootstrap.Modal(eduModal);
+                const modal = bootstrap.Modal.getInstance(eduModal) || new bootstrap.Modal(eduModal);
                 modal.show();
             });
         });
@@ -1609,27 +1625,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const eduModal = document.getElementById('eduModal');
         if (eduModal) {
             document.querySelectorAll('.edu-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const title = item.querySelector('[data-t^="edu_"]').getAttribute('data-t');
-                    const degree = item.querySelector('[data-t^="edu_s"]').getAttribute('data-t');
-                    const loc = item.querySelector('[data-t^="loc_"]').getAttribute('data-t');
-                    const grade = item.querySelector('.badge').textContent;
-                    const logoSrc = item.querySelector('img').src;
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const titleKey = item.getAttribute('data-title') || item.querySelector('h4')?.getAttribute('data-t') || "edu_iticm";
+                    const degreeKey = item.getAttribute('data-degree') || item.querySelector('p.text-accent')?.getAttribute('data-t') || "edu_s1";
+                    const locKey = item.getAttribute('data-loc') || item.querySelector('[data-t^="loc_"]')?.getAttribute('data-t') || "loc_sidoarjo";
                     
-                    let descKey = "";
-                    if (title === "edu_iticm") descKey = "edu_iticm_desc";
-                    else if (title === "edu_smk_name") descKey = "edu_smk_desc";
-                    else if (title === "edu_smp_name") descKey = "edu_smp_desc";
+                    let descKey = item.getAttribute('data-desc');
+                    if (!descKey) {
+                        if (titleKey === "edu_iticm") descKey = "edu_iticm_desc";
+                        else if (titleKey === "edu_smk_name") descKey = "edu_smk_desc";
+                        else if (titleKey === "edu_smp_name") descKey = "edu_smp_desc";
+                        else descKey = "edu_iticm_desc";
+                    }
 
-                    document.getElementById('modalEduTitle').setAttribute('data-t', title);
-                    document.getElementById('modalEduDegree').setAttribute('data-t', degree);
-                    document.getElementById('modalEduLoc').setAttribute('data-t', loc);
-                    document.getElementById('modalEduGrade').textContent = grade;
-                    document.getElementById('modalEduDesc').setAttribute('data-t', descKey);
-                    document.getElementById('modalEduLogo').src = logoSrc;
+                    const gradeTypeKey = item.getAttribute('data-grade-type') || 'edu_gpa';
+                    const gradeVal = item.getAttribute('data-grade-val') || '3.85 / 4.00';
+                    const logoSrc = item.getAttribute('data-logo') || item.querySelector('img')?.src || '';
+
+                    const titleEl = document.getElementById('modalEduTitle');
+                    const degreeEl = document.getElementById('modalEduDegree');
+                    const locEl = document.getElementById('modalEduLoc');
+                    const descEl = document.getElementById('modalEduDesc');
+                    const logoEl = document.getElementById('modalEduLogo');
+                    const gradeTypeEl = document.getElementById('modalEduGradeType');
+                    const gradeValEl = document.getElementById('modalEduGradeVal');
+
+                    if (titleEl) titleEl.setAttribute('data-t', titleKey);
+                    if (degreeEl) degreeEl.setAttribute('data-t', degreeKey);
+                    if (locEl) locEl.setAttribute('data-t', locKey);
+                    if (descEl) descEl.setAttribute('data-t', descKey);
+                    if (logoEl && logoSrc) logoEl.src = logoSrc;
+
+                    if (gradeTypeEl) gradeTypeEl.setAttribute('data-t', gradeTypeKey);
+                    if (gradeValEl) gradeValEl.textContent = gradeVal;
 
                     setLanguage(currentLang);
-                    const modal = new bootstrap.Modal(eduModal);
+                    const modal = bootstrap.Modal.getInstance(eduModal) || new bootstrap.Modal(eduModal);
                     modal.show();
                 });
             });

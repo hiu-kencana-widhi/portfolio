@@ -5,8 +5,8 @@
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b0f19",
-  "theme_color": "#284F8C",
+  "background_color": "#070D0A",
+  "theme_color": "#059669",
   "orientation": "portrait-primary",
   "categories": [
     "portfolio",
